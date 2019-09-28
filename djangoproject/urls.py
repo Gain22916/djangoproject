@@ -20,5 +20,6 @@ from admin_management import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'my_index/$', views.index)
+    url(r'my_index/$', views.index),
+    url(r'line/$', views.line)
 ]
