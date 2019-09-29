@@ -1,13 +1,17 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader
+from .models import Simple
+from django.http import HttpResponse
+
 
 # Create your views here.
 
 def test(request) :
-    header_str = 'Test management'
-    template = loader.get_template('test.html')
+    header_str = 'Test management 123'
+    queryset = Simple.objects.all()
     context = {
-        'var1' : header_str
+        'var1' : queryset
+        #'var2' : queryset
     }
-    return HttpResponse(template.render(context, request))
+    
+    return render(request,'test.html', context)
