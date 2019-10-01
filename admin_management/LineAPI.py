@@ -15,8 +15,6 @@ def lineNotify(message):
     return _lineNotify(payload)
 
 
-if __name__ == '__main__':
 
-    lineNotify('Detect Intruder')
 
 

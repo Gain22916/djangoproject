@@ -4,6 +4,8 @@ from .models import Simple
 from django.http import HttpResponse
 from example.forms import HomeForm
 from django.views import View
+import requests
+from admin_management import LineAPI
 
 
 # Create your views here.
@@ -38,8 +40,14 @@ class Homeview(View) :
 
     def post(self,request) :
         form = HomeForm(request.POST)
+        line = LineAPI.lineNotify('Test 1234')
         if form.is_valid():
             text = form.cleaned_data['post']
+            print(line)
 
-        args = {'form': form, 'text': text}
+        args = {'form': form, 'text': text }
         return render(request,self.template_name, args)
+
+
+
+ 
