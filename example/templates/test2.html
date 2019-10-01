@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Test management</title>
+</head>
+<body>
+
+<h1>Test management 002</h1>
+
+
+
+<p></p>
+
+<div class="contrainer">
+  <h1> Please input value </h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"  value ="submit">Submit</button>
+  </form>
+</div>
+
+
+<p></p>
+<form>
+    <input type="button" value="Go back" onclick="history.back()">
+  </form>
+
+</body>
+</html>
