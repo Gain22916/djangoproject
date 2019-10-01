@@ -6,7 +6,7 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-
+from example.models import Simple
 
 # Create your views here.
 
@@ -35,12 +35,13 @@ class Homeview(View) :
     def get(self,request) :
         header_str = 'Post Method'
         form = HomeForm()
-       
-        return render(request,self.template_name, {'form': form})
+        args = {'form': form}
+        return render(request,self.template_name, args)
 
     def post(self,request) :
         form = HomeForm(request.POST)
-        line = LineAPI.lineNotify('Test 1234')
+        line_test = Simple.objects.all()
+        line = LineAPI.lineNotify(line_test)
         if form.is_valid():
             text = form.cleaned_data['post']
             print(line)
