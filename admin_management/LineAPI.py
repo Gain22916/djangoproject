@@ -14,6 +14,20 @@ def lineNotify(message):
     payload = {'message':message}
     return _lineNotify(payload)
 
+def notifyPicture(url):
+    payload = {'message':" test123 ", 'imageFile': url }
+    return _lineNotify(payload)
+
+
+
+
+if __name__ == '__main__':
+
+    lineNotify('Detect Intruder')
+    lineNotify('Raccoon')
+    lineNotify('IP camera = 5')
+    notifyPicture('imageFile=@D:\Temp\Personal Photo.png')
+
 
 
 

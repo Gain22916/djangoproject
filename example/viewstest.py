@@ -49,6 +49,23 @@ class Homeview(View) :
         args = {'form': form, 'text': text }
         return render(request,self.template_name, args)
 
+def test3(request) :
+    template = loader.get_template('test3.html')
+    queryset = Simple.objects.all()
+    context = {
+    'var3' : queryset
+    }
+
+    return HttpResponse(template.render(context, request))
+
+def test4(request) :
+    template = loader.get_template('test4.html')
+    queryset = Simple.objects.all()
+    context = {
+    'var4' : queryset
+    }
+
+    return HttpResponse(template.render(context, request))
 
 
  

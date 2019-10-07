@@ -27,4 +27,6 @@ urlpatterns = [
     url(r'test/$', viewstest.test),
     url(r'test1/$', viewstest.test1),
     url(r'test2/$', viewstest.Homeview.as_view()),
+    url(r'test3/$', viewstest.test3),
+    url(r'test4/$', viewstest.test4),
 ]
