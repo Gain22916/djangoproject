@@ -6,7 +6,7 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-from example.models import Simple, Intruder
+from example.models import Simple, Intruder 
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -171,15 +171,23 @@ class Linetest(View) :
         return render(request,self.template_name, args)
 
     def post(self,request) :
+        post_intru = Intruder.objects.all()
+        for intruder in post_intru:
+            #print(intruder.Intru, "--", intruder.IPcam)
+            last_Intru = intruder.Intru
+            last_IPcam = intruder.IPcam
+            last_Time = intruder.Time 
+            last_Image = intruder.ImageID
         form = HomeForm(request.POST)
-        line_text = TestLine.line_text("12345")
+        line_text = TestLine.line_text(last_Intru)
+        line_text = TestLine.line_text(last_IPcam)
+        line_text = TestLine.line_text(last_Time)
+        line_text = TestLine.line_text(last_Image)
         line_pic = TestLine.line_pic("Test", "C:\Personal Photo.png")
-        posts = Intruder.objects.all()
         if form.is_valid():
-            text = form.cleaned_data['post']
+            text = form.cleaned_data['post']   
             print(line_text)
-            print(line_pic) 
-            
-
-        args = {'form': form }
+            print(line_pic)
+             
+        args = {'form': form}
         return render(request,self.template_name, args)
