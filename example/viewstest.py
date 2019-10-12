@@ -6,8 +6,11 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-from example.models import Simple
+from example.models import Simple, Intruder
 from django.contrib.auth.models import User, auth
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from example import TestLine
 
 
 
@@ -81,14 +84,39 @@ def register(request) :
 
         if pw1==pw2 :
             if User.objects.filter(username=uname).exists():
+                messages.info(request,'Username Taken')
                 print('Username taken')
+                return redirect('/accounts/register')
             else:
                 user = User.objects.create_user(first_name=fname, last_name=lname, username=uname, password=pw1)
                 user.save();
                 print('user created')
+                return redirect('/accounts/login')
+
+        elif uname == '' :
+            messages.info(request,'Please provide Username')
+            print('user blank')
+            return redirect('/accounts/register')
+        
+        elif pw1 == '':
+            messages.info(request,'Please provide Password')
+            print('password blank')
+            return redirect('/accounts/register')
+
+        elif pw2 == '':
+            messages.info(request,'Please confirm Password')
+            print('password blank')
+            return redirect('/accounts/register')
+
+        elif pw1 == '' and pw2 == '':
+            messages.info(request,'Please provide Password and confirm Password')
+            print('password blank')
+            return redirect('/accounts/register')
 
         else: 
-            print('password not matching...') 
+            print('password not matching...')
+            messages.info(request,'password not matching...')
+            return redirect('/accounts/register') 
         return redirect('/my_index')
 
     else:
@@ -103,7 +131,55 @@ def test6(request) :
 
     return HttpResponse(template.render(context, request))
 
+def login(request) :
 
+    if request.method == 'POST' :
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            print('login successfully')
+            login(request, user)   
+            return redirect('/my_index')
+        else:
+            print('login failed')
+            messages.info(request, 'Invalid credentials')
+            return redirect('/accounts/login')
+    else:
+        return render(request,'test7.html')
 
 
  
+def test8(request) :
+    template = loader.get_template('test8.html')
+    header_str = 'Intruder History'
+    posts = Intruder.objects.all()
+
+    args = {'var8': header_str, 'posts': posts }
+
+    return HttpResponse(template.render(args, request))
+    
+class Linetest(View) :
+    template_name = 'test9.html'
+
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+    def post(self,request) :
+        form = HomeForm(request.POST)
+        line_text = TestLine.line_text("12345")
+        line_pic = TestLine.line_pic("Test", "C:\Personal Photo.png")
+        posts = Intruder.objects.all()
+        if form.is_valid():
+            text = form.cleaned_data['post']
+            print(line_text)
+            print(line_pic) 
+            
+
+        args = {'form': form }
+        return render(request,self.template_name, args)

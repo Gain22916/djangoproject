@@ -1,0 +1,37 @@
+{% extends 'base.html' %}   
+{% block body %}
+
+<p>
+    Welcome to Intruder History 
+</p>
+<body>
+
+    <h2>{{ var8 }}</h2>
+
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>Intruder</th>
+            <th>IP camera</th>
+            <th>ImageID</th>
+        </tr>
+        {% for Intruder in posts reversed %}
+        <tr>
+            <td>{{ Intruder.Time }}</td>
+            <td>{{ Intruder.Intru }}</td>
+            <td>{{ Intruder.IPcam }}</td>
+            <td>{{ Intruder.ImageID }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p></p>
+    <p>Backend for history : {{posts}}</p>
+
+    <p><form>
+        <input type="button" value="Go back!" onclick="history.back()">
+        </form>
+    </p>
+
+</body>
+{% endblock %}

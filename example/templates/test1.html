@@ -8,6 +8,11 @@
 
 {{var2}}
 
+<div>
+    {% for message in messages %}
+    <h3> {{message}} </h3>
+    {% endfor %}
+</div>  
 
 <form>
     <input type="button" value="Go back!" onclick="history.back()">

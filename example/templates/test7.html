@@ -1,0 +1,28 @@
+{% extends 'base.html' %}   
+{% block body %}
+<h1>login testing</h1>
+<p>
+    login testing
+</p>
+<body>
+    
+    <form action="login" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="username"><br>
+        <input type="text" name="password" placeholder="password"><br>
+        <input type="submit" value="Submit">
+
+    </form>   
+
+    <div>
+        {% for message in messages %}
+        <h3> {{message}} </h3>
+        {% endfor %}
+    </div>  
+    
+    <p><form>
+        <input type="button" value="Go back!" onclick="window.location.href='http://127.0.0.1:8000/my_index/'">
+    </form></p>
+
+</body>
+{% endblock %}

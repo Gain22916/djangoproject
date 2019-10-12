@@ -46,3 +46,21 @@ class User(models.Model):
     def __str__(self):
         return self.password
 
+class Intruder(models.Model):
+    Intru = models.CharField(max_length=10)
+    IPcam = models.CharField(max_length=10)
+    Time = models.CharField(max_length=30)
+    ImageID = models.CharField(max_length=50)
+
+
+    def __str__(self):
+        return self.Intru
+
+    def __str__(self):
+        return self.IPcam
+    
+    def __str__(self):
+        return self.Time
+
+    def __str__(self):
+        return self.ImageID

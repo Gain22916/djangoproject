@@ -32,4 +32,7 @@ urlpatterns = [
     url(r'test4/$', viewstest.test4),
     path('accounts/', include('example.urls')),
     url(r'test6/$', viewstest.test6),
+    path('account/', include('django.contrib.auth.urls')),
+    url(r'test8/$', viewstest.test8),
+    url(r'test9/$', viewstest.Linetest.as_view()),
 ]
