@@ -64,3 +64,27 @@ class Intruder(models.Model):
 
     def __str__(self):
         return self.ImageID
+
+
+class IPcamera(models.Model):
+    IPcamera_name = models.CharField(max_length=10)
+    IPcamera_status = models.CharField(max_length=10)
+    IPconnect_status = models.CharField(max_length=10)
+    Background_status = models.CharField(max_length=10)
+    Time_log = models.CharField(max_length=10)
+
+
+    def __str__(self):
+        return self.IPcamera_name
+
+    def __str__(self):
+        return self.IPcamera_status
+    
+    def __str__(self):
+        return self.IPconnect_statu
+
+    def __str__(self):
+        return self.Background_status
+
+    def __str__(self):
+        return self.Time_log

@@ -170,24 +170,53 @@ class Linetest(View) :
         args = {'form': form}
         return render(request,self.template_name, args)
 
-    def post(self,request) :
+    def post(self, request):
+        print(type(request))
         post_intru = Intruder.objects.all()
         for intruder in post_intru:
             #print(intruder.Intru, "--", intruder.IPcam)
-            last_Intru = intruder.Intru
-            last_IPcam = intruder.IPcam
-            last_Time = intruder.Time 
-            last_Image = intruder.ImageID
+            last_Intru = request.POST['Intruder']
+            last_IPcam = request.POST['Ipcamera']
+            last_Time = request.POST['Time'] 
+            last_Image = request.POST['ImageID']
         form = HomeForm(request.POST)
         line_text = TestLine.line_text(last_Intru)
         line_text = TestLine.line_text(last_IPcam)
         line_text = TestLine.line_text(last_Time)
         line_text = TestLine.line_text(last_Image)
-        line_pic = TestLine.line_pic("Test", "C:\Personal Photo.png")
+        line_pic = TestLine.line_pic("Test", last_Image)
+        #add object into database 
+        b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
+        b2.save()
         if form.is_valid():
             text = form.cleaned_data['post']   
             print(line_text)
             print(line_pic)
-             
+       
         args = {'form': form}
         return render(request,self.template_name, args)
+
+def test10(request) :
+    template = loader.get_template('test10.html')
+    header_str = 'IP camera connection testing'
+
+    args = {'var10': header_str}
+
+    return HttpResponse(template.render(args, request))
+
+def test11(request) :
+    template = loader.get_template('test11.html')
+    header_str = 'ERROR management testing'
+
+    args = {'var11': header_str}
+
+    return HttpResponse(template.render(args, request))
+
+
+def loginpage(request) :
+    template = loader.get_template('loginpage.html')
+    header_str = 'Login page testing'
+
+    args = {'var12': header_str}
+
+    return HttpResponse(template.render(args, request))
