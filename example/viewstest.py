@@ -220,3 +220,12 @@ def loginpage(request) :
     args = {'var12': header_str}
 
     return HttpResponse(template.render(args, request))
+
+
+def mainpage(request) :
+    template = loader.get_template('mainpage.html')
+    header_str = 'Login page testing'
+
+    args = {'var12': header_str}
+
+    return HttpResponse(template.render(args, request))

@@ -38,4 +38,5 @@ urlpatterns = [
     url(r'test10/$', viewstest.test10),
     url(r'test11/$', viewstest.test11),
     url(r'loginpage/$', viewstest.loginpage),
+    url(r'mainpage/$', viewstest.mainpage),
 ]
