@@ -88,3 +88,23 @@ class IPcamera(models.Model):
 
     def __str__(self):
         return self.Time_log
+
+
+class Errormessage(models.Model):
+    errorID = models.CharField(max_length=10)
+    errorName = models.CharField(max_length=20)
+    errorTime = models.CharField(max_length=20)
+    errorDetail = models.CharField(max_length=50)
+
+
+    def __str__(self):
+        return self.errorID
+
+    def __str__(self):
+        return self.errorName
+    
+    def __str__(self):
+        return self.errorTime
+
+    def __str__(self):
+        return self.errorDetail

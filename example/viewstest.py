@@ -6,7 +6,7 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-from example.models import Simple, Intruder 
+from example.models import Simple, Intruder, Errormessage
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -225,7 +225,9 @@ def loginpage(request) :
 def mainpage(request) :
     template = loader.get_template('mainpage.html')
     header_str = 'Login page testing'
+    posts = Intruder.objects.all()
+    posts2 = Errormessage.objects.all()
 
-    args = {'var12': header_str}
+    args = {'var12': header_str, 'posts': posts, 'posts2': posts2}
 
     return HttpResponse(template.render(args, request))

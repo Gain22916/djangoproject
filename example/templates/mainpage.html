@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <title>EGAT : main page</title>
@@ -33,71 +34,388 @@
 <body>
 
 <!-- Side Navigation -->
-<nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:320px;" id="mySidebar">
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:220px;" id="mySidebar">
   <div class="w3-container">
-    <img class="w3-round w3-margin-right" src="/w3images/avatar3.png" style="width:15%;"><span class="w3-opacity w3-large">Borge Refsnes</span>
-    <h6>Subject: Remember Me</h6>
-    <p>Test123</p>
+    <img class="w3-round w3-margin-right" src="{% static 'assets/logo4.png' %}" style="width:85%; padding-left: 1.2rem; padding-top: 1rem;">
+    <p></p>
+    
   </div>
   
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openMail('Test001');w3_close();" id="firstTab">
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test001');w3_close();" id="firstTab">
       <div class="w3-container">
-        <p>Test001</p>
+        <p>Overview</p>
       </div>
     </a>
-     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openMail('Jane');w3_close();">
-      <div class="w3-container">
-        <p>Test002</p>
+     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test002');w3_close();">
+      <div class="w3-container">  
+        <p>IP Camera Connection</p>
       </div>
     </a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openMail('John');w3_close();">
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test003');w3_close();">
       <div class="w3-container">
-        <p>Test003</p>
+        <p>Intruder History</p>
       </div>
-    </a>
+    </a> 
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test004');w3_close();">
+        <div class="w3-container">
+          <p>ERROR management</p>
+        </div>
+    </a> 
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test005');w3_close();">
+        <div class="w3-container">
+          <p>General Setting</p>
+        </div>
+    </a> 
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="location.href='http://127.0.0.1:8000/loginpage/'";w3_close();">
+        <div class="w3-container">
+          <p>Log out</p>
+        </div>
+    </a> 
   </div>
 
 </nav>
 
 
 <!-- Page content -->
-<div class="w3-main" style="margin-left:320px;">
+<div class="w3-main" style="margin-left:220px;">
 <i class="fa fa-bars w3-button w3-white w3-hide-large w3-xlarge w3-margin-left w3-margin-top" onclick="w3_open()"></i>
-<a href="javascript:void(0)" class="w3-hide-large w3-red w3-button w3-right w3-margin-top w3-margin-right" onclick="document.getElementById('id01').style.display='block'"><i class="fa fa-pencil"></i></a>
 
 <div id="Test001" class="w3-container person">
   <br>
-  <img class="w3-round  w3-animate-top" src="/w3images/avatar3.png" style="width:20%;">
-  <h5 class="w3-opacity">Subject: Remember Me</h5>
-  <h4><i class="fa fa-clock-o"></i> From Borge Refsnes, Sep 27, 2015.</h4>
-  <hr>
-  <p>Hello, i just wanted to let you know that i'll be home at lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Best Regards, <br>Borge Refsnes</p>
+  <div class="w3-row-padding w3-margin-bottom ">
+      <div class="w3-quarter block-overview">
+        <div class="w3-container w3-orange w3-text-white w3-padding-16 ">
+          <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+          <div class="w3-left; ">
+            <h3><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>IPcamera connection</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-blue w3-padding-16">
+          <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+          <div class="w3-left">
+            <h3><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>OD system</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-grey w3-text-white w3-padding-16">
+          <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+          <div class="w3-left">
+            <h3><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Database status</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-brown w3-text-white w3-padding-16">
+          <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+          <div class="w3-left">
+            <h3><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Line status</h4>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="w3-panel">
+        <div class="position-left" >
+          <div class="w3-third">
+            <h5>Intruders detection</h5>
+            
+            <p>Human</p>
+            <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-green w3-text-white" style="width:75% ">120 units</div>
+              </div>
+              <p></p>
+              <p>Cat</p>
+              <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-orange w3-text-white" style="width:30%">20 units</div>
+              </div>
+              <p></p>                            
+              <p>Snake</p>
+              <div class="w3-grey">
+                <div class="w3-container w3-center w3-padding w3-red w3-text-white" style="width:20%">5 units</div>
+              </div>
+          </div>
+          <div class="position-right" style="margin-left: 50%; ">
+            <h5>Daily Feeds</h5>
+            <table class="w3-table w3-striped w3-white" style="width:103%">
+              <tr>
+                <td><i class="fas fa-clipboard"></i></td>
+                <td>New record, Detect Human.</td>
+                <td><i>10 mins</i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+                <td>Database error.</td>
+                <td><i>15 mins</i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+                <td>New record, Detect Snake.</td>
+                <td><i>17 mins</i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+                <td>New comments.</td>
+                <td><i>25 mins</i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+                <td>Check transactions.</td>
+                <td><i>28 mins</i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+                <td>CPU overload.</td>
+                <td><i>35 mins</i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+                <td>New shares.</td>
+                <td><i>39 mins</i></td>
+              </tr>
+              <tr>
+                  <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+                  <td>Database error.</td>
+                  <td><i>42 mins</i></td>
+                </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+     
+  
 </div>
 
-<div id="Jane" class="w3-container person">
+<div id="Test002" class="w3-container person">
   <br>
-  <img class="w3-round w3-animate-top" src="/w3images/avatar5.png" style="width:20%;">
-  <h5 class="w3-opacity">Subject: None</h5>
-  <h4><i class="fa fa-clock-o"></i> From Jane Doe, Sep 25, 2015.</h4>
-  <hr>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <p>Forever yours,<br>Jane</p>
+  <div class="w3-container" >
+      <h5 style=" font-size: 180%;">IP camera informations</h5>
+      <p></p>
+      <ul class="w3-ul shadow-box w3-white">
+        <li class="w3-padding-16">
+          <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+          <span class="w3-xlarge">IP camera 001 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+            </label> Active</span>
+          <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+          <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+          <span class="w3-xlarge">IP camera 002 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+            </label> Active</span>
+          <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+          <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+          <span class="w3-xlarge">IP camera 003 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+            </label> Active</span>
+          <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+            <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+            <span class="w3-xlarge">IP camera 004 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</span>
+            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+            <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+            <span class="w3-xlarge">IP camera 005 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</span>
+            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+            <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+            <span class="w3-xlarge">IP camera 006 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</span>
+            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+            <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+            <span class="w3-xlarge">IP camera 007 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</span>
+            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+            <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+            <span class="w3-xlarge">IP camera 008 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+              </label> Active</span>
+            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+        <li class="w3-padding-16">
+            <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+            <span class="w3-xlarge">IP camera 009 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+            </label> Active</span>
+            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+        </li>
+          
+      </ul>
+    </div>
 </div>
 
-<div id="John" class="w3-container person">
+<div id="Test003" class="w3-container person">
   <br>
-  <img class="w3-round w3-animate-top" src="/w3images/avatar2.png" style="width:20%;">
-  <h5 class="w3-opacity">Subject: None</h5>
-  <h4><i class="fa fa-clock-o"></i> From John Doe, Sep 23, 2015.</h4>
-  <hr>
-  <p>Welcome.</p>
-  <p>That's it!</p>
+  
+
+  <body>
+  
+      <h2>Welcome to Intruder History </h2>
+  
+      <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+          <tr class="w3-orange w3-text-white">
+              <th>Time</th>
+              <th>Intruder</th>
+              <th>IP camera</th>
+              <th>ImageID</th>
+          </tr>
+          {% for Intruder in posts reversed %}
+          <tr>
+              <td>{{ Intruder.Time }}</td>
+              <td>{{ Intruder.Intru }}</td>
+              <td>{{ Intruder.IPcam }}</td>
+              <td>{{ Intruder.ImageID }}</td>
+          </tr>
+          {% endfor %}
+      </table>
+  
+      <p></p>
+      
+  
+  </body>
 </div>
      
+<div id="Test004" class="w3-container person">
+    <br>
+
+    <h2>Welcome to ERROR management </h2>
+
+    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+      <tr class="w3-red w3-text-white">
+          <th>Time</th>
+          <th>ERROR message ID</th>
+          <th>ERROR message name</th>
+          <th>ERROR detail</th>
+      </tr>
+      {% for Errormessage in posts2 reversed %}
+      <tr>
+          <td>{{ Errormessage.errorTime }}</td>
+          <td>{{ Errormessage.errorID }}</td>
+          <td>{{ Errormessage.errorName }}</td>
+          <td>{{ Errormessage.errorDetail }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+  </div>
+
 </div>
 
+<div id="Test005" class="w3-container person" >
+    <br>
+
+</div>
+
+
+<!--EGAT introduction and Feeds-->
+<style>
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f44336;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #01c301;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #01c301;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  </style>
 
 
 <!-- Optional JavaScript -->
@@ -132,8 +450,8 @@ function myFunc(id) {
   }
 }
 
-openMail("Test001")
-function openMail(personName) {
+openPage("Test001")
+function openPage(PageID) {
   var i;
   var x = document.getElementsByClassName("person");
   for (i = 0; i < x.length; i++) {
@@ -143,7 +461,7 @@ function openMail(personName) {
   for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" w3-light-grey", "");
   }
-  document.getElementById(personName).style.display = "block";
+  document.getElementById(PageID).style.display = "block";
   event.currentTarget.className += " w3-light-grey";
 }
 </script>
