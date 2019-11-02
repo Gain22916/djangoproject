@@ -37,6 +37,8 @@ urlpatterns = [
     url(r'test9/$', viewstest.Linetest.as_view()),
     url(r'test10/$', viewstest.test10),
     url(r'test11/$', viewstest.test11),
+    url(r'test12/$', viewstest.test12),
     url(r'loginpage/$', viewstest.loginpage),
+    url(r'loginpage/login$', viewstest.loginpage),
     url(r'mainpage/$', viewstest.mainpage),
 ]

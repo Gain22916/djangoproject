@@ -217,7 +217,35 @@
       <ul class="w3-ul shadow-box w3-white">
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge">IP camera 001 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+          <span class="w3-xlarge">IP camera 001 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+            </label> Active</span>
+          <img id="modal-btn" src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+         
+        
+          <div id="my-modal" class="modal">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 001</h3>
+            
+              </div>
+              <div class="modal-body">
+                <p>This is my modal</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur ipsa velit
+                  repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam nemo
+                  commodi ab.</p>
+              </div>
+             
+            </div>
+          </div>
+
+        </li>
+        <li class="w3-padding-16">
+          <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+          <span class="w3-xlarge">IP camera 002 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
             <input type="checkbox" checked>
             <span class="slider round"></span>
             </label> Active</span>
@@ -225,15 +253,7 @@
         </li>
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge">IP camera 002 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            </label> Active</span>
-          <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
-        </li>
-        <li class="w3-padding-16">
-          <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge">IP camera 003 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+          <span class="w3-xlarge">IP camera 003 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
             <input type="checkbox" checked>
             <span class="slider round"></span>
             </label> Active</span>
@@ -241,7 +261,7 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 004 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <span class="w3-xlarge">IP camera 004 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
               <input type="checkbox" checked>
               <span class="slider round"></span>
               </label> Active</span>
@@ -249,7 +269,7 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 005 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <span class="w3-xlarge">IP camera 005 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
               <input type="checkbox" checked>
               <span class="slider round"></span>
               </label> Active</span>
@@ -257,7 +277,7 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 006 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <span class="w3-xlarge">IP camera 006 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
               <input type="checkbox" checked>
               <span class="slider round"></span>
               </label> Active</span>
@@ -265,7 +285,7 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 007 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <span class="w3-xlarge">IP camera 007 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
               <input type="checkbox" checked>
               <span class="slider round"></span>
               </label> Active</span>
@@ -273,7 +293,7 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 008 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <span class="w3-xlarge">IP camera 008 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
               <input type="checkbox" checked>
               <span class="slider round"></span>
               </label> Active</span>
@@ -281,7 +301,7 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 009 : </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+            <span class="w3-xlarge">IP camera 009 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
             <input type="checkbox" checked>
             <span class="slider round"></span>
             </label> Active</span>
@@ -469,6 +489,37 @@ function openPage(PageID) {
 <script>
 var openTab = document.getElementById("firstTab");
 openTab.click();
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal = document.querySelector('#my-modal');
+  const modalBtn = document.querySelector('#modal-btn');
+  const closeBtn = document.querySelector('.close');
+
+  // Events
+  modalBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', outsideClick);
+
+  // Open
+  function openModal() {
+      modal.style.display = 'block';
+  }
+
+  // Close
+  function closeModal() {
+      modal.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick(e) {
+  if (e.target == modal) {
+      modal.style.display = 'none';
+      }
+  }
+
 </script>
 
 </body>

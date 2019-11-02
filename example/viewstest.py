@@ -219,6 +219,19 @@ def loginpage(request) :
 
     args = {'var12': header_str}
 
+
+    if request.method == 'POST' :
+        username = request.POST['username']
+        password = request.POST['password']
+        #Admin : username and Password (Admin ID)
+        if username == 'admin' and password =='1234' :
+            print('login successfully')
+            return redirect('/mainpage/')
+        else:
+            print('login failed')
+            messages.info(request,'Login failed : Please validation')
+            return redirect('/loginpage/')
+
     return HttpResponse(template.render(args, request))
 
 
@@ -229,5 +242,13 @@ def mainpage(request) :
     posts2 = Errormessage.objects.all()
 
     args = {'var12': header_str, 'posts': posts, 'posts2': posts2}
+
+    return HttpResponse(template.render(args, request))
+
+def test12(request) :
+    template = loader.get_template('test12.html')
+    header_str = 'Test modal pop up'
+
+    args = {'var12': header_str}
 
     return HttpResponse(template.render(args, request))

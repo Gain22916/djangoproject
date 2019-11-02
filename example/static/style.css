@@ -175,6 +175,7 @@ form{
     height: 55%;
     max-height: 280px;
     margin-top: 5.5rem;
+ 
 }
 
 form h3, form h6{
@@ -197,18 +198,21 @@ form h6{
 form .form-group{
     text-align: left;
     border: 1px solid var(--border-color);
-    margin-top: .9rem;
+    margin-top: .5rem;
     margin-right: 2rem;
     border-radius: 3rem;
+   
 }
 
 form .form-group .form-input{
+    width: 100%;
     padding: .5rem 1rem;
     background: transparent;
     border: none;
     font-family: var(--Montserrat);
     font-size: 1.2rem;
     overflow: hidden;
+    
 }
 
 form input:focus{
@@ -225,4 +229,17 @@ form .btn-login{
     font-size: 1rem;
     padding: .8rem 5rem;
     margin-left: 4.25rem;
+}
+
+form h2{
+    font-family: var(--Montserrat);
+    padding: 0;
+    margin: 0;
+    color: red;
+    font-size: 100%;
+    font-weight: bold;
+    padding-top: 2rem;
+    padding-left: 1rem;
+ 
+    
 }
