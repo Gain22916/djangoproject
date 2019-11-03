@@ -6,7 +6,7 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-from example.models import Simple, Intruder, Errormessage
+from example.models import Simple, Intruder, Errormessage, IPstatus
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -251,8 +251,10 @@ def mainpage(request) :
     header_str = 'Login page testing'
     posts = Intruder.objects.all()
     posts2 = Errormessage.objects.all()
+    posts4  = IPstatus.objects.get(id=1)
+    posts3 = posts4.IPconnect
 
-    args = {'var12': header_str, 'posts': posts, 'posts2': posts2}
+    args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3}
 
     return HttpResponse(template.render(args, request))
 
@@ -264,12 +266,51 @@ def test12(request) :
 
     return HttpResponse(template.render(args, request))
 
-def test13(request) :
-    template = loader.get_template('test13.html')
-    header_str = 'Test change status'
+class ChangeStatus(View) :
+    template_name = 'test13.html'
 
-    args = {'var13': header_str}
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        args = {'form': form}
+        return render(request,self.template_name, args)
 
-    return HttpResponse(template.render(args, request))
+    def post(self, request):
+        print(type(request))
+        post_intru = Intruder.objects.all()
+        for intruder in post_intru:
+            #print(intruder.Intru, "--", intruder.IPcam)
+            last_Intru = request.POST['Intruder']
+            last_IPcam = request.POST['Ipcamera']
+            last_Time = request.POST['Time'] 
+            last_Image = request.POST['ImageID']
+        form = HomeForm(request.POST)
+        #add object into database
+        b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
+        b2.save()
+
+        line_text = TestLine.line_text(last_Intru)
+        line_text = TestLine.line_text(last_IPcam)
+        line_text = TestLine.line_text(last_Time)
+        line_text = TestLine.line_text(last_Image)
+        line_pic = TestLine.line_pic("Test", last_Image)
+
+        #Edit object into database
+
+        b4 = Intruder(id=1, Intru='Not123',IPcam='Not123', Time='Not123', ImageID='Not123')
+        b4.save()
+
+        #Delete object into database
+        #Intruder.objects.filter(id=1).delete()
+
+
+        if form.is_valid():
+            text = form.cleaned_data['post']   
+            print(line_text)
+            print(line_pic)
+       
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
 
 

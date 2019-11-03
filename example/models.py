@@ -111,3 +111,20 @@ class Errormessage(models.Model):
 
     def __str__(self):
         return self.errorID
+
+
+
+class IPstatus(models.Model):
+    
+    IPnum = models.CharField(max_length=20)
+    IPconnect = models.CharField(max_length=5)
+    IP_ODconnect = models.CharField(max_length=5)
+
+    def __str__(self):
+        return self.IP_ODconnect
+    
+    def __str__(self):
+        return self.IPconnect
+
+    def __str__(self):
+        return self.IPnum

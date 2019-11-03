@@ -17,6 +17,6 @@ else:
     print('csrf')
     csrftoken = client.cookies['csrf']
 
-data = {"csrfmiddlewaretoken":csrftoken, "ErrorID":"808", "ErrorName":"Line API failed", "ErrorTime":"12/03/2019 11:54AM", "ErrorDetail":"can not connect with Line API"}
+data = {"csrfmiddlewaretoken":csrftoken, "Intruder":"IU", "Ipcamera":"CAM666", "Time":"15/03/2019 11:54AM", "ImageID":"C:/Users/Gain/Desktop/NewEGAT/456.jpg"}
 # login_data = {"csrfmiddlewaretoken":csrftoken, 'Object-Type':'Human Giant'}
 r = client.post(URL, data=data, headers={"Referer":URL})
