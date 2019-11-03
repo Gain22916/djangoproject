@@ -180,19 +180,21 @@ class Linetest(View) :
             last_Time = request.POST['Time'] 
             last_Image = request.POST['ImageID']
         form = HomeForm(request.POST)
+        #add object into database
+        b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
+        b2.save()
+
         line_text = TestLine.line_text(last_Intru)
         line_text = TestLine.line_text(last_IPcam)
         line_text = TestLine.line_text(last_Time)
         line_text = TestLine.line_text(last_Image)
         line_pic = TestLine.line_pic("Test", last_Image)
-        #add object into database 
-        b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
-        b2.save()
-
 
         #Edit object into database
 
-        
+        b4 = Intruder(id=1, Intru='Not123',IPcam='Not123', Time='Not123', ImageID='Not123')
+        b4.save()
+
         #Delete object into database
         #Intruder.objects.filter(id=1).delete()
 
