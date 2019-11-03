@@ -252,3 +252,47 @@ def test12(request) :
     args = {'var12': header_str}
 
     return HttpResponse(template.render(args, request))
+
+def test13(request) :
+    template = loader.get_template('test13.html')
+    header_str = 'Test change status'
+
+    args = {'var13': header_str}
+
+    return HttpResponse(template.render(args, request))
+
+
+class ChangeStatus(View) :
+    template_name = 'test13.html'
+
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+    def post(self, request):
+        print(type(request))
+        post_intru = Intruder.objects.all()
+        for intruder in post_intru:
+            #print(intruder.Intru, "--", intruder.IPcam)
+            last_Intru = request.POST['ErrorID']
+            last_IPcam = request.POST['ErrorName']
+            last_Time = request.POST['ErrorTime'] 
+            last_Image = request.POST['ErrorDetail']
+        form = HomeForm(request.POST)
+        line_text = TestLine.line_text(last_Intru)
+        line_text = TestLine.line_text(last_IPcam)
+        line_text = TestLine.line_text(last_Time)
+        line_text = TestLine.line_text(last_Image)
+        line_pic = TestLine.line_pic("Test", last_Image)
+        #add object into database 
+        b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
+        b2.save()
+        if form.is_valid():
+            text = form.cleaned_data['post']   
+            print(line_text)
+            print(line_pic)
+       
+        args = {'form': form}
+        return render(request,self.template_name, args)
