@@ -304,7 +304,7 @@ class ChangeStatus(View) :
 
         #Edit object into database
 
-        b4 = Intruder(id=1, Intru='Not123',IPcam='Not123', Time='Not123', ImageID='Not123')
+        b4 = IPstatus(id=1, IPnum='Test Gain',IPconnect='Test', IP_ODconnect='Test')
         b4.save()
 
         #Delete object into database
