@@ -117,8 +117,8 @@ class Errormessage(models.Model):
 class IPstatus(models.Model):
     
     IPnum = models.CharField(max_length=20)
-    IPconnect = models.CharField(max_length=5)
-    IP_ODconnect = models.CharField(max_length=5)
+    IPconnect = models.CharField(max_length=10)
+    IP_ODconnect = models.CharField(max_length=10)
 
     def __str__(self):
         return self.IP_ODconnect

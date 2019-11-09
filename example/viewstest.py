@@ -253,8 +253,15 @@ def mainpage(request) :
     posts2 = Errormessage.objects.all()
     posts4  = IPstatus.objects.get(id=1)
     posts3 = posts4.IPconnect
+    posts5 = 'Active'
+    posts6 = 'Inactive'
 
-    args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3}
+    if posts3 == '1' :
+        messages.info(request,'Active')
+    else :
+        messages.info(request,'Inactive')
+
+    args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6 }
 
     return HttpResponse(template.render(args, request))
 

@@ -248,15 +248,20 @@
           <span class="w3-xlarge">IP camera 002 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
             <input type="checkbox" checked>
             <span class="slider round"></span>
-            </label class="w3-xlarge w3-text-green"> {{ posts3 }} Active</span>
+            </label class="w3-xlarge w3-text-green"> {{ posts3 }}</span>
           <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
         </li>
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge">IP camera 003 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
+          <span class="w3-xlarge">IP camera 003 </span>&nbsp;<span class="w3-xlarge " style="font-weight: bold;"><label class="switch">
             <input type="checkbox" checked>
             <span class="slider round"></span>
-            </label> Active</span>
+            </label >  
+            <label class="w3-xlarge w3-text-green"> {% for message in messages %} {{message}} {% endfor %}</label>
+            <label class="w3-xlarge w3-text-red"> {% for message in messages %} {{message}} {% endfor %}</label >
+          
+           
+          </span>
           <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
         </li>
         <li class="w3-padding-16">
