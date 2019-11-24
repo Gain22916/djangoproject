@@ -128,3 +128,15 @@ class IPstatus(models.Model):
 
     def __str__(self):
         return self.IPnum
+
+
+class overviewStatus(models.Model):
+    
+    Over_name = models.CharField(max_length=20)
+    Over_num = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.Over_num
+
+    def __str__(self):
+        return self.Over_name

@@ -31,7 +31,7 @@
     </style>
 </head>
 
-<body>
+<body onload="startTime()">
 
 <!-- Side Navigation -->
 <nav class="w3-sidebar w3-bar-block w3-collapse w3-white w3-animate-left w3-card" style="z-index:3;width:220px;" id="mySidebar">
@@ -70,7 +70,13 @@
         <div class="w3-container">
           <p>Log out</p>
         </div>
-    </a> 
+    </a>
+    <a>
+      <div class="w3-container">
+        <img src="{% static 'assets/9855.jpg' %}" class="w3-left " style="width:195px; padding-top: 1rem;">
+      </div>
+    </a>  
+
   </div>
 
 </nav>
@@ -137,9 +143,33 @@
       </div>
     </div>
 
+    <div class="w3-panel">
+        <div class="w3-half">
+            <div class="w3-container w3-white w3-text-black w3-padding-16 ">
+              <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+              <div class="w3-left">
+              </div>
+              <div class="w3-clear" id="txt"></div>
+              <p id="date"></p>
+            </div>
+          </div>
+          <div class="w3-half">
+              <div class="w3-container w3-grey w3-text-white w3-padding-16">
+                <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+                <div class="w3-left">
+                  <h3><label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                    </label> Active</h3>
+                </div>
+                <div class="w3-clear"></div>
+                <h4>Database status</h4>
+              </div>
+
+    </div>
 
     <div class="w3-panel">
-        <div class="position-left" >
+        <div class="position-left" style="padding-top: 1rem;" >
           <div class="w3-third">
             <h5>Intruders detection</h5>
             
@@ -160,7 +190,7 @@
           </div>
           <div class="position-right" style="margin-left: 50%; ">
             <h5>Daily Feeds</h5>
-            <table class="w3-table w3-striped w3-white" style="width:103%">
+            <table class="w3-table w3-striped w3-white" style="width:95%">
               <tr>
                 <td><i class="fas fa-clipboard"></i></td>
                 <td>New record, Detect Human.</td>
@@ -196,17 +226,12 @@
                 <td>New shares.</td>
                 <td><i>39 mins</i></td>
               </tr>
-              <tr>
-                  <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
-                  <td>Database error.</td>
-                  <td><i>42 mins</i></td>
-                </tr>
+             
             </table>
           </div>
         </div>
       </div>
-     
-  
+    </div>   
 </div>
 
 <div id="Test002" class="w3-container person">
@@ -358,7 +383,7 @@
               <td>{{ Intruder.Intru }}</td>
               <td>{{ Intruder.IPcam }}</td>
               <td>{{ Intruder.ImageID }}</td>
-              <td><img  src="{% static 'assets/image001.png' %}" style="width:38px;" ></td>
+              <td><img  src="{% static 'assets/image001.png' %}" style="width:38px;" onclick="alert('Settings')" ></td>
           </tr>
           {% endfor %}
       </table>
@@ -547,6 +572,33 @@ openTab.click();
       }
   }
 
+</script>
+
+<script>
+  function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+  }
+  function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+  }
+</script>
+
+
+<script>
+  n =  new Date();
+  y = n.getFullYear();
+  m = n.getMonth() + 1;
+  d = n.getDate();
+  document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
 </script>
 
 
