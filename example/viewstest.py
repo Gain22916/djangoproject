@@ -6,7 +6,7 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-from example.models import Simple, Intruder, Errormessage, IPstatus
+from example.models import Simple, Intruder, Errormessage, IPstatus,overviewStatus
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -255,11 +255,19 @@ def mainpage(request) :
     posts3 = posts4.IPconnect
     posts5 = 'Active'
     posts6 = 'Inactive'
+    posts7 = overviewStatus.objects.get(id=1)
+    posts8 = posts7
 
     if posts3 == '1' :
         messages.info(request,'Active')
     else :
         messages.info(request,'Inactive')
+
+    if posts8 == '1' :
+        messages.info(request,'Mornining')
+    else :
+        messages.info(request,'Night & Raining')
+       
 
     args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6 }
 

@@ -154,16 +154,20 @@
             </div>
           </div>
           <div class="w3-half">
-              <div class="w3-container w3-grey w3-text-white w3-padding-16">
+              <div class="w3-container w3-white w3-text-black w3-padding-16">
                 <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
                 <div class="w3-left">
-                  <h3><label class="switch">
-                    <input type="checkbox" checked>
-                    <span class="slider round"></span>
-                    </label> Active</h3>
+                    {% if posts8 == "1" %} 
+                    <img src="{% static 'assets/m001.png' %}" style="width:100px">
+                    <label class="w3-xlarge w3-text-blue" style="font-weight: bold; "> {% for message in messages %} {{message}} {% endfor %}</label>
+                    {% else %}
+                    <img src="{% static 'assets/n001.png' %}" style="width:100px">
+                    <label class="w3-xlarge w3-text-black" style="font-weight: bold; padding-left: 1 rem;"> {% for message in messages %} {{message}} {% endfor %}</label >
+                    {% endif %}
+                    </span>
                 </div>
                 <div class="w3-clear"></div>
-                <h4>Database status</h4>
+                <h4>System status</h4>
               </div>
 
     </div>
