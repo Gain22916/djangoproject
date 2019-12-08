@@ -256,20 +256,19 @@ def mainpage(request) :
     posts5 = 'Active'
     posts6 = 'Inactive'
     posts7 = overviewStatus.objects.get(id=1)
-    posts8 = posts7
+    posts8 = posts7.Over_num
+    posts9 = 'Morning'
+    posts10 = 'Night & Raining'
+    posts11 = overviewStatus.objects.get(id=2)
+    posts12 = posts11.Over_num
+    posts13 = overviewStatus.objects.get(id=3)
+    posts14 = posts13.Over_num
+    posts15 = overviewStatus.objects.get(id=4)
+    posts16 = posts15.Over_num
+    posts17 = overviewStatus.objects.get(id=5)
+    posts18 = posts17.Over_num
 
-    if posts3 == '1' :
-        messages.info(request,'Active')
-    else :
-        messages.info(request,'Inactive')
-
-    if posts8 == '1' :
-        messages.info(request,'Mornining')
-    else :
-        messages.info(request,'Night & Raining')
-       
-
-    args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6 }
+    args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18 }
 
     return HttpResponse(template.render(args, request))
 
@@ -329,3 +328,10 @@ class ChangeStatus(View) :
 
 
 
+def test14(request) :
+    template = loader.get_template('test14.html')
+    header_str = 'Test modal image pop up'
+
+    args = {'var14': header_str}
+
+    return HttpResponse(template.render(args, request))

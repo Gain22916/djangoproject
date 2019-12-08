@@ -30,7 +30,96 @@
     .w3-bar-block .w3-bar-item {padding: 16px}
     </style>
 </head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    
+    #myImg {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    #myImg:hover {opacity: 0.7;}
+    
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
+    
+    /* Modal Content (image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+    
+    /* Caption of Modal Image */
+    #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+    
+    /* Add Animation */
+    .modal-content, #caption {  
+      -webkit-animation-name: zoom;
+      -webkit-animation-duration: 0.6s;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+    
+    @-webkit-keyframes zoom {
+      from {-webkit-transform:scale(0)} 
+      to {-webkit-transform:scale(1)}
+    }
+    
+    @keyframes zoom {
+      from {transform:scale(0)} 
+      to {transform:scale(1)}
+    }
+    
+    /* The Close Button */
+    .close2 {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    
+    .close2:hover,
+    .close2:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px){
+      .modal-content {
+        width: 100%;
+      }
+    }
+    </style>
 <body onload="startTime()">
 
 <!-- Side Navigation -->
@@ -93,52 +182,68 @@
         <div class="w3-container w3-orange w3-text-white w3-padding-16 ">
           <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
           <div class="w3-left; ">
-            <h3><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</h3>
+              </label>
+              {% if posts12 == "1" %} 
+              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Active</label>
+              {% else %}
+              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              {% endif %}
+              
           </div>
           <div class="w3-clear"></div>
-          <h4>IPcamera connection</h4>
+          <h3 >IPcamera connection</h3>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-blue w3-padding-16">
           <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
           <div class="w3-left">
-            <h3><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</h3>
+              </label>{% if posts14 == "1" %} 
+              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Active</label>
+              {% else %}
+              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              {% endif %}
           </div>
           <div class="w3-clear"></div>
-          <h4>OD system</h4>
+          <h3>OD system</h3>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-grey w3-text-white w3-padding-16">
           <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
           <div class="w3-left">
-            <h3><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</h3>
+              </label>
+              {% if posts16 == "1" %} 
+              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Active</label>
+              {% else %}
+              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              {% endif %}
           </div>
           <div class="w3-clear"></div>
-          <h4>Database status</h4>
+          <h3>Database status</h3>
         </div>
       </div>
       <div class="w3-quarter">
         <div class="w3-container w3-brown w3-text-white w3-padding-16">
           <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
           <div class="w3-left">
-            <h3><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</h3>
+              </label>    
+              {% if posts18 == "1" %} 
+              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Active</label>
+              {% else %}
+              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
+              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              {% endif %}
           </div>
           <div class="w3-clear"></div>
-          <h4>Line status</h4>
+          <h3>Line status</h3>
         </div>
       </div>
     </div>
@@ -157,14 +262,14 @@
               <div class="w3-container w3-white w3-text-black w3-padding-16">
                 <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
                 <div class="w3-left">
-                    {% if posts8 == "1" %} 
-                    <img src="{% static 'assets/m001.png' %}" style="width:100px">
-                    <label class="w3-xlarge w3-text-blue" style="font-weight: bold; "> {% for message in messages %} {{message}} {% endfor %}</label>
-                    {% else %}
-                    <img src="{% static 'assets/n001.png' %}" style="width:100px">
-                    <label class="w3-xlarge w3-text-black" style="font-weight: bold; padding-left: 1 rem;"> {% for message in messages %} {{message}} {% endfor %}</label >
-                    {% endif %}
-                    </span>
+                  {% if posts8 == "1" %} 
+                  <img src="{% static 'assets/m001.png' %}" style="width:100px">
+                  <label class="w3-xlarge w3-text-blue" style="font-weight: bold; "> {{posts9}} {{posts8}}</label>
+                  {% else %}
+                  <img src="{% static 'assets/n001.png' %}" style="width:100px">
+                  <label class="w3-xlarge w3-text-black" style="font-weight: bold; padding-left: 1 rem;">  {{posts10}} {{posts8}}</label >
+                  {% endif %}
+                  </span>
                 </div>
                 <div class="w3-clear"></div>
                 <h4>System status</h4>
@@ -250,10 +355,10 @@
               </label>
               {% if posts3 == "1" %} 
               <img src="{% static 'assets/switchB009.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label>
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
               {% else %}
               <img src="{% static 'assets/switchB010.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label >
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
               {% endif %}
             </span>
           <img id="modal-btn" src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -284,10 +389,10 @@
               </label>
               {% if posts3 == "1" %} 
               <img src="{% static 'assets/switchB009.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label>
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
               {% else %}
               <img src="{% static 'assets/switchB010.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label >
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
               {% endif %}
             </span>
           <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
@@ -366,12 +471,15 @@
 </div>
 
 <div id="Test003" class="w3-container person">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+<span class="close2">&times;</span>
+<img class="modal-content" id="img01">
+<div id="caption"></div>
+</div>
   <br>
-  
-
-  <body>
-  
-      <h2>Welcome to Intruder History </h2>
+    <h2>Welcome to Intruder History </h2>
+   
   
       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
           <tr class="w3-orange w3-text-white">
@@ -387,16 +495,14 @@
               <td>{{ Intruder.Intru }}</td>
               <td>{{ Intruder.IPcam }}</td>
               <td>{{ Intruder.ImageID }}</td>
-              <td><img  src="{% static 'assets/image001.png' %}" style="width:38px;" onclick="alert('Settings')" ></td>
+              <td><img id="myImg"  src="{% static 'assets/image001.png' %}" style="width:38px;" alt="Snow" ></td>
           </tr>
           {% endfor %}
       </table>
-
+     
      
       <p></p>
-      
-  
-  </body>
+       
 </div>
      
 <div id="Test004" class="w3-container person">
@@ -605,6 +711,28 @@ openTab.click();
   document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
 </script>
 
+<script>
+    // Get the modal
+    var modal2 = document.getElementById("myModal");
+    
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function(){
+      modal2.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+    
+    // Get the <span> element that closes the modal
+    var span2 = document.getElementsByClassName("close2")[0];
+    
+    // When the user clicks on <span> (x), close the modal
+    span2.onclick = function() { 
+      modal2.style.display = "none";
+    }
+</script>
 
 </body>
 </html> 

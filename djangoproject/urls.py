@@ -42,4 +42,5 @@ urlpatterns = [
     url(r'loginpage/login$', viewstest.loginpage),
     url(r'mainpage/$', viewstest.mainpage),
     url(r'test13/$', viewstest.ChangeStatus.as_view()),
+    url(r'test14/$', viewstest.test14),
 ]
