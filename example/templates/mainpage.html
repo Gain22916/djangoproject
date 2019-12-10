@@ -21,6 +21,7 @@
     
     <!-- custom CSS -->
     {% load static %}
+    {% static "assets" as baseUrl %}
     <link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
     
     <link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
@@ -127,7 +128,7 @@
   <div class="w3-container">
     <img class="w3-round w3-margin-right" src="{% static 'assets/logo4.png' %}" style="width:85%; padding-left: 1.2rem; padding-top: 1rem;">
     <p></p>
-    
+  
   </div>
   
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test001');w3_close();" id="firstTab">
@@ -254,8 +255,8 @@
               <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
               <div class="w3-left">
               </div>
-              <div class="w3-clear" id="txt"></div>
-              <p id="date"></p>
+              <div class="w3-clear  " id="TimeNumber" style="font-size: 25px;"></div>
+              <p id="date" style="font-size: 25px;"></p>
             </div>
           </div>
           <div class="w3-half">
@@ -264,15 +265,15 @@
                 <div class="w3-left">
                   {% if posts8 == "1" %} 
                   <img src="{% static 'assets/m001.png' %}" style="width:100px">
-                  <label class="w3-xlarge w3-text-blue" style="font-weight: bold; "> {{posts9}} {{posts8}}</label>
+                  <label class="w3-xlarge w3-text-blue" style="font-weight: bold; "> {{posts9}} </label>
                   {% else %}
                   <img src="{% static 'assets/n001.png' %}" style="width:100px">
-                  <label class="w3-xlarge w3-text-black" style="font-weight: bold; padding-left: 1 rem;">  {{posts10}} {{posts8}}</label >
+                  <label class="w3-xlarge w3-text-black" style="font-weight: bold; padding-left: 1 rem;">  {{posts10}} </label >
                   {% endif %}
                   </span>
                 </div>
                 <div class="w3-clear"></div>
-                <h4>System status</h4>
+                <h4>System Mode</h4>
               </div>
 
     </div>
@@ -373,14 +374,15 @@
             
               </div>
               <div class="modal-body">
-                <p>This is my modal</p>
+                <p>This is my modal 1</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur ipsa velit
                   repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam nemo
                   commodi ab.</p>
               </div>
+              
              
             </div>
-          </div>
+       
 
         </li>
         <li class="w3-padding-16">
@@ -395,7 +397,25 @@
               <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
               {% endif %}
             </span>
-          <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+            <img id="modal-btn2" src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+            <div id="my-modal2" class="modal">
+
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span  id="close2" class="close">&times;</span>
+                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 002</h3>
+              
+                </div>
+                <div class="modal-body">
+                  <p>This is my modal 2</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur ipsa velit
+                    repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam nemo
+                    commodi ab.</p>
+                </div>
+                
+               
+              </div>
         </li>
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
@@ -471,31 +491,34 @@
 </div>
 
 <div id="Test003" class="w3-container person">
-<!-- The Modal -->
-<div id="myModal" class="modal">
-<span class="close2">&times;</span>
-<img class="modal-content" id="img01">
-<div id="caption"></div>
-</div>
+
   <br>
     <h2>Welcome to Intruder History </h2>
    
   
       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
           <tr class="w3-orange w3-text-white">
+              <th>Image</th>
               <th>Time</th>
               <th>Intruder</th>
               <th>IP camera</th>
               <th>ImageID</th>
-              <th></th>
+              
           </tr>
           {% for Intruder in posts reversed %}
           <tr>
+              <td><img  src="{{baseUrl}}/{{ Intruder.ImageID }}" style="width:400px;" ></td>
+              <!-- The Modal 
+              <div id="myModal" class="modal">
+              <span class="close2">&times;</span>
+              <img class="modal-content" id="img01">
+              <div id="caption"></div>
+              </div>-->
               <td>{{ Intruder.Time }}</td>
               <td>{{ Intruder.Intru }}</td>
               <td>{{ Intruder.IPcam }}</td>
               <td>{{ Intruder.ImageID }}</td>
-              <td><img id="myImg"  src="{% static 'assets/image001.png' %}" style="width:38px;" alt="Snow" ></td>
+            
           </tr>
           {% endfor %}
       </table>
@@ -659,6 +682,7 @@ openTab.click();
   const modal = document.querySelector('#my-modal');
   const modalBtn = document.querySelector('#modal-btn');
   const closeBtn = document.querySelector('.close');
+ 
 
   // Events
   modalBtn.addEventListener('click', openModal);
@@ -685,6 +709,37 @@ openTab.click();
 </script>
 
 <script>
+  // Get DOM Elements
+  const modal2 = document.querySelector('#my-modal2');
+  const modalBtn2 = document.querySelector('#modal-btn2');
+  const closeBtn2 = document.querySelector('#close2');
+ 
+
+  // Events
+  modalBtn2.addEventListener('click', openModal2);
+  closeBtn2.addEventListener('click', closeModal2);
+  window.addEventListener('click', outsideClick2);
+
+  // Open
+  function openModal2() {
+      modal2.style.display = 'block';
+  }
+
+  // Close
+  function closeModal2() {
+      modal2.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick2(e) {
+  if (e.target == modal2) {
+      modal2.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
   function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -692,7 +747,7 @@ openTab.click();
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('txt').innerHTML =
+    document.getElementById('TimeNumber').innerHTML =
     h + ":" + m + ":" + s;
     var t = setTimeout(startTime, 500);
   }
@@ -711,28 +766,7 @@ openTab.click();
   document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
 </script>
 
-<script>
-    // Get the modal
-    var modal2 = document.getElementById("myModal");
-    
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("myImg");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function(){
-      modal2.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-    }
-    
-    // Get the <span> element that closes the modal
-    var span2 = document.getElementsByClassName("close2")[0];
-    
-    // When the user clicks on <span> (x), close the modal
-    span2.onclick = function() { 
-      modal2.style.display = "none";
-    }
-</script>
+
 
 </body>
 </html> 
