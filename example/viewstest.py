@@ -321,7 +321,21 @@ def mainpage(request) :
     posts70 = posts69.IPconnect
     posts71 = IPstatus.objects.get(id=28)
     posts72 = posts71.IPconnect
-
+    
+    
+    if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
+        #Edit object into database
+        b10 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='1' )
+        b10.save()
+        b11 = overviewStatus(id=3, Over_name='ODsystem', Over_num='1' )
+        b11.save()
+    else: 
+        #Edit object into database
+        b12 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='0' )
+        b12.save()
+        b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
+        b13.save()
+    
     args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72  }
 
     return HttpResponse(template.render(args, request))
