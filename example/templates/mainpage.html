@@ -21,7 +21,7 @@
     
     <!-- custom CSS -->
     {% load static %}
-    {% static "assets" as baseUrl %}
+    {% static "images" as baseUrl %}
     <link rel="stylesheet" type="text/css" href="{% static 'style2.css' %}">
     
     <link href='https://fonts.googleapis.com/css?family=RobotoDraft' rel='stylesheet' type='text/css'>
@@ -54,8 +54,8 @@
       width: 100%; /* Full width */
       height: 100%; /* Full height */
       overflow: auto; /* Enable scroll if needed */
-      background-color: rgb(0,0,0); /* Fallback color */
-      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+      background-color: rgb(0, 0, 0); /* Fallback color */
+      background-color: rgba(255, 255, 255, 0.9); /* Black w/ opacity */
     }
     
     /* Modal Content (image) */
@@ -151,19 +151,19 @@
           <p>ERROR management</p>
         </div>
     </a> 
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test005');w3_close();">
+    <!--<a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test005');w3_close();">
         <div class="w3-container">
           <p>General Setting</p>
         </div>
-    </a> 
+    </a> -->
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="location.href='http://127.0.0.1:8000/loginpage/'";w3_close();">
         <div class="w3-container">
           <p>Log out</p>
         </div>
     </a>
     <a>
-      <div class="w3-container">
-        <img src="{% static 'assets/9855.jpg' %}" class="w3-left " style="width:195px; padding-top: 1rem;">
+      <div class="w3-containiter">
+        <img src="{% static 'assets/9855.jpg' %}" class="w3-left " style="width:215px; padding-top: 1rem;">
       </div>
     </a>  
 
@@ -183,17 +183,14 @@
         <div class="w3-container w3-orange w3-text-white w3-padding-16 ">
           <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
           <div class="w3-left; ">
-              </label>
               {% if posts12 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Active</label>
+              <img src="{% static 'assets/green016.png' %}" style="width:320px;">
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              <img src="{% static 'assets/red001.png' %}" style="width:320px">
               {% endif %}
               
           </div>
-          <div class="w3-clear"></div>
+          <div class="w3-clear" ></div>
           <h3 >IPcamera connection</h3>
         </div>
       </div>
@@ -202,11 +199,9 @@
           <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
           <div class="w3-left">
               </label>{% if posts14 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Active</label>
+              <img src="{% static 'assets/green016.png' %}" style="width:320px">
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              <img src="{% static 'assets/red001.png' %}" style="width:320px">
               {% endif %}
           </div>
           <div class="w3-clear"></div>
@@ -219,11 +214,9 @@
           <div class="w3-left">
               </label>
               {% if posts16 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Active</label>
+              <img src="{% static 'assets/green016.png' %}" style="width:320px">
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              <img src="{% static 'assets/red001.png' %}" style="width:320px">
               {% endif %}
           </div>
           <div class="w3-clear"></div>
@@ -236,15 +229,13 @@
           <div class="w3-left">
               </label>    
               {% if posts18 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Active</label>
+              <img src="{% static 'assets/green016.png' %}" style="width:320px">
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:80px">
-              <label class="w3-xxlarge w3-text-white" > Inactive</label>
+              <img src="{% static 'assets/red001.png' %}" style="width:320px">
               {% endif %}
           </div>
           <div class="w3-clear"></div>
-          <h3>Line status</h3>
+          <h3>LINE status</h3>
         </div>
       </div>
     </div>
@@ -355,14 +346,14 @@
           <span class="w3-xlarge w3-margin-right">IP camera 001</span>
               </label>
               {% if posts3 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:70px">
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
               <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:70px">
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
               <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
               {% endif %}
             </span>
-          <img id="modal-btn" src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+          <img id="modal-btn" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
          
         
           <div id="my-modal" class="modal">
@@ -373,11 +364,15 @@
                 <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 001</h3>
             
               </div>
-              <div class="modal-body">
-                <p>This is my modal 1</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur ipsa velit
-                  repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam nemo
-                  commodi ab.</p>
+              <div style="margin-top: 2rem;margin-left: 2rem;">
+                <h3>WV-SPN531</h3>
+                <p>IP connection : 10.168.66.200</p>
+                <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                <p>Image resolution : 1920 x 1080</p>
+                <p>Morning Thershould : 15 units</p>
+                <p>Night and raining Thershould : 20 units</p>
+                <p>Support protocol : IPv6 IPv4</p>
               </div>
               
              
@@ -389,15 +384,15 @@
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
           <span class="w3-xlarge w3-margin-right">IP camera 002</span>
               </label>
-              {% if posts3 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:70px">
+              {% if posts20 == "1" %} 
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
               <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:70px">
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
               <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
               {% endif %}
             </span>
-            <img id="modal-btn2" src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+            <img id="modal-btn2" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
             <div id="my-modal2" class="modal">
 
@@ -407,11 +402,15 @@
                   <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 002</h3>
               
                 </div>
-                <div class="modal-body">
-                  <p>This is my modal 2</p>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla repellendus nisi, sunt consectetur ipsa velit
-                    repudiandae aperiam modi quisquam nihil nam asperiores doloremque mollitia dolor deleniti quibusdam nemo
-                    commodi ab.</p>
+                <div style="margin-top: 2rem;margin-left: 2rem;">
+                  <h3>WV-SPN531</h3>
+                  <p>IP connection : 10.168.66.201</p>
+                  <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                  <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                  <p>Image resolution : 1920 x 1080</p>
+                  <p>Morning Thershould : 15 units</p>
+                  <p>Night and raining Thershould : 20 units</p>
+                  <p>Support protocol : IPv6 IPv4</p>
                 </div>
                 
                
@@ -419,74 +418,840 @@
         </li>
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge w3-margin-right">IP camera 003</span>
-              </label>
-              {% if posts3 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label>
+            <span class="w3-xlarge w3-margin-right">IP camera 003</span>
+              {% if posts22 == "1" %} 
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label >
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
               {% endif %}
             </span>
-          <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+            <img id="modal-btn3" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+            <div id="my-modal3" class="modal">
+
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span  id="close3" class="close">&times;</span>
+                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 003</h3>
+              
+                </div>
+                <div style="margin-top: 2rem;margin-left: 2rem;">
+                  <h3>WV-SPN531</h3>
+                  <p>IP connection : 10.168.66.202</p>
+                  <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                  <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                  <p>Image resolution : 1920 x 1080</p>
+                  <p>Morning Thershould : 15 units</p>
+                  <p>Night and raining Thershould : 20 units</p>
+                  <p>Support protocol : IPv6 IPv4</p>
+                </div>
+                
+               
+            </div>
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
             <span class="w3-xlarge w3-margin-right">IP camera 004</span>
-              </label>
-              {% if posts3 == "1" %} 
-              <img src="{% static 'assets/switchB009.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label>
+              {% if posts24 == "1" %} 
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
               {% else %}
-              <img src="{% static 'assets/switchB010.png' %}" style="width:70px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> {% for message in messages %} {{message}} {% endfor %}</label >
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
               {% endif %}
             </span>
-            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+            <img id="modal-btn4" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+            <div id="my-modal4" class="modal">
+
+              <div class="modal-content">
+                <div class="modal-header">
+                  <span  id="close4" class="close">&times;</span>
+                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 004</h3>
+              
+                </div>
+                <div style="margin-top: 2rem;margin-left: 2rem;">
+                  <h3>WV-SPN531</h3>
+                  <p>IP connection : 10.168.66.203</p>
+                  <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                  <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                  <p>Image resolution : 1920 x 1080</p>
+                  <p>Morning Thershould : 15 units</p>
+                  <p>Night and raining Thershould : 20 units</p>
+                  <p>Support protocol : IPv6 IPv4</p>
+                </div>
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 005 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</span>
-            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+            <span class="w3-xlarge w3-margin-right">IP camera 005</span>
+            {% if posts26 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            {% endif %}
+          </span>
+          <img id="modal-btn5" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+          <div id="my-modal5" class="modal">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <span  id="close5" class="close">&times;</span>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 005</h3>
+            
+              </div>
+              <div style="margin-top: 2rem;margin-left: 2rem;">
+                <h3>WV-SPN531</h3>
+                <p>IP connection : 10.168.66.204</p>
+                <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                <p>Image resolution : 1920 x 1080</p>
+                <p>Morning Thershould : 15 units</p>
+                <p>Night and raining Thershould : 20 units</p>
+                <p>Support protocol : IPv6 IPv4</p>
+              </div>
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 006 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</span>
-            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+            <span class="w3-xlarge w3-margin-right">IP camera 006</span>
+            {% if posts28 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            {% endif %}
+          </span>
+          <img id="modal-btn6" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+          <div id="my-modal6" class="modal">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <span  id="close6" class="close">&times;</span>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 006</h3>
+            
+              </div>
+              <div style="margin-top: 2rem;margin-left: 2rem;">
+                <h3>WV-SPN531</h3>
+                <p>IP connection : 10.168.66.205</p>
+                <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                <p>Image resolution : 1920 x 1080</p>
+                <p>Morning Thershould : 15 units</p>
+                <p>Night and raining Thershould : 20 units</p>
+                <p>Support protocol : IPv6 IPv4</p>
+              </div>
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 007 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</span>
-            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+            <span class="w3-xlarge w3-margin-right">IP camera 007</span>
+            {% if posts30 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            {% endif %}
+          </span>
+          <img id="modal-btn7" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+          <div id="my-modal7" class="modal">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <span  id="close7" class="close">&times;</span>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 007</h3>
+            
+              </div>
+              <div style="margin-top: 2rem;margin-left: 2rem;">
+                <h3>WV-SPN531</h3>
+                <p>IP connection : 10.168.66.206</p>
+                <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                <p>Image resolution : 1920 x 1080</p>
+                <p>Morning Thershould : 15 units</p>
+                <p>Night and raining Thershould : 20 units</p>
+                <p>Support protocol : IPv6 IPv4</p>
+              </div>
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 008 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
-              <input type="checkbox" checked>
-              <span class="slider round"></span>
-              </label> Active</span>
-            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
+            <span class="w3-xlarge w3-margin-right">IP camera 008</span>
+            {% if posts32 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            {% endif %}
+          </span>
+          <img id="modal-btn8" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+          <div id="my-modal8" class="modal">
+
+            <div class="modal-content">
+              <div class="modal-header">
+                <span  id="close8" class="close">&times;</span>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 008</h3>
+            
+              </div>
+              <div style="margin-top: 2rem;margin-left: 2rem;">
+                <h3>WV-SPN531</h3>
+                <p>IP connection : 10.168.66.207</p>
+                <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+                <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+                <p>Image resolution : 1920 x 1080</p>
+                <p>Morning Thershould : 15 units</p>
+                <p>Night and raining Thershould : 20 units</p>
+                <p>Support protocol : IPv6 IPv4</p>
+              </div>
         </li>
         <li class="w3-padding-16">
-            <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge">IP camera 009 </span>&nbsp;<span class="w3-xlarge w3-text-green" style="font-weight: bold;"><label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-            </label> Active</span>
-            <img src="{% static 'assets/setting001.png' %}" class="w3-right w3-circle w3-margin-right" style="width:38px;" onclick="alert('Settings')">
-        </li>
+          <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+          <span class="w3-xlarge w3-margin-right">IP camera 009</span>
+          {% if posts34 == "1" %} 
+          <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+          {% else %}
+          <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+          {% endif %}
+        </span>
+        <img id="modal-btn9" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+        <div id="my-modal9" class="modal">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <span  id="close9" class="close">&times;</span>
+              <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 009</h3>
           
-      </ul>
+            </div>
+            <div style="margin-top: 2rem;margin-left: 2rem;">
+              <h3>WV-SPN531</h3>
+              <p>IP connection : 10.168.66.208</p>
+              <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+              <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+              <p>Image resolution : 1920 x 1080</p>
+              <p>Morning Thershould : 15 units</p>
+              <p>Night and raining Thershould : 20 units</p>
+              <p>Support protocol : IPv6 IPv4</p>
+            </div>
+      </li>
+      <li class="w3-padding-16">
+        <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+        <span class="w3-xlarge w3-margin-right">IP camera 010</span>
+        {% if posts36 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+        {% endif %}
+      </span>
+      <img id="modal-btn10" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal10" class="modal">
+
+        <div class="modal-content">
+          <div class="modal-header">
+            <span  id="close10" class="close">&times;</span>
+            <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 010</h3>
+        
+          </div>
+          <div style="margin-top: 2rem;margin-left: 2rem;">
+            <h3>WV-SPN531</h3>
+            <p>IP connection : 10.168.66.209</p>
+            <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+            <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+            <p>Image resolution : 1920 x 1080</p>
+            <p>Morning Thershould : 15 units</p>
+            <p>Night and raining Thershould : 20 units</p>
+            <p>Support protocol : IPv6 IPv4</p>
+          </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 011</span>
+      {% if posts38 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn11" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal11" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close11" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 011</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.210</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 012</span>
+      {% if posts40 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn12" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal12" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close12" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 012</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.211</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 013</span>
+      {% if posts42 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn13" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal13" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close13" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 013</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.212</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 014</span>
+      {% if posts44 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn14" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal14" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close14" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 014</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.213</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 015</span>
+      {% if posts46 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn15" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal15" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close15" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 015</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.214</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 016</span>
+      {% if posts48 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn16" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal16" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close16" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 016</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.215</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 017</span>
+      {% if posts50 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn17" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal17" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close17" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 017</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.216</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 018</span>
+      {% if posts52 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn18" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal18" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close18" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 018</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.217</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 019</span>
+      {% if posts54 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn19" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal19" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close19" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 019</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.218</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 020</span>
+      {% if posts56 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn20" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal20" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close20" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 020</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.219</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 021</span>
+      {% if posts58 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn21" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal21" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close21" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 021</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.220</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 022</span>
+      {% if posts60 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn22" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal22" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close22" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 022</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.221</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 023</span>
+      {% if posts62 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn23" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal23" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close23" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 023</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.222</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 024</span>
+      {% if posts64 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn24" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal24" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close24" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 024</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.223</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 025</span>
+      {% if posts66 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn25" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal25" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close25" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 025</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.224</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 026</span>
+      {% if posts68 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn26" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal26" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close26" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 026</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.225</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 027</span>
+      {% if posts70 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn27" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal27" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close27" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 027</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.226</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    <li class="w3-padding-16">
+      <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
+      <span class="w3-xlarge w3-margin-right">IP camera 028</span>
+      {% if posts72 == "1" %} 
+      <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      {% else %}
+      <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      {% endif %}
+      </span>
+      <img id="modal-btn28" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
+
+      <div id="my-modal28" class="modal">
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span  id="close28" class="close">&times;</span>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 028</h3>
+      
+        </div>
+        <div style="margin-top: 2rem;margin-left: 2rem;">
+          <h3>WV-SPN531</h3>
+          <p>IP connection : 10.168.66.227</p>
+          <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
+          <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
+          <p>Image resolution : 1920 x 1080</p>
+          <p>Morning Thershould : 15 units</p>
+          <p>Night and raining Thershould : 20 units</p>
+          <p>Support protocol : IPv6 IPv4</p>
+      </div>
+    </li>
+    </ul>
     </div>
 </div>
 
@@ -740,6 +1505,823 @@ openTab.click();
 </script>
 
 <script>
+  // Get DOM Elements
+  const modal3 = document.querySelector('#my-modal3');
+  const modalBtn3 = document.querySelector('#modal-btn3');
+  const closeBtn3 = document.querySelector('#close3');
+ 
+
+  // Events
+  modalBtn3.addEventListener('click', openModal3);
+  closeBtn3.addEventListener('click', closeModal3);
+  window.addEventListener('click', outsideClick3);
+
+  // Open
+  function openModal3() {
+      modal3.style.display = 'block';
+  }
+
+  // Close
+  function closeModal3() {
+      modal3.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick3(e) {
+  if (e.target == modal3) {
+      modal3.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal4 = document.querySelector('#my-modal4');
+  const modalBtn4 = document.querySelector('#modal-btn4');
+  const closeBtn4 = document.querySelector('#close4');
+ 
+
+  // Events
+  modalBtn4.addEventListener('click', openModal4);
+  closeBtn4.addEventListener('click', closeModal4);
+  window.addEventListener('click', outsideClick4);
+
+  // Open
+  function openModal4() {
+      modal4.style.display = 'block';
+  }
+
+  // Close
+  function closeModal4() {
+      modal4.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick4(e) {
+  if (e.target == modal4) {
+      modal4.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal5 = document.querySelector('#my-modal5');
+  const modalBtn5 = document.querySelector('#modal-btn5');
+  const closeBtn5 = document.querySelector('#close5');
+ 
+
+  // Events
+  modalBtn5.addEventListener('click', openModal5);
+  closeBtn5.addEventListener('click', closeModal5);
+  window.addEventListener('click', outsideClick5);
+
+  // Open
+  function openModal5() {
+      modal5.style.display = 'block';
+  }
+
+  // Close
+  function closeModal5() {
+      modal5.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick5(e) {
+  if (e.target == modal5) {
+      modal5.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal6 = document.querySelector('#my-modal6');
+  const modalBtn6 = document.querySelector('#modal-btn6');
+  const closeBtn6 = document.querySelector('#close6');
+ 
+
+  // Events
+  modalBtn6.addEventListener('click', openModal6);
+  closeBtn6.addEventListener('click', closeModal6);
+  window.addEventListener('click', outsideClick6);
+
+  // Open
+  function openModal6() {
+      modal6.style.display = 'block';
+  }
+
+  // Close
+  function closeModal6() {
+      modal6.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick6(e) {
+  if (e.target == modal6) {
+      modal6.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal7 = document.querySelector('#my-modal7');
+  const modalBtn7 = document.querySelector('#modal-btn7');
+  const closeBtn7 = document.querySelector('#close7');
+ 
+
+  // Events
+  modalBtn7.addEventListener('click', openModal7);
+  closeBtn7.addEventListener('click', closeModal7);
+  window.addEventListener('click', outsideClick7);
+
+  // Open
+  function openModal7() {
+      modal7.style.display = 'block';
+  }
+
+  // Close
+  function closeModal7() {
+      modal7.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick7(e) {
+  if (e.target == modal7) {
+      modal7.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal8 = document.querySelector('#my-modal8');
+  const modalBtn8 = document.querySelector('#modal-btn8');
+  const closeBtn8 = document.querySelector('#close8');
+ 
+
+  // Events
+  modalBtn8.addEventListener('click', openModal8);
+  closeBtn8.addEventListener('click', closeModal8);
+  window.addEventListener('click', outsideClick8);
+
+  // Open
+  function openModal8() {
+      modal8.style.display = 'block';
+  }
+
+  // Close
+  function closeModal8() {
+      modal8.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick8(e) {
+  if (e.target == modal8) {
+      modal8.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal9 = document.querySelector('#my-modal9');
+  const modalBtn9 = document.querySelector('#modal-btn9');
+  const closeBtn9 = document.querySelector('#close9');
+ 
+
+  // Events
+  modalBtn9.addEventListener('click', openModal9);
+  closeBtn9.addEventListener('click', closeModal9);
+  window.addEventListener('click', outsideClick9);
+
+  // Open
+  function openModal9() {
+      modal9.style.display = 'block';
+  }
+
+  // Close
+  function closeModal9() {
+      modal9.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick9(e) {
+  if (e.target == modal9) {
+      modal9.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal10 = document.querySelector('#my-modal10');
+  const modalBtn10 = document.querySelector('#modal-btn10');
+  const closeBtn10 = document.querySelector('#close10');
+ 
+
+  // Events
+  modalBtn10.addEventListener('click', openModal10);
+  closeBtn10.addEventListener('click', closeModal10);
+  window.addEventListener('click', outsideClick10);
+
+  // Open
+  function openModal10() {
+      modal10.style.display = 'block';
+  }
+
+  // Close
+  function closeModal10() {
+      modal10.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick10(e) {
+  if (e.target == modal10) {
+      modal10.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal11 = document.querySelector('#my-modal11');
+  const modalBtn11 = document.querySelector('#modal-btn11');
+  const closeBtn11 = document.querySelector('#close11');
+ 
+
+  // Events
+  modalBtn11.addEventListener('click', openModal11);
+  closeBtn11.addEventListener('click', closeModal11);
+  window.addEventListener('click', outsideClick11);
+
+  // Open
+  function openModal11() {
+      modal11.style.display = 'block';
+  }
+
+  // Close
+  function closeModal11() {
+      modal11.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick11(e) {
+  if (e.target == modal11) {
+      modal11.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal12 = document.querySelector('#my-modal12');
+  const modalBtn12 = document.querySelector('#modal-btn12');
+  const closeBtn12 = document.querySelector('#close12');
+ 
+
+  // Events
+  modalBtn12.addEventListener('click', openModal12);
+  closeBtn12.addEventListener('click', closeModal12);
+  window.addEventListener('click', outsideClick12);
+
+  // Open
+  function openModal12() {
+      modal12.style.display = 'block';
+  }
+
+  // Close
+  function closeModal12() {
+      modal12.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick12(e) {
+  if (e.target == modal12) {
+      modal12.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal13 = document.querySelector('#my-modal13');
+  const modalBtn13 = document.querySelector('#modal-btn13');
+  const closeBtn13 = document.querySelector('#close13');
+ 
+
+  // Events
+  modalBtn13.addEventListener('click', openModal13);
+  closeBtn13.addEventListener('click', closeModal13);
+  window.addEventListener('click', outsideClick13);
+
+  // Open
+  function openModal13() {
+      modal13.style.display = 'block';
+  }
+
+  // Close
+  function closeModal13() {
+      modal13.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick13(e) {
+  if (e.target == modal13) {
+      modal13.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal14 = document.querySelector('#my-modal14');
+  const modalBtn14 = document.querySelector('#modal-btn14');
+  const closeBtn14 = document.querySelector('#close14');
+ 
+
+  // Events
+  modalBtn14.addEventListener('click', openModal14);
+  closeBtn14.addEventListener('click', closeModal14);
+  window.addEventListener('click', outsideClick14);
+
+  // Open
+  function openModal14() {
+      modal14.style.display = 'block';
+  }
+
+  // Close
+  function closeModal14() {
+      modal14.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick14(e) {
+  if (e.target == modal14) {
+      modal14.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal15 = document.querySelector('#my-modal15');
+  const modalBtn15 = document.querySelector('#modal-btn15');
+  const closeBtn15 = document.querySelector('#close15');
+ 
+
+  // Events
+  modalBtn15.addEventListener('click', openModal15);
+  closeBtn15.addEventListener('click', closeModal15);
+  window.addEventListener('click', outsideClick15);
+
+  // Open
+  function openModal15() {
+      modal15.style.display = 'block';
+  }
+
+  // Close
+  function closeModal15() {
+      modal15.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick15(e) {
+  if (e.target == modal15) {
+      modal15.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal16 = document.querySelector('#my-modal16');
+  const modalBtn16 = document.querySelector('#modal-btn16');
+  const closeBtn16 = document.querySelector('#close16');
+ 
+
+  // Events
+  modalBtn16.addEventListener('click', openModal16);
+  closeBtn16.addEventListener('click', closeModal16);
+  window.addEventListener('click', outsideClick16);
+
+  // Open
+  function openModal16() {
+      modal16.style.display = 'block';
+  }
+
+  // Close
+  function closeModal16() {
+      modal16.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick16(e) {
+  if (e.target == modal16) {
+      modal16.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal17 = document.querySelector('#my-modal17');
+  const modalBtn17 = document.querySelector('#modal-btn17');
+  const closeBtn17 = document.querySelector('#close17');
+ 
+
+  // Events
+  modalBtn17.addEventListener('click', openModal17);
+  closeBtn17.addEventListener('click', closeModal17);
+  window.addEventListener('click', outsideClick17);
+
+  // Open
+  function openModal17() {
+      modal17.style.display = 'block';
+  }
+
+  // Close
+  function closeModal17() {
+      modal17.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick17(e) {
+  if (e.target == modal17) {
+      modal17.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal18 = document.querySelector('#my-modal18');
+  const modalBtn18 = document.querySelector('#modal-btn18');
+  const closeBtn18 = document.querySelector('#close18');
+ 
+
+  // Events
+  modalBtn18.addEventListener('click', openModal18);
+  closeBtn18.addEventListener('click', closeModal18);
+  window.addEventListener('click', outsideClick18);
+
+  // Open
+  function openModal18() {
+      modal18.style.display = 'block';
+  }
+
+  // Close
+  function closeModal18() {
+      modal18.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick18(e) {
+  if (e.target == modal18) {
+      modal18.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal19 = document.querySelector('#my-modal19');
+  const modalBtn19 = document.querySelector('#modal-btn19');
+  const closeBtn19 = document.querySelector('#close19');
+ 
+
+  // Events
+  modalBtn19.addEventListener('click', openModal19);
+  closeBtn19.addEventListener('click', closeModal19);
+  window.addEventListener('click', outsideClick19);
+
+  // Open
+  function openModal19() {
+      modal19.style.display = 'block';
+  }
+
+  // Close
+  function closeModal19() {
+      modal19.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick19(e) {
+  if (e.target == modal19) {
+      modal19.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal20 = document.querySelector('#my-modal20');
+  const modalBtn20 = document.querySelector('#modal-btn20');
+  const closeBtn20 = document.querySelector('#close20');
+ 
+
+  // Events
+  modalBtn20.addEventListener('click', openModal20);
+  closeBtn20.addEventListener('click', closeModal20);
+  window.addEventListener('click', outsideClick20);
+
+  // Open
+  function openModal20() {
+      modal20.style.display = 'block';
+  }
+
+  // Close
+  function closeModal20() {
+      modal20.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick20(e) {
+  if (e.target == modal20) {
+      modal20.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal21 = document.querySelector('#my-modal21');
+  const modalBtn21 = document.querySelector('#modal-btn21');
+  const closeBtn21 = document.querySelector('#close21');
+ 
+
+  // Events
+  modalBtn21.addEventListener('click', openModal21);
+  closeBtn21.addEventListener('click', closeModal21);
+  window.addEventListener('click', outsideClick21);
+
+  // Open
+  function openModal21() {
+      modal21.style.display = 'block';
+  }
+
+  // Close
+  function closeModal21() {
+      modal21.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick21(e) {
+  if (e.target == modal21) {
+      modal21.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal22 = document.querySelector('#my-modal22');
+  const modalBtn22 = document.querySelector('#modal-btn22');
+  const closeBtn22 = document.querySelector('#close22');
+ 
+
+  // Events
+  modalBtn22.addEventListener('click', openModal22);
+  closeBtn22.addEventListener('click', closeModal22);
+  window.addEventListener('click', outsideClick22);
+
+  // Open
+  function openModal22() {
+      modal22.style.display = 'block';
+  }
+
+  // Close
+  function closeModal22() {
+      modal22.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick22(e) {
+  if (e.target == modal22) {
+      modal22.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal23 = document.querySelector('#my-modal23');
+  const modalBtn23 = document.querySelector('#modal-btn23');
+  const closeBtn23 = document.querySelector('#close23');
+ 
+
+  // Events
+  modalBtn23.addEventListener('click', openModal23);
+  closeBtn23.addEventListener('click', closeModal23);
+  window.addEventListener('click', outsideClick23);
+
+  // Open
+  function openModal23() {
+      modal23.style.display = 'block';
+  }
+
+  // Close
+  function closeModal23() {
+      modal23.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick23(e) {
+  if (e.target == modal23) {
+      modal23.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal24 = document.querySelector('#my-modal24');
+  const modalBtn24 = document.querySelector('#modal-btn24');
+  const closeBtn24 = document.querySelector('#close24');
+ 
+
+  // Events
+  modalBtn24.addEventListener('click', openModal24);
+  closeBtn24.addEventListener('click', closeModal24);
+  window.addEventListener('click', outsideClick24);
+
+  // Open
+  function openModal24() {
+      modal24.style.display = 'block';
+  }
+
+  // Close
+  function closeModal24() {
+      modal24.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick24(e) {
+  if (e.target == modal24) {
+      modal24.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal25 = document.querySelector('#my-modal25');
+  const modalBtn25 = document.querySelector('#modal-btn25');
+  const closeBtn25 = document.querySelector('#close25');
+ 
+
+  // Events
+  modalBtn25.addEventListener('click', openModal25);
+  closeBtn25.addEventListener('click', closeModal25);
+  window.addEventListener('click', outsideClick25);
+
+  // Open
+  function openModal25() {
+      modal25.style.display = 'block';
+  }
+
+  // Close
+  function closeModal25() {
+      modal25.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick25(e) {
+  if (e.target == modal25) {
+      modal25.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal26 = document.querySelector('#my-modal26');
+  const modalBtn26 = document.querySelector('#modal-btn26');
+  const closeBtn26 = document.querySelector('#close26');
+ 
+
+  // Events
+  modalBtn26.addEventListener('click', openModal26);
+  closeBtn26.addEventListener('click', closeModal26);
+  window.addEventListener('click', outsideClick26);
+
+  // Open
+  function openModal26() {
+      modal26.style.display = 'block';
+  }
+
+  // Close
+  function closeModal26() {
+      modal26.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick26(e) {
+  if (e.target == modal26) {
+      modal26.style.display = 'none';
+      }
+  }
+
+</script>
+
+<script>
+  // Get DOM Elements
+  const modal27 = document.querySelector('#my-modal27');
+  const modalBtn27 = document.querySelector('#modal-btn27');
+  const closeBtn27 = document.querySelector('#close27');
+ 
+
+  // Events
+  modalBtn27.addEventListener('click', openModal27);
+  closeBtn27.addEventListener('click', closeModal27);
+  window.addEventListener('click', outsideClick27);
+
+  // Open
+  function openModal27() {
+      modal27.style.display = 'block';
+  }
+
+  // Close
+  function closeModal27() {
+      modal27.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick27(e) {
+  if (e.target == modal27) {
+      modal27.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+<script>
+  // Get DOM Elements
+  const modal28 = document.querySelector('#my-modal28');
+  const modalBtn28 = document.querySelector('#modal-btn28');
+  const closeBtn28 = document.querySelector('#close28');
+ 
+
+  // Events
+  modalBtn28.addEventListener('click', openModal28);
+  closeBtn28.addEventListener('click', closeModal28);
+  window.addEventListener('click', outsideClick28);
+
+  // Open
+  function openModal28() {
+      modal28.style.display = 'block';
+  }
+
+  // Close
+  function closeModal28() {
+      modal28.style.display = 'none';
+  }
+
+  // Close If Outside Click
+  function outsideClick28(e) {
+  if (e.target == modal28) {
+      modal28.style.display = 'none';
+      }
+  }
+
+</script>
+
+
+
+<script>
   function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -756,6 +2338,7 @@ openTab.click();
     return i;
   }
 </script>
+
 
 
 <script>

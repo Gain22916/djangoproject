@@ -2,7 +2,7 @@ import sys
 import requests
 import json
 
-URL = 'http://127.0.0.1:8000/test13/'
+URL = 'http://127.0.0.1:8000/test17/'
 
 client = requests.session()
 
@@ -17,6 +17,7 @@ else:
     print('csrf')
     csrftoken = client.cookies['csrf']
 
-data = {"csrfmiddlewaretoken":csrftoken, "Intruder":"IU", "Ipcamera":"CAM666", "Time":"15/03/2019 11:54AM", "ImageID":"C:/Users/Gain/Desktop/NewEGAT/456.jpg"}
+data = {"csrfmiddlewaretoken":csrftoken, "Intruder":"HUMAN", "Ipcamera":"CAM009", "Time":"24/11/2019 02:01PM", "ImageID":"C:/Users/Gain/Desktop/NewEGAT/8.jpg"}
 # login_data = {"csrfmiddlewaretoken":csrftoken, 'Object-Type':'Human Giant'}
 r = client.post(URL, data=data, headers={"Referer":URL})
+
