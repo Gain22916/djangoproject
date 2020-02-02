@@ -173,22 +173,32 @@ class Linetest(View) :
     def post(self, request):
         print(type(request))
         post_intru = Intruder.objects.all()
+        last_blanck = "                         "
+        last_End = "  ------ End ------  "
         for intruder in post_intru:
             #print(intruder.Intru, "--", intruder.IPcam)
-            last_Intru = request.POST['Intruder']
-            last_IPcam = request.POST['Ipcamera']
+            last_Intru = request.POST['Intruder'] 
+            last_IPcam = request.POST['Ipcamera'] 
             last_Time = request.POST['Time'] 
-            last_Image = request.POST['ImageID']
+            last_Image = request.POST['ImageID'] 
         form = HomeForm(request.POST)
         #add object into database
         b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
         b2.save()
 
-        line_text = TestLine.line_text(last_Intru)
-        line_text = TestLine.line_text(last_IPcam)
-        line_text = TestLine.line_text(last_Time)
-        line_text = TestLine.line_text(last_Image)
-        line_pic = TestLine.line_pic("Test", last_Image)
+        #line_text = TestLine.line_text(last_Intru)
+        #line_text = TestLine.line_text(last_IPcam)
+        #line_text = TestLine.line_text(last_Time)
+        #line_text = TestLine.line_text(last_Image)
+        line_pic = TestLine.line_pic(last_IPcam , last_Image)
+        line_text = TestLine.line_text(last_End)
+        
+
+        #line_text = TestLine.line_text(last_Intru)
+        #line_text = TestLine.line_text(last_IPcam)
+        #line_text = TestLine.line_text(last_Time)
+        #line_text = TestLine.line_text(last_Image)
+        #line_pic = TestLine.line_pic("Test", last_Image)
 
         #Edit object into database
 
@@ -201,7 +211,7 @@ class Linetest(View) :
 
         if form.is_valid():
             text = form.cleaned_data['post']   
-            print(line_text)
+            #print(line_text)
             print(line_pic)
        
         args = {'form': form}
@@ -1400,6 +1410,83 @@ class ChangeStatus28(View) :
 
         b33 = IPstatus(id=28, IPnum=IPnum28, IPconnect=IPconnect28, IP_ODconnect=IPODconnect28 )
         b33.save()
+
+        #Delete object into database
+        #Intruder.objects.filter(id=1).delete()
+
+
+        if form.is_valid():
+            text = form.cleaned_data['post']   
+        
+      
+       
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+
+class Error_message(View) :
+    template_name = 'test43.html'
+
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+    def post(self, request):
+        print(type(request))
+    
+        Error_mes = request.POST['ErrorTime']
+        Error_ID = request.POST['ErrorID']
+        Error_Name = request.POST['ErrorName']
+        Error_detail = request.POST['ErrorDetail']
+
+        form = HomeForm(request.POST)
+    
+        #add object into database
+        b111 = Errormessage(errorID=Error_mes,errorName=Error_ID, errorTime=Error_Name, errorDetail=Error_detail)
+        b111.save()
+
+
+        #Edit object into database
+        #b20 = IPstatus(id=5, IPnum=IPnum5, IPconnect=IPconnect5, IP_ODconnect=IPODconnect5 )
+        #b20.save()
+
+        #Delete object into database
+        #Intruder.objects.filter(id=1).delete()
+
+
+        if form.is_valid():
+            text = form.cleaned_data['post']   
+        
+      
+       
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+
+class ChangeMode(View) :
+    template_name = 'test44.html'
+
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+    def post(self, request):
+        print(type(request))
+    
+        Mode_Status = request.POST['ModeStatus']
+        Mode_num = request.POST['ModeNum']
+
+        form = HomeForm(request.POST)
+    
+
+        #Edit object into database
+
+        b101 = overviewStatus(id=1, Over_name=Mode_Status, Over_num=Mode_num )
+        b101.save()
 
         #Delete object into database
         #Intruder.objects.filter(id=1).delete()

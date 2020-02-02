@@ -151,24 +151,29 @@
           <p>ERROR management</p>
         </div>
     </a> 
-    <!--<a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test005');w3_close();">
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test005');w3_close();">
         <div class="w3-container">
           <p>General Setting</p>
         </div>
-    </a> -->
+    </a> 
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="location.href='http://127.0.0.1:8000/loginpage/'";w3_close();">
-        <div class="w3-container">
-          <p>Log out</p>
-        </div>
+      <div class="w3-container">
+        <p>Log out</p>
+      </div>
     </a>
     <a>
       <div class="w3-containiter">
-        <img src="{% static 'assets/9855.jpg' %}" class="w3-left " style="width:215px; padding-top: 1rem;">
+        <img src="{% static 'assets/9855.jpg' %}" class="w3-left " style="width:215px; padding-top: 0.25rem;">
       </div>
+      <p></p>
     </a>  
-
-  </div>
-
+    <a>
+      <!--time and date-->
+      <div class="w3-center " id="TimeNumber" style="font-size: 1.5em; color: orange;"></div>
+      <div class="w3-center" id="date" style="font-size: 1em; color: gray;"></div>
+    </a>
+ 
+  
 </nav>
 
 
@@ -242,14 +247,9 @@
 
     <div class="w3-panel">
         <div class="w3-half">
-            <div class="w3-container w3-white w3-text-black w3-padding-16 ">
-              <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-              <div class="w3-left">
-              </div>
-              <div class="w3-clear  " id="TimeNumber" style="font-size: 25px;"></div>
-              <p id="date" style="font-size: 25px;"></p>
-            </div>
-          </div>
+          <div class="w3-container w3-white w3-text-black w3-padding-16 "></div>
+          <img src="{% static 'assets/footer-reservation.jpg' %}" style="width:550px">
+        </div>
           <div class="w3-half">
               <div class="w3-container w3-white w3-text-black w3-padding-16">
                 <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>

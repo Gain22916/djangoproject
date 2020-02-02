@@ -17,6 +17,6 @@ else:
     print('csrf')
     csrftoken = client.cookies['csrf']
 
-data = {"csrfmiddlewaretoken":csrftoken, "Intruder":"SNAKE", "Ipcamera":"CAM009", "Time":"10/12/2019 08:34 PM", "ImageID":"C:/Users/Gain/Desktop/NewEGAT/results/IMG-SNAKE-12082019-111740.jpg"}
+data = {"csrfmiddlewaretoken":csrftoken, "Intruder":"TEST", "Ipcamera":"CAM9999", "ErrorName":"02/02/2020 02:22 PM", "ImageID":"C:/Users/Gain/Desktop/NewEGAT/results/003.jpg"}
 # login_data = {"csrfmiddlewaretoken":csrftoken, 'Object-Type':'Human Giant'}
 r = client.post(URL, data=data, headers={"Referer":URL})
