@@ -50,11 +50,7 @@ def _lineNotify2(payload,file=None):
 
 if __name__ == "__main__":
 
-        for i in range(1500, 0, -1):
             line_text("Unit test as of 23/11/2019")
             line_pic("Test", "C:/Users/Gain/Desktop/NewEGAT/123.jpg")
-            #notifyPicture("http://salamkorea.com/wp-content/uploads/2017/05/IUPaletteFace.png") ,time.sleep(2), print(i)
-            #lineNotify("Unit test : ERROR LINE API")
-            time.sleep(2)
-            print(i)
+        
         

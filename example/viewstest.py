@@ -161,6 +161,7 @@ def test8(request) :
 
     return HttpResponse(template.render(args, request))
     
+    
 class Linetest(View) :
     template_name = 'test9.html'
 
@@ -211,7 +212,7 @@ class Linetest(View) :
 
         if form.is_valid():
             text = form.cleaned_data['post']   
-            #print(line_text)
+            print(line_text)
             print(line_pic)
        
         args = {'form': form}
@@ -555,7 +556,7 @@ class ChangeStatus5(View) :
     def post(self, request):
         print(type(request))
     
-        IPnum5 = request.POST['IPnum5']
+        IPnum5 = request.POST['IPnum5']  
         IPconnect5 = request.POST['IPconnect5']
         IPODconnect5 = request.POST['IPODconnect5']
 
