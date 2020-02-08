@@ -40,7 +40,6 @@ urlpatterns = [
     url(r'test12/$', viewstest.test12),
     url(r'loginpage/$', viewstest.loginpage),
     url(r'loginpage/login$', viewstest.loginpage),
-    url(r'mainpage/$', viewstest.mainpage),
     url(r'test13/$', viewstest.ChangeStatus.as_view()),
     url(r'test14/$', viewstest.test14),
     url(r'test15/$', viewstest.ChangeStatus2.as_view()),
@@ -73,8 +72,8 @@ urlpatterns = [
     url(r'test42/$', viewstest.ChangeStatus28.as_view()),
     url(r'test43/$', viewstest.Error_message.as_view()),
     url(r'test44/$', viewstest.ChangeMode.as_view()),
-    url(r'test45/$', viewstest.Filter01.as_view()),
-
+    url(r'mainpage/$', viewstest.Main_page.as_view()),
+    
 
 
 

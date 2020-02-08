@@ -286,100 +286,236 @@ def loginpage(request) :
 
     return HttpResponse(template.render(args, request))
 
+class Main_page(View) :
+    template_name = 'mainpage.html'
 
-def mainpage(request) :
-    template = loader.get_template('mainpage.html')
-    header_str = 'Login page testing'
-    posts = Intruder.objects.all()
-    posts2 = Errormessage.objects.all()
-    posts4  = IPstatus.objects.get(id=1)
-    posts3 = posts4.IPconnect
-    posts5 = 'Active'
-    posts6 = 'Inactive'
-    posts7 = overviewStatus.objects.get(id=1)
-    posts8 = posts7.Over_num
-    posts9 = 'Morning'
-    posts10 = 'Night & Raining'
-    posts11 = overviewStatus.objects.get(id=2)
-    posts12 = posts11.Over_num
-    posts13 = overviewStatus.objects.get(id=3)
-    posts14 = posts13.Over_num
-    posts15 = overviewStatus.objects.get(id=4)
-    posts16 = posts15.Over_num
-    posts17 = overviewStatus.objects.get(id=5)
-    posts18 = posts17.Over_num
-    posts19 = IPstatus.objects.get(id=2)
-    posts20 = posts19.IPconnect
-    posts21 = IPstatus.objects.get(id=3)
-    posts22 = posts21.IPconnect
-    posts23 = IPstatus.objects.get(id=4)
-    posts24 = posts23.IPconnect
-    posts25 = IPstatus.objects.get(id=5)
-    posts26 = posts25.IPconnect
-    posts27 = IPstatus.objects.get(id=6)
-    posts28 = posts27.IPconnect
-    posts29 = IPstatus.objects.get(id=7)
-    posts30 = posts29.IPconnect
-    posts31 = IPstatus.objects.get(id=8)
-    posts32 = posts31.IPconnect
-    posts33 = IPstatus.objects.get(id=9)
-    posts34 = posts33.IPconnect
-    posts35 = IPstatus.objects.get(id=10)
-    posts36 = posts35.IPconnect
-    posts37 = IPstatus.objects.get(id=11)
-    posts38 = posts37.IPconnect
-    posts39 = IPstatus.objects.get(id=12)
-    posts40 = posts39.IPconnect
-    posts41 = IPstatus.objects.get(id=13)
-    posts42 = posts41.IPconnect
-    posts43 = IPstatus.objects.get(id=14)
-    posts44 = posts43.IPconnect
-    posts45 = IPstatus.objects.get(id=15)
-    posts46 = posts45.IPconnect
-    posts47 = IPstatus.objects.get(id=16)
-    posts48 = posts47.IPconnect
-    posts49 = IPstatus.objects.get(id=17)
-    posts50 = posts49.IPconnect
-    posts51 = IPstatus.objects.get(id=18)
-    posts52 = posts51.IPconnect
-    posts53 = IPstatus.objects.get(id=19)
-    posts54 = posts53.IPconnect
-    posts55 = IPstatus.objects.get(id=20)
-    posts56 = posts55.IPconnect
-    posts57 = IPstatus.objects.get(id=21)
-    posts58 = posts57.IPconnect
-    posts59 = IPstatus.objects.get(id=22)
-    posts60 = posts59.IPconnect
-    posts61 = IPstatus.objects.get(id=23)
-    posts62 = posts61.IPconnect
-    posts63 = IPstatus.objects.get(id=24)
-    posts64 = posts63.IPconnect
-    posts65 = IPstatus.objects.get(id=25)
-    posts66 = posts65.IPconnect
-    posts67 = IPstatus.objects.get(id=26)
-    posts68 = posts67.IPconnect
-    posts69 = IPstatus.objects.get(id=27)
-    posts70 = posts69.IPconnect
-    posts71 = IPstatus.objects.get(id=28)
-    posts72 = posts71.IPconnect
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        header_str = 'Login page testing'
+        posts = Intruder.objects.all()
+        posts2 = Errormessage.objects.all()
+        posts4  = IPstatus.objects.get(id=1)
+        posts3 = posts4.IPconnect
+        posts5 = 'Active'
+        posts6 = 'Inactive'
+        posts7 = overviewStatus.objects.get(id=1)
+        posts8 = posts7.Over_num
+        posts9 = 'Morning'
+        posts10 = 'Night & Raining'
+        posts11 = overviewStatus.objects.get(id=2)
+        posts12 = posts11.Over_num
+        posts13 = overviewStatus.objects.get(id=3)
+        posts14 = posts13.Over_num
+        posts15 = overviewStatus.objects.get(id=4)
+        posts16 = posts15.Over_num
+        posts17 = overviewStatus.objects.get(id=5)
+        posts18 = posts17.Over_num
+        posts19 = IPstatus.objects.get(id=2)
+        posts20 = posts19.IPconnect
+        posts21 = IPstatus.objects.get(id=3)
+        posts22 = posts21.IPconnect
+        posts23 = IPstatus.objects.get(id=4)
+        posts24 = posts23.IPconnect
+        posts25 = IPstatus.objects.get(id=5)
+        posts26 = posts25.IPconnect
+        posts27 = IPstatus.objects.get(id=6)
+        posts28 = posts27.IPconnect
+        posts29 = IPstatus.objects.get(id=7)
+        posts30 = posts29.IPconnect
+        posts31 = IPstatus.objects.get(id=8)
+        posts32 = posts31.IPconnect
+        posts33 = IPstatus.objects.get(id=9)
+        posts34 = posts33.IPconnect
+        posts35 = IPstatus.objects.get(id=10)
+        posts36 = posts35.IPconnect
+        posts37 = IPstatus.objects.get(id=11)
+        posts38 = posts37.IPconnect
+        posts39 = IPstatus.objects.get(id=12)
+        posts40 = posts39.IPconnect
+        posts41 = IPstatus.objects.get(id=13)
+        posts42 = posts41.IPconnect
+        posts43 = IPstatus.objects.get(id=14)
+        posts44 = posts43.IPconnect
+        posts45 = IPstatus.objects.get(id=15)
+        posts46 = posts45.IPconnect
+        posts47 = IPstatus.objects.get(id=16)
+        posts48 = posts47.IPconnect
+        posts49 = IPstatus.objects.get(id=17)
+        posts50 = posts49.IPconnect
+        posts51 = IPstatus.objects.get(id=18)
+        posts52 = posts51.IPconnect
+        posts53 = IPstatus.objects.get(id=19)
+        posts54 = posts53.IPconnect
+        posts55 = IPstatus.objects.get(id=20)
+        posts56 = posts55.IPconnect
+        posts57 = IPstatus.objects.get(id=21)
+        posts58 = posts57.IPconnect
+        posts59 = IPstatus.objects.get(id=22)
+        posts60 = posts59.IPconnect
+        posts61 = IPstatus.objects.get(id=23)
+        posts62 = posts61.IPconnect
+        posts63 = IPstatus.objects.get(id=24)
+        posts64 = posts63.IPconnect
+        posts65 = IPstatus.objects.get(id=25)
+        posts66 = posts65.IPconnect
+        posts67 = IPstatus.objects.get(id=26)
+        posts68 = posts67.IPconnect
+        posts69 = IPstatus.objects.get(id=27)
+        posts70 = posts69.IPconnect
+        posts71 = IPstatus.objects.get(id=28)
+        posts72 = posts71.IPconnect
     
     
-    if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
-        #Edit object into database
-        b10 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='1' )
-        b10.save()
-        b11 = overviewStatus(id=3, Over_name='ODsystem', Over_num='1' )
-        b11.save()
-    else: 
-        #Edit object into database
-        b12 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='0' )
-        b12.save()
-        b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
-        b13.save()
-    
-    args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72  }
+        if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
+            #Edit object into database
+            b10 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='1' )
+            b10.save()
+            b11 = overviewStatus(id=3, Over_name='ODsystem', Over_num='1' )
+            b11.save()
+        else: 
+            #Edit object into database
+            b12 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='0' )
+            b12.save()
+            b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
+            b13.save()
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72  }
+        return render(request,self.template_name, args)
 
-    return HttpResponse(template.render(args, request))
+    def post(self, request):
+        print(type(request))
+
+        header_str = 'Post Method'
+        form = HomeForm()
+        header_str = 'Login page testing'
+        posts = Intruder.objects.all()
+        posts2 = Errormessage.objects.all()
+        posts4  = IPstatus.objects.get(id=1)
+        posts3 = posts4.IPconnect
+        posts5 = 'Active'
+        posts6 = 'Inactive'
+        posts7 = overviewStatus.objects.get(id=1)
+        posts8 = posts7.Over_num
+        posts9 = 'Morning'
+        posts10 = 'Night & Raining'
+        posts11 = overviewStatus.objects.get(id=2)
+        posts12 = posts11.Over_num
+        posts13 = overviewStatus.objects.get(id=3)
+        posts14 = posts13.Over_num
+        posts15 = overviewStatus.objects.get(id=4)
+        posts16 = posts15.Over_num
+        posts17 = overviewStatus.objects.get(id=5)
+        posts18 = posts17.Over_num
+        posts19 = IPstatus.objects.get(id=2)
+        posts20 = posts19.IPconnect
+        posts21 = IPstatus.objects.get(id=3)
+        posts22 = posts21.IPconnect
+        posts23 = IPstatus.objects.get(id=4)
+        posts24 = posts23.IPconnect
+        posts25 = IPstatus.objects.get(id=5)
+        posts26 = posts25.IPconnect
+        posts27 = IPstatus.objects.get(id=6)
+        posts28 = posts27.IPconnect
+        posts29 = IPstatus.objects.get(id=7)
+        posts30 = posts29.IPconnect
+        posts31 = IPstatus.objects.get(id=8)
+        posts32 = posts31.IPconnect
+        posts33 = IPstatus.objects.get(id=9)
+        posts34 = posts33.IPconnect
+        posts35 = IPstatus.objects.get(id=10)
+        posts36 = posts35.IPconnect
+        posts37 = IPstatus.objects.get(id=11)
+        posts38 = posts37.IPconnect
+        posts39 = IPstatus.objects.get(id=12)
+        posts40 = posts39.IPconnect
+        posts41 = IPstatus.objects.get(id=13)
+        posts42 = posts41.IPconnect
+        posts43 = IPstatus.objects.get(id=14)
+        posts44 = posts43.IPconnect
+        posts45 = IPstatus.objects.get(id=15)
+        posts46 = posts45.IPconnect
+        posts47 = IPstatus.objects.get(id=16)
+        posts48 = posts47.IPconnect
+        posts49 = IPstatus.objects.get(id=17)
+        posts50 = posts49.IPconnect
+        posts51 = IPstatus.objects.get(id=18)
+        posts52 = posts51.IPconnect
+        posts53 = IPstatus.objects.get(id=19)
+        posts54 = posts53.IPconnect
+        posts55 = IPstatus.objects.get(id=20)
+        posts56 = posts55.IPconnect
+        posts57 = IPstatus.objects.get(id=21)
+        posts58 = posts57.IPconnect
+        posts59 = IPstatus.objects.get(id=22)
+        posts60 = posts59.IPconnect
+        posts61 = IPstatus.objects.get(id=23)
+        posts62 = posts61.IPconnect
+        posts63 = IPstatus.objects.get(id=24)
+        posts64 = posts63.IPconnect
+        posts65 = IPstatus.objects.get(id=25)
+        posts66 = posts65.IPconnect
+        posts67 = IPstatus.objects.get(id=26)
+        posts68 = posts67.IPconnect
+        posts69 = IPstatus.objects.get(id=27)
+        posts70 = posts69.IPconnect
+        posts71 = IPstatus.objects.get(id=28)
+        posts72 = posts71.IPconnect
+    
+    
+        if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
+            #Edit object into database
+            b10 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='1' )
+            b10.save()
+            b11 = overviewStatus(id=3, Over_name='ODsystem', Over_num='1' )
+            b11.save()
+        else: 
+            #Edit object into database
+            b12 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='0' )
+            b12.save()
+            b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
+            b13.save()
+
+
+        #POST
+
+        form = HomeForm(request.POST)
+        var001 = str(request.POST["Value1"])
+       
+        print(var001)
+
+        if var001 == "G" :
+            f01 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='1' )
+            f01.save()
+
+        elif var001 == "H" :
+            f02 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='0' )
+            f02.save()
+
+        elif var001 == "I" :
+            f03 = overviewStatus(id=7, Over_name='CatFilter', Over_num='1' )
+            f03.save()
+        
+        elif var001 == "J" :
+            f04 = overviewStatus(id=7, Over_name='CatFilter', Over_num='0' )
+            f04.save()
+
+        elif var001 == "K" :
+            f05 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='1' )
+            f05.save()
+
+        elif var001 == "L" :
+            f06 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='0' )
+            f06.save()
+    
+            
+
+        if form.is_valid():
+            text = form.cleaned_data['post']          
+
+
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72  }
+        return render(request,self.template_name, args)
+
 
 def test12(request) :
     template = loader.get_template('test12.html')
@@ -1532,54 +1668,7 @@ class ChangeMode(View) :
         return render(request,self.template_name, args)
 
 
-class Filter01(View) :
+
+
     
-    template_name = 'test45.html'
-
-    def get(self,request) :
-        header_str = 'Post Method'
-        form = HomeForm()
-        args = {'form': form}
-        return render(request,self.template_name, args)
-
-    def post(self, request):
-        print(type(request))
-
-        form = HomeForm(request.POST)
-        var001 = str(request.POST["Value1"])
-       
-        print(var001)
-
-        if var001 == "G" :
-            f01 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='1' )
-            f01.save()
-
-        elif var001 == "H" :
-            f02 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='0' )
-            f02.save()
-
-        elif var001 == "I" :
-            f03 = overviewStatus(id=7, Over_name='CatFilter', Over_num='1' )
-            f03.save()
-        
-        elif var001 == "J" :
-            f04 = overviewStatus(id=7, Over_name='CatFilter', Over_num='0' )
-            f04.save()
-
-        elif var001 == "K" :
-            f05 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='1' )
-            f05.save()
-
-        elif var001 == "L" :
-            f06 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='0' )
-            f06.save()
-    
-            
-
-        if form.is_valid():
-            text = form.cleaned_data['post']          
-
-
-        args = {'form': form}
-        return render(request,self.template_name, args)
 
