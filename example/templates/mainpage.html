@@ -247,16 +247,16 @@
     <div class="w3-panel">
         <div class="w3-half">
           <div class="w3-container w3-white w3-text-black w3-padding-16 "></div>
-          <img src="{% static 'assets/welcome003.png' %}" style="width:650px; ">
+          <img src="{% static 'assets/welcome003.png' %}" style="width: 95% ">
         </div>
           <div class="w3-half">
               <div class="w3-container w3-white w3-text-black w3-padding-16">
                 <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
                 <div class="w3-center" style="padding-top: 1.75rem;">
                   {% if posts8 == "1" %} 
-                  <img src="{% static 'assets/M101.png' %}" style="width:650px ">
+                  <img src="{% static 'assets/M101.png' %}" style="width:100% ">
                   {% else %}
-                  <img src="{% static 'assets/N100.png' %}" style="width:650px">
+                  <img src="{% static 'assets/N100.png' %}" style="width:100%">
                   {% endif %}
                   </span>
                 </div>
@@ -1309,13 +1309,26 @@
       </tr>
       {% endfor %}
   </table>
-  </div>
+ 
 
 </div>
 
 <div id="Test005" class="w3-container person" >
     <br>
-
+  <div>
+    <h2> General Settings </h2>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" name='Value1' value ="G" >online - human</button>
+      <button type="submit" name='Value1' value ="H" >offline - human</button>
+      <p></p>
+      <button type="submit" name='Value1' value ="I" >online - Cat&Dog</button>
+      <button type="submit" name='Value1' value ="J" >offline - Cat&Dog</button>
+      <p></p>
+      <button type="submit" name='Value1' value ="K" >online - Snake</button>
+      <button type="submit" name='Value1' value ="L" >offline - Snake</button>
+    </form>  
+  </div> 
 </div>
 
 

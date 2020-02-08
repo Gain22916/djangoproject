@@ -176,6 +176,22 @@ class Linetest(View) :
         post_intru = Intruder.objects.all()
         last_blanck = "                         "
         last_End = "  ------ End ------  "
+
+
+        #Filter_Feature_Variables
+
+        #Human_filter
+        filter_a = overviewStatus.objects.get(id=6)
+        filter_b = filter_a.Over_num
+
+        #CAT_filter
+        filter_c = overviewStatus.objects.get(id=7)
+        filter_d = filter_c.Over_num
+
+        #Snake_filter
+        filter_e = overviewStatus.objects.get(id=8)
+        filter_f = filter_e.Over_num
+
         for intruder in post_intru:
             #print(intruder.Intru, "--", intruder.IPcam)
             last_Intru = request.POST['Intruder'] 
@@ -191,9 +207,23 @@ class Linetest(View) :
         #line_text = TestLine.line_text(last_IPcam)
         #line_text = TestLine.line_text(last_Time)
         #line_text = TestLine.line_text(last_Image)
-        line_pic = TestLine.line_pic(last_IPcam , last_Image)
-        line_text = TestLine.line_text(last_End)
+
+        if filter_b == '1' and last_Intru == 'HUMAN':
         
+            line_pic = TestLine.line_pic(last_IPcam , last_Image)
+            line_text = TestLine.line_text(last_End)
+
+
+        elif filter_d == '1' and last_Intru == 'CAT':
+        
+            line_pic = TestLine.line_pic(last_IPcam , last_Image)
+            line_text = TestLine.line_text(last_End)
+
+        elif filter_f == '1' and last_Intru == 'SNAKE':
+        
+            line_pic = TestLine.line_pic(last_IPcam , last_Image)
+            line_text = TestLine.line_text(last_End)
+
 
         #line_text = TestLine.line_text(last_Intru)
         #line_text = TestLine.line_text(last_IPcam)
@@ -212,8 +242,8 @@ class Linetest(View) :
 
         if form.is_valid():
             text = form.cleaned_data['post']   
-            print(line_text)
             print(line_pic)
+            print(line_text)
        
         args = {'form': form}
         return render(request,self.template_name, args)
@@ -1445,7 +1475,7 @@ class Error_message(View) :
         form = HomeForm(request.POST)
     
         #add object into database
-        b111 = Errormessage(errorID=Error_mes,errorName=Error_ID, errorTime=Error_Name, errorDetail=Error_detail)
+        b111 = Errormessage(errorID=Error_ID,errorName=Error_Name, errorTime=Error_mes, errorDetail=Error_detail)
         b111.save()
 
 
@@ -1500,3 +1530,56 @@ class ChangeMode(View) :
        
         args = {'form': form}
         return render(request,self.template_name, args)
+
+
+class Filter01(View) :
+    
+    template_name = 'test45.html'
+
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+    def post(self, request):
+        print(type(request))
+
+        form = HomeForm(request.POST)
+        var001 = str(request.POST["Value1"])
+       
+        print(var001)
+
+        if var001 == "G" :
+            f01 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='1' )
+            f01.save()
+
+        elif var001 == "H" :
+            f02 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='0' )
+            f02.save()
+
+        elif var001 == "I" :
+            f03 = overviewStatus(id=7, Over_name='CatFilter', Over_num='1' )
+            f03.save()
+        
+        elif var001 == "J" :
+            f04 = overviewStatus(id=7, Over_name='CatFilter', Over_num='0' )
+            f04.save()
+
+        elif var001 == "K" :
+            f05 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='1' )
+            f05.save()
+
+        elif var001 == "L" :
+            f06 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='0' )
+            f06.save()
+    
+            
+
+        if form.is_valid():
+            text = form.cleaned_data['post']          
+
+
+        args = {'form': form}
+        return render(request,self.template_name, args)
+

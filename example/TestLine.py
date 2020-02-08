@@ -4,7 +4,11 @@ import urllib.parse
 import sys
 import time
 
-LINE_ACCESS_TOKEN = "bjspJcEimu4sGO3RXgXNTe5uXlce6DpAB93OZLpfzOQ"
+# Main code : bjspJcEimu4sGO3RXgXNTe5uXlce6DpAB93OZLpfzOQ
+
+# test code : h3JTI0wlvYtpPR6UGlTVMCLe6kBSmnfS3Gmdayr2OAx
+
+LINE_ACCESS_TOKEN = "h3JTI0wlvYtpPR6UGlTVMCLe6kBSmnfS3Gmdayr2OAx"
 URL_LINE = "https://notify-api.line.me/api/notify" 
 
 def line_text(message):	
@@ -50,7 +54,7 @@ def _lineNotify2(payload,file=None):
 
 if __name__ == "__main__":
 
-            line_text("Unit test as of 23/11/2019")
+            line_text("Unit test as of 08/02/2020")
             line_pic("Test", "C:/Users/Gain/Desktop/NewEGAT/123.jpg")
         
         

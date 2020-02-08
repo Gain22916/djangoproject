@@ -1,0 +1,33 @@
+<html>
+<head>
+      <title>Line API testing</title>
+      <meta charset="utf-8">
+      <title>Style Checkbox with CSS</title>
+          <!-- custom CSS -->
+        {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'switch.css' %}">
+</head>
+<body>
+
+
+
+<p></p>
+
+<div class="contrainer">
+  <h1> Line Notification </h1>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" name='Value1' value ="G" >online - human</button>
+    <button type="submit" name='Value1' value ="H" >offline - human</button>
+    <p></p>
+    <button type="submit" name='Value1' value ="I" >online - Cat&Dog</button>
+    <button type="submit" name='Value1' value ="J" >offline - Cat&Dog</button>
+    <p></p>
+    <button type="submit" name='Value1' value ="K" >online - Snake</button>
+    <button type="submit" name='Value1' value ="L" >offline - Snake</button>
+  </form>    
+
+  
+
+</body>
+</html>

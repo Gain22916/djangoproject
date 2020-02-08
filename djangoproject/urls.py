@@ -73,6 +73,7 @@ urlpatterns = [
     url(r'test42/$', viewstest.ChangeStatus28.as_view()),
     url(r'test43/$', viewstest.Error_message.as_view()),
     url(r'test44/$', viewstest.ChangeMode.as_view()),
+    url(r'test45/$', viewstest.Filter01.as_view()),
 
 
 
