@@ -210,18 +210,18 @@ class Linetest(View) :
 
         if filter_b == '1' and last_Intru == 'HUMAN':
         
-            line_pic = TestLine.line_pic(last_IPcam , last_Image)
+            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/'+ last_Image)
             line_text = TestLine.line_text(last_End)
 
 
         elif filter_d == '1' and last_Intru == 'CAT':
         
-            line_pic = TestLine.line_pic(last_IPcam , last_Image)
+            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
             line_text = TestLine.line_text(last_End)
 
         elif filter_f == '1' and last_Intru == 'SNAKE':
         
-            line_pic = TestLine.line_pic(last_IPcam , last_Image)
+            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
             line_text = TestLine.line_text(last_End)
 
 
@@ -365,6 +365,8 @@ class Main_page(View) :
         posts70 = posts69.IPconnect
         posts71 = IPstatus.objects.get(id=28)
         posts72 = posts71.IPconnect
+        posts73 = overviewStatus.objects.get(id=6)
+        posts74 = posts73.Over_num
     
     
         if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
@@ -379,12 +381,12 @@ class Main_page(View) :
             b12.save()
             b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
             b13.save()
-        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72  }
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74 }
         return render(request,self.template_name, args)
 
     def post(self, request):
         print(type(request))
-
+        template = loader.get_template('mainpage.html')
         header_str = 'Post Method'
         form = HomeForm()
         header_str = 'Login page testing'
@@ -460,6 +462,8 @@ class Main_page(View) :
         posts70 = posts69.IPconnect
         posts71 = IPstatus.objects.get(id=28)
         posts72 = posts71.IPconnect
+        posts73 = overviewStatus.objects.get(id=6)
+        posts74 = posts73.Over_num
     
     
         if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
@@ -486,7 +490,7 @@ class Main_page(View) :
         if var001 == "G" :
             f01 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='1' )
             f01.save()
-
+            
         elif var001 == "H" :
             f02 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='0' )
             f02.save()
@@ -513,8 +517,8 @@ class Main_page(View) :
             text = form.cleaned_data['post']          
 
 
-        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72  }
-        return render(request,self.template_name, args)
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74  }
+        return redirect('http://127.0.0.1:8000/mainpage/')
 
 
 def test12(request) :

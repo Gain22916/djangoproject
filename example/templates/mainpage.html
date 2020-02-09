@@ -1124,7 +1124,7 @@
       {% if posts66 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
       <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
-      {% else %}
+      {% else %}fh001
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
       <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
       {% endif %}
@@ -1315,12 +1315,36 @@
 
 <div id="Test005" class="w3-container person" >
     <br>
-  <div>
     <h2> General Settings </h2>
+    <div class="w3-quarter">
+      <div class="w3-container w3-white w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-left">
+          <form method="post">
+          {% if posts74 == "1" %}
+            <img src="{% static 'assets/fh001.png' %}"  style="width:90%">
+          {% else %}
+            <img src="{% static 'assets/fh002.png' %}" style="width:90%">
+          {% endif %} 
+          <form method="post">
+              {% csrf_token %}
+              <button class="button5" type="submit" name='Value1' value ="G" style=" position: fixed;
+              top: 57%;
+              left: 18%;" onclick="FilterAlert()" >On</button>
+              <button class="button6" type="submit" name='Value1' value ="H" style=" position: fixed;
+              top: 57%;
+              left: 24%;" onclick="FilterAlert()" >Off</button>
+            </form>  
+        </div>
+        <div class="w3-clear"></div>
+        <h3>Database status</h3>
+      </div>
+    </div>
+  <div>
+
     <form method="post">
       {% csrf_token %}
-      <button type="submit" name='Value1' value ="G" >online - human</button>
-      <button type="submit" name='Value1' value ="H" >offline - human</button>
+    
       <p></p>
       <button type="submit" name='Value1' value ="I" >online - Cat&Dog</button>
       <button type="submit" name='Value1' value ="J" >offline - Cat&Dog</button>
@@ -1331,9 +1355,72 @@
   </div> 
 </div>
 
+<!--Botton -->
+
+<script>
+
+function FilterAlert() {
+  alert("The system has changed Successfully");
+}
+
+</script>
+
+
+<style>
+
+.button5 {
+  display: inline-block;
+  padding: 6px 27px;
+  font-size: 22px;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: 1px solid #999;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px #999;
+}
+
+.button5:hover {background-color: #00b050; color: white;}
+
+.button5:active {
+  background-color: #00b050;
+  box-shadow: 0 3px #999;
+  transform: translateY(4px); }
+
+.button6 {
+  display: inline-block;
+  padding: 6px 27px;
+  font-size: 22px;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  border: 1px solid #999;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px #999;
+}
+
+.button6:hover {background-color: red; color: white;}
+
+.button6:active {
+  background-color: red;
+  box-shadow: 0 3px #999;
+  transform: translateY(4px);
+}
+
+
+</style>
 
 <!--EGAT introduction and Feeds-->
 <style>
+
   .switch {
     position: relative;
     display: inline-block;
