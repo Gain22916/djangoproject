@@ -1319,40 +1319,59 @@
     <div class="w3-quarter">
       <div class="w3-container w3-white w3-text-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-        <div class="w3-left">
-          <form method="post">
           {% if posts74 == "1" %}
-            <img src="{% static 'assets/fh001.png' %}"  style="width:90%">
+            <img src="{% static 'assets/fh003.png' %}"  style="width:90%">
           {% else %}
-            <img src="{% static 'assets/fh002.png' %}" style="width:90%">
+            <img src="{% static 'assets/fh004.png' %}" style="width:90%">
           {% endif %} 
           <form method="post">
               {% csrf_token %}
-              <button class="button5" type="submit" name='Value1' value ="G" style=" position: fixed;
+              <button class="button5" type="submit" name='Value1' value ="G" style=" position: absolute;
               top: 57%;
               left: 18%;" onclick="FilterAlert()" >On</button>
-              <button class="button6" type="submit" name='Value1' value ="H" style=" position: fixed;
+              <button class="button6" type="submit" name='Value1' value ="H" style=" position: absolute;
               top: 57%;
               left: 24%;" onclick="FilterAlert()" >Off</button>
-            </form>  
-        </div>
-        <div class="w3-clear"></div>
-        <h3>Database status</h3>
+          </form>  
       </div>
     </div>
-  <div>
 
-    <form method="post">
-      {% csrf_token %}
-    
-      <p></p>
-      <button type="submit" name='Value1' value ="I" >online - Cat&Dog</button>
-      <button type="submit" name='Value1' value ="J" >offline - Cat&Dog</button>
-      <p></p>
-      <button type="submit" name='Value1' value ="K" >online - Snake</button>
-      <button type="submit" name='Value1' value ="L" >offline - Snake</button>
-    </form>  
-  </div> 
+      <div class="w3-quarter">
+          <div class="w3-container w3-white w3-text-white w3-padding-16">
+              {% if posts76 == "1" %}
+                <img src="{% static 'assets/fc001.png' %}"  style="width:90%">
+              {% else %}
+                <img src="{% static 'assets/fc002.png' %}" style="width:90%">
+              {% endif %} 
+              <form method="post">
+                  {% csrf_token %}
+                  <button class="button5" type="submit" name='Value1' value ="I" style=" position: absolute;
+                  top: 57%;
+                  left: 39.25%;" onclick="FilterAlert()" >On</button>
+                  <button class="button6" type="submit" name='Value1' value ="J" style=" position: absolute;
+                  top: 57%;
+                  left: 45.25%;" onclick="FilterAlert()" >Off</button>
+              </form>
+          </div>
+      </div>
+      <div class="w3-quarter">
+          <div class="w3-container w3-white w3-text-white w3-padding-16">
+              {% if posts78 == "1" %}
+                <img src="{% static 'assets/fs001.png' %}"  style="width:90%">
+              {% else %}
+                <img src="{% static 'assets/fs002.png' %}" style="width:90%">
+              {% endif %} 
+              <form method="post">
+                  {% csrf_token %}
+                  <button class="button5" type="submit" name='Value1' value ="K" style=" position: absolute;
+                  top: 57%;
+                  left: 60.75%;" onclick="FilterAlert()" >On</button>
+                  <button class="button6" type="submit" name='Value1' value ="L" style=" position: absolute;
+                  top: 57%;
+                  left: 66.75%;" onclick="FilterAlert()" >Off</button>
+              </form>
+          </div>
+      </div>
 </div>
 
 <!--Botton -->
