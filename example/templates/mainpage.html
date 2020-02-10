@@ -254,7 +254,7 @@
                 <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
                 <div class="w3-center" style="padding-top: 1.75rem;">
                   {% if posts8 == "1" %} 
-                  <img src="{% static 'assets/M101.png' %}" style="width:100% ">
+                  <img src="{% static 'assets/M101.png' %}" style="width:92% ">
                   {% else %}
                   <img src="{% static 'assets/N100.png' %}" style="width:100%">
                   {% endif %}
@@ -267,23 +267,39 @@
     <div class="w3-panel">
         <div class="position-left" style="padding-top: 1rem;" >
           <div class="w3-third">
-            <h5>Intruders detection</h5>
-            
-            <p>Human</p>
-            <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-green w3-text-white" style="width:75% ">120 units</div>
+            <div class="w3-container w3-white w3-text-black w3-padding-16">
+              <div >
+                {% if posts74 == "1" %} 
+                <img src="{% static 'assets/fhs004.png' %}" style="width:92% ">
+                {% else %}
+                <img src="{% static 'assets/fhs005.png' %}" style="width:92%">
+                {% endif %}
+
+                {% if posts76 == "1" %} 
+                <img src="{% static 'assets/fcs001.png' %}" style="width:92% ">
+                {% else %}
+                <img src="{% static 'assets/fcs002.png' %}" style="width:92%">
+                {% endif %}
+              
               </div>
-              <p></p>
-              <p>Cat</p>
-              <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-orange w3-text-white" style="width:30%">20 units</div>
+
+              <div >
+                
+              
               </div>
-              <p></p>                            
-              <p>Snake</p>
-              <div class="w3-grey">
-                <div class="w3-container w3-center w3-padding w3-red w3-text-white" style="width:20%">5 units</div>
+
+              <div >
+                {% if posts78 == "1" %} 
+                <img src="{% static 'assets/fss001.png' %}" style="width:92% ">
+                {% else %}
+                <img src="{% static 'assets/fss002.png' %}" style="width:92%">
+                {% endif %}
+                </span>
               </div>
+            </div>
           </div>
+
+
           <div class="position-right" style="margin-left: 50%; ">
             <h5>Daily Feeds</h5>
             <table class="w3-table w3-striped w3-white" style="width:95%">
