@@ -141,3 +141,17 @@ class overviewStatus(models.Model):
     def __str__(self):
         return self.Over_name
 
+
+class daily_feeds(models.Model):
+    
+    daily_name = models.CharField(max_length=40)
+    daly_time = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.daily_name
+
+    def __str__(self):
+        return self.daly_time
+
+    
+

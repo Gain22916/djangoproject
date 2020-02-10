@@ -73,7 +73,7 @@ urlpatterns = [
     url(r'test43/$', viewstest.Error_message.as_view()),
     url(r'test44/$', viewstest.ChangeMode.as_view()),
     url(r'mainpage/$', viewstest.Main_page.as_view()),
-    
+    url(r'test47/$', viewstest.SPC_001.as_view()),
 
 
 

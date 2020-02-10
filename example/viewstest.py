@@ -6,11 +6,13 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-from example.models import Simple, Intruder, Errormessage, IPstatus,overviewStatus
+from example.models import Simple, Intruder, Errormessage, IPstatus,overviewStatus,daily_feeds
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from example import TestLine
+import time, datetime
+from datetime import datetime
 
 
 
@@ -176,6 +178,9 @@ class Linetest(View) :
         post_intru = Intruder.objects.all()
         last_blanck = "                         "
         last_End = "  ------ End ------  "
+        # current date and time
+        now = datetime.now()
+        ticks = now.strftime("%d/%m/%Y, %H:%M:%S")
 
 
         #Filter_Feature_Variables
@@ -202,6 +207,9 @@ class Linetest(View) :
         #add object into database
         b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
         b2.save()
+
+        d2 = daily_feeds(daily_name='The system has detected: ' + last_Intru, daly_time=ticks )
+        d2.save()
 
         #line_text = TestLine.line_text(last_Intru)
         #line_text = TestLine.line_text(last_IPcam)
@@ -295,6 +303,7 @@ class Main_page(View) :
         header_str = 'Login page testing'
         posts = Intruder.objects.all()
         posts2 = Errormessage.objects.all()
+        postsD = daily_feeds.objects.all()
         posts4  = IPstatus.objects.get(id=1)
         posts3 = posts4.IPconnect
         posts5 = 'Active'
@@ -371,7 +380,11 @@ class Main_page(View) :
         posts76 = posts75.Over_num
         posts77 = overviewStatus.objects.get(id=8)
         posts78 = posts77.Over_num
-    
+
+        # current date and time
+        now = datetime.now()
+        ticks = now.strftime("%d/%m/%Y, %H:%M:%S")
+
     
         if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
             #Edit object into database
@@ -379,13 +392,17 @@ class Main_page(View) :
             b10.save()
             b11 = overviewStatus(id=3, Over_name='ODsystem', Over_num='1' )
             b11.save()
+
+            
         else: 
             #Edit object into database
             b12 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='0' )
             b12.save()
             b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
             b13.save()
-        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78 }
+
+
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78, 'postsD' : postsD }
         return render(request,self.template_name, args)
 
     def post(self, request):
@@ -396,6 +413,7 @@ class Main_page(View) :
         header_str = 'Login page testing'
         posts = Intruder.objects.all()
         posts2 = Errormessage.objects.all()
+        postsD = daily_feeds.objects.all()
         posts4  = IPstatus.objects.get(id=1)
         posts3 = posts4.IPconnect
         posts5 = 'Active'
@@ -472,7 +490,10 @@ class Main_page(View) :
         posts76 = posts75.Over_num
         posts77 = overviewStatus.objects.get(id=8)
         posts78 = posts77.Over_num
-    
+
+        # current date and time
+        now = datetime.now()
+        ticks = now.strftime("%d/%m/%Y, %H:%M:%S")
     
         if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
             #Edit object into database
@@ -480,12 +501,21 @@ class Main_page(View) :
             b10.save()
             b11 = overviewStatus(id=3, Over_name='ODsystem', Over_num='1' )
             b11.save()
+
+            #Add object into database
+            d6 = daily_feeds(daily_name='Object Detection system: Active ', daly_time=ticks )
+            d6.save()
+
         else: 
             #Edit object into database
             b12 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='0' )
             b12.save()
             b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
             b13.save()
+
+            #Add object into database
+            d8 = daily_feeds(daily_name='Object Detection system: Inactive ', daly_time=ticks )
+            d8.save()
 
 
         #POST
@@ -498,26 +528,50 @@ class Main_page(View) :
         if var001 == "G" :
             f01 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='1' )
             f01.save()
+
+            #Add object into database
+            d10 = daily_feeds(daily_name='Human Detection: Online ', daly_time=ticks )
+            d10.save()
             
         elif var001 == "H" :
             f02 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='0' )
             f02.save()
 
+            #Add object into database
+            d12 = daily_feeds(daily_name='Human Detection: Offline ', daly_time=ticks )
+            d12.save()
+
         elif var001 == "I" :
             f03 = overviewStatus(id=7, Over_name='CatFilter', Over_num='1' )
             f03.save()
+
+            #Add object into database
+            d14 = daily_feeds(daily_name='Cat & Dog Detection: Online ', daly_time=ticks )
+            d14.save()
         
         elif var001 == "J" :
             f04 = overviewStatus(id=7, Over_name='CatFilter', Over_num='0' )
             f04.save()
 
+            #Add object into database
+            d16 = daily_feeds(daily_name='Cat & Dog Detection: Offline ', daly_time=ticks )
+            d16.save()
+
         elif var001 == "K" :
             f05 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='1' )
             f05.save()
 
+            #Add object into database
+            d18 = daily_feeds(daily_name='Snake Detection: Online ', daly_time=ticks )
+            d18.save()
+
         elif var001 == "L" :
             f06 = overviewStatus(id=8, Over_name='SnakeFilter', Over_num='0' )
             f06.save()
+
+            #Add object into database
+            d18 = daily_feeds(daily_name='Snake Detection: Offline ', daly_time=ticks )
+            d18.save()
     
             
 
@@ -525,7 +579,7 @@ class Main_page(View) :
             text = form.cleaned_data['post']          
 
 
-        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78  }
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78, 'postsD' : postsD  }
         return redirect('http://127.0.0.1:8000/mainpage/')
 
 
@@ -1614,6 +1668,10 @@ class Error_message(View) :
 
     def post(self, request):
         print(type(request))
+
+        # current date and time
+        now = datetime.now()
+        ticks = now.strftime("%d/%m/%Y, %H:%M:%S")
     
         Error_mes = request.POST['ErrorTime']
         Error_ID = request.POST['ErrorID']
@@ -1625,6 +1683,9 @@ class Error_message(View) :
         #add object into database
         b111 = Errormessage(errorID=Error_ID,errorName=Error_Name, errorTime=Error_mes, errorDetail=Error_detail)
         b111.save()
+
+        d33 = daily_feeds(daily_name='The system has detected: ' + ErrorName, daly_time=ticks )
+        d33.save()
 
 
         #Edit object into database
@@ -1680,6 +1741,97 @@ class ChangeMode(View) :
         return render(request,self.template_name, args)
 
 
+class SPC_001(View) :
+    template_name = 'test47.html'
+
+    def get(self,request) :
+        header_str = 'Post Method'
+        form = HomeForm()
+        args = {'form': form}
+        return render(request,self.template_name, args)
+
+    def post(self, request):
+        print(type(request))
+        post_intru = Intruder.objects.all()
+        last_blanck = "                         "
+        last_End = "  ------ End ------  "
+        # current date and time
+        now = datetime.now()
+        ticks = now.strftime("%d/%m/%Y, %H:%M:%S")
+
+
+        #Filter_Feature_Variables
+
+        #Human_filter
+        filter_a = overviewStatus.objects.get(id=6)
+        filter_b = filter_a.Over_num
+
+        #CAT_filter
+        filter_c = overviewStatus.objects.get(id=7)
+        filter_d = filter_c.Over_num
+
+        #Snake_filter
+        filter_e = overviewStatus.objects.get(id=8)
+        filter_f = filter_e.Over_num
+
+        for intruder in post_intru:
+            #print(intruder.Intru, "--", intruder.IPcam)
+            last_Intru = request.POST['Intruder'] 
+            last_IPcam = request.POST['Ipcamera'] 
+            last_Time = request.POST['Time'] 
+            last_Image = request.POST['ImageID'] 
+        form = HomeForm(request.POST)
+        #add object into database
+        b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
+        b2.save()
+
+        d2 = daily_feeds(daily_name='The system has detected: ' + last_Intru, daly_time=ticks )
+        d2.save()
+
+        #line_text = TestLine.line_text(last_Intru)
+        #line_text = TestLine.line_text(last_IPcam)
+        #line_text = TestLine.line_text(last_Time)
+        #line_text = TestLine.line_text(last_Image)
+
+        if filter_b == '1' and last_Intru == 'HUMAN':
+        
+            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/'+ last_Image)
+            line_text = TestLine.line_text(last_End)
+
+
+        elif filter_d == '1' and last_Intru == 'CAT':
+        
+            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
+            line_text = TestLine.line_text(last_End)
+
+        elif filter_f == '1' and last_Intru == 'SNAKE':
+        
+            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
+            line_text = TestLine.line_text(last_End)
+
+
+        #line_text = TestLine.line_text(last_Intru)
+        #line_text = TestLine.line_text(last_IPcam)
+        #line_text = TestLine.line_text(last_Time)
+        #line_text = TestLine.line_text(last_Image)
+        #line_pic = TestLine.line_pic("Test", last_Image)
+
+        #Edit object into database
+
+        #b4 = overviewStatus(id=3, IPnum='CAM003',IPcam='Not123', Time='Not123', ImageID='Not123')
+        #b4.save()
+
+        #Delete object into database
+        #Intruder.objects.filter(id=1).delete()
+
+
+        if form.is_valid():
+            text = form.cleaned_data['post']   
+            print(line_pic)
+            print(line_text)
+       
+        args = {'form': form}
+        return render(request,self.template_name, args)
 
 
     
