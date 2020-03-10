@@ -6,7 +6,7 @@ from example.forms import HomeForm
 from django.views import View
 import requests
 from admin_management import LineAPI
-from example.models import Simple, Intruder, Errormessage, IPstatus,overviewStatus,daily_feeds
+from example.models import Simple, Intruder, Errormessage, IPstatus,overviewStatus,daily_feeds,camera_notification
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -197,18 +197,108 @@ class Linetest(View) :
         filter_e = overviewStatus.objects.get(id=8)
         filter_f = filter_e.Over_num
 
+        #IPcameraNotification
+
+        CAM_N001 = camera_notification.objects.get(id=1)
+        CAM_N002 = CAM_N001.CameraNoti_status
+
+        CAM_N003 = camera_notification.objects.get(id=2)
+        CAM_N004 = CAM_N003.CameraNoti_status
+
+        CAM_N005 = camera_notification.objects.get(id=3)
+        CAM_N006 = CAM_N005.CameraNoti_status
+
+        CAM_N007 = camera_notification.objects.get(id=4)
+        CAM_N008 = CAM_N007.CameraNoti_status
+
+        CAM_N009 = camera_notification.objects.get(id=5)
+        CAM_N010 = CAM_N009.CameraNoti_status
+        
+        CAM_N011 = camera_notification.objects.get(id=6)
+        CAM_N012 = CAM_N011.CameraNoti_status
+
+        CAM_N013 = camera_notification.objects.get(id=7)
+        CAM_N014 = CAM_N013.CameraNoti_status
+
+        CAM_N015 = camera_notification.objects.get(id=8)
+        CAM_N016 = CAM_N015.CameraNoti_status
+
+        CAM_N017 = camera_notification.objects.get(id=9)
+        CAM_N018 = CAM_N017.CameraNoti_status
+
+        CAM_N019 = camera_notification.objects.get(id=10)
+        CAM_N020 = CAM_N019.CameraNoti_status
+
+        CAM_N021 = camera_notification.objects.get(id=11)
+        CAM_N022 = CAM_N021.CameraNoti_status
+
+        CAM_N023 = camera_notification.objects.get(id=12)
+        CAM_N024 = CAM_N023.CameraNoti_status
+
+        CAM_N025 = camera_notification.objects.get(id=13)
+        CAM_N026 = CAM_N025.CameraNoti_status
+
+        CAM_N027 = camera_notification.objects.get(id=14)
+        CAM_N028 = CAM_N027.CameraNoti_status
+
+        CAM_N029 = camera_notification.objects.get(id=15)
+        CAM_N030 = CAM_N029.CameraNoti_status
+
+        CAM_N031 = camera_notification.objects.get(id=16)
+        CAM_N032 = CAM_N031.CameraNoti_status
+
+        CAM_N033 = camera_notification.objects.get(id=17)
+        CAM_N034 = CAM_N033.CameraNoti_status
+
+        CAM_N035 = camera_notification.objects.get(id=18)
+        CAM_N036 = CAM_N035.CameraNoti_status 
+
+        CAM_N037 = camera_notification.objects.get(id=19)
+        CAM_N038 = CAM_N037.CameraNoti_status 
+
+        CAM_N039 = camera_notification.objects.get(id=20)
+        CAM_N040 = CAM_N039.CameraNoti_status 
+
+        CAM_N041 = camera_notification.objects.get(id=21)
+        CAM_N042 = CAM_N041.CameraNoti_status 
+
+        CAM_N043 = camera_notification.objects.get(id=22)
+        CAM_N044 = CAM_N043.CameraNoti_status 
+
+        CAM_N045 = camera_notification.objects.get(id=23)
+        CAM_N046 = CAM_N045.CameraNoti_status 
+        
+        CAM_N047 = camera_notification.objects.get(id=24)
+        CAM_N048 = CAM_N047.CameraNoti_status 
+
+        CAM_N049 = camera_notification.objects.get(id=25)
+        CAM_N050 = CAM_N049.CameraNoti_status 
+
+        CAM_N051 = camera_notification.objects.get(id=26)
+        CAM_N052 = CAM_N051.CameraNoti_status 
+        
+        CAM_N053 = camera_notification.objects.get(id=27)
+        CAM_N054 = CAM_N054.CameraNoti_status 
+
+        CAM_N055 = camera_notification.objects.get(id=28)
+        CAM_N056 = CAM_N056.CameraNoti_status 
+
+
         for intruder in post_intru:
             #print(intruder.Intru, "--", intruder.IPcam)
             last_Intru = request.POST['Intruder'] 
             last_IPcam = request.POST['Ipcamera'] 
             last_Time = request.POST['Time'] 
             last_Image = request.POST['ImageID'] 
+
+            position_path = 'C:/Users/Gain/Desktop/NewEGAT/results/' #adjust for Production away
+
         form = HomeForm(request.POST)
         #add object into database
         b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
         b2.save()
 
-        d2 = daily_feeds(daily_name='The system has detected: ' + last_Intru, daly_time=ticks )
+        d2 = daily_feeds(daily_name='ระบบตรวจจับผู้บุกรุกเป็น: ' + last_Intru, daly_time=ticks )
         d2.save()
 
         #line_text = TestLine.line_text(last_Intru)
@@ -218,19 +308,349 @@ class Linetest(View) :
 
         if filter_b == '1' and last_Intru == 'HUMAN':
         
-            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/'+ last_Image)
-            line_text = TestLine.line_text(last_End)
+            if CAM_N002 == '1' and last_IPcam =='CAM001' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N004 == '1' and last_IPcam =='CAM002' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N006 == '1' and last_IPcam =='CAM003' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N008 == '1' and last_IPcam =='CAM004' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N010 == '1' and last_IPcam =='CAM005' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N012 == '1' and last_IPcam =='CAM006' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N014 == '1' and last_IPcam =='CAM007' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N016 == '1' and last_IPcam =='CAM008' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N018 == '1' and last_IPcam =='CAM009' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N020 == '1' and last_IPcam =='CAM010' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N022 == '1' and last_IPcam =='CAM011' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N024 == '1' and last_IPcam =='CAM012' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N026 == '1' and last_IPcam =='CAM013' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N028 == '1' and last_IPcam =='CAM014' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N030 == '1' and last_IPcam =='CAM015' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N032 == '1' and last_IPcam =='CAM016' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N034 == '1' and last_IPcam =='CAM017' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N036 == '1' and last_IPcam =='CAM018' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N038 == '1' and last_IPcam =='CAM019' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N040 == '1' and last_IPcam =='CAM020' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N042 == '1' and last_IPcam =='CAM021' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N044 == '1' and last_IPcam =='CAM022' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N046 == '1' and last_IPcam =='CAM023' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N048 == '1' and last_IPcam =='CAM024' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N050 == '1' and last_IPcam =='CAM025' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N052 == '1' and last_IPcam =='CAM026' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N054 == '1' and last_IPcam =='CAM027' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N056 == '1' and last_IPcam =='CAM028' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+
+
 
 
         elif filter_d == '1' and last_Intru == 'CAT':
         
-            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
-            line_text = TestLine.line_text(last_End)
+            if CAM_N002 == '1' and last_IPcam =='CAM001' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N004 == '1' and last_IPcam =='CAM002' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N006 == '1' and last_IPcam =='CAM003' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N008 == '1' and last_IPcam =='CAM004' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N010 == '1' and last_IPcam =='CAM005' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N012 == '1' and last_IPcam =='CAM006' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N014 == '1' and last_IPcam =='CAM007' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N016 == '1' and last_IPcam =='CAM008' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N018 == '1' and last_IPcam =='CAM009' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N020 == '1' and last_IPcam =='CAM010' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N022 == '1' and last_IPcam =='CAM011' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N024 == '1' and last_IPcam =='CAM012' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N026 == '1' and last_IPcam =='CAM013' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N028 == '1' and last_IPcam =='CAM014' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N030 == '1' and last_IPcam =='CAM015' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N032 == '1' and last_IPcam =='CAM016' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N034 == '1' and last_IPcam =='CAM017' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N036 == '1' and last_IPcam =='CAM018' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N038 == '1' and last_IPcam =='CAM019' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N040 == '1' and last_IPcam =='CAM020' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N042 == '1' and last_IPcam =='CAM021' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N044 == '1' and last_IPcam =='CAM022' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N046 == '1' and last_IPcam =='CAM023' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N048 == '1' and last_IPcam =='CAM024' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N050 == '1' and last_IPcam =='CAM025' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N052 == '1' and last_IPcam =='CAM026' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N054 == '1' and last_IPcam =='CAM027' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N056 == '1' and last_IPcam =='CAM028' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
 
         elif filter_f == '1' and last_Intru == 'SNAKE':
         
-            line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
-            line_text = TestLine.line_text(last_End)
+            if CAM_N002 == '1' and last_IPcam =='CAM001' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N004 == '1' and last_IPcam =='CAM002' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N006 == '1' and last_IPcam =='CAM003' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N008 == '1' and last_IPcam =='CAM004' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N010 == '1' and last_IPcam =='CAM005' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N012 == '1' and last_IPcam =='CAM006' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N014 == '1' and last_IPcam =='CAM007' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N016 == '1' and last_IPcam =='CAM008' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N018 == '1' and last_IPcam =='CAM009' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N020 == '1' and last_IPcam =='CAM010' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N022 == '1' and last_IPcam =='CAM011' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N024 == '1' and last_IPcam =='CAM012' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N026 == '1' and last_IPcam =='CAM013' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N028 == '1' and last_IPcam =='CAM014' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+            
+            elif CAM_N030 == '1' and last_IPcam =='CAM015' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N032 == '1' and last_IPcam =='CAM016' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N034 == '1' and last_IPcam =='CAM017' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N036 == '1' and last_IPcam =='CAM018' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N038 == '1' and last_IPcam =='CAM019' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N040 == '1' and last_IPcam =='CAM020' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N042 == '1' and last_IPcam =='CAM021' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N044 == '1' and last_IPcam =='CAM022' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N046 == '1' and last_IPcam =='CAM023' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N048 == '1' and last_IPcam =='CAM024' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N050 == '1' and last_IPcam =='CAM025' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N052 == '1' and last_IPcam =='CAM026' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N054 == '1' and last_IPcam =='CAM027' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
+
+            elif CAM_N056 == '1' and last_IPcam =='CAM028' :
+                line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
+                line_text = TestLine.line_text(last_End)
 
 
         #line_text = TestLine.line_text(last_Intru)
@@ -289,7 +709,7 @@ def loginpage(request) :
             return redirect('/mainpage/')
         else:
             print('login failed')
-            messages.info(request,'Login failed : Please validation')
+            messages.info(request,'การเข้าระบบผิดพลาด : โปรดตรวจสอบ')
             return redirect('/loginpage/')
 
     return HttpResponse(template.render(args, request))
@@ -380,6 +800,65 @@ class Main_page(View) :
         posts76 = posts75.Over_num
         posts77 = overviewStatus.objects.get(id=8)
         posts78 = posts77.Over_num
+        #Camera notification status
+        posts79 = camera_notification.objects.get(id=1)
+        posts80 = posts79.CameraNoti_status
+        posts81 = camera_notification.objects.get(id=2)
+        posts82 = posts81.CameraNoti_status
+        posts83 = camera_notification.objects.get(id=3)
+        posts84 = posts83.CameraNoti_status
+        posts85 = camera_notification.objects.get(id=4)
+        posts86 = posts85.CameraNoti_status
+        posts87 = camera_notification.objects.get(id=5)
+        posts88 = posts87.CameraNoti_status
+        posts89 = camera_notification.objects.get(id=6)
+        posts90 = posts89.CameraNoti_status
+        posts91 = camera_notification.objects.get(id=7)
+        posts92 = posts91.CameraNoti_status
+        posts93 = camera_notification.objects.get(id=8)
+        posts94 = posts93.CameraNoti_status
+        posts95 = camera_notification.objects.get(id=9)
+        posts96 = posts95.CameraNoti_status
+        posts97 = camera_notification.objects.get(id=10)
+        posts98 = posts97.CameraNoti_status
+        posts99 = camera_notification.objects.get(id=11)
+        posts100 = posts99.CameraNoti_status
+        posts101 = camera_notification.objects.get(id=12)
+        posts102 = posts101.CameraNoti_status
+        posts103 = camera_notification.objects.get(id=13)
+        posts104 = posts103.CameraNoti_status
+        posts105 = camera_notification.objects.get(id=14)
+        posts106 = posts105.CameraNoti_status
+        posts107 = camera_notification.objects.get(id=15)
+        posts108 = posts107.CameraNoti_status
+        posts109 = camera_notification.objects.get(id=16)
+        posts110 = posts109.CameraNoti_status
+        posts111 = camera_notification.objects.get(id=17)
+        posts112 = posts111.CameraNoti_status
+        posts113 = camera_notification.objects.get(id=18)
+        posts114 = posts113.CameraNoti_status
+        posts115 = camera_notification.objects.get(id=19)
+        posts116 = posts115.CameraNoti_status
+        posts117 = camera_notification.objects.get(id=20)
+        posts118 = posts117.CameraNoti_status
+        posts119 = camera_notification.objects.get(id=21)
+        posts120 = posts119.CameraNoti_status
+        posts121 = camera_notification.objects.get(id=22)
+        posts122 = posts121.CameraNoti_status
+        posts123 = camera_notification.objects.get(id=23)
+        posts124 = posts123.CameraNoti_status
+        posts125 = camera_notification.objects.get(id=24)
+        posts126 = posts125.CameraNoti_status
+        posts127 = camera_notification.objects.get(id=25)
+        posts128 = posts127.CameraNoti_status
+        posts129 = camera_notification.objects.get(id=26)
+        posts130 = posts129.CameraNoti_status
+        posts131 = camera_notification.objects.get(id=27)
+        posts132 = posts131.CameraNoti_status
+        posts133 = camera_notification.objects.get(id=28)
+        posts134 = posts133.CameraNoti_status
+
+
 
         # current date and time
         now = datetime.now()
@@ -402,7 +881,7 @@ class Main_page(View) :
             b13.save()
 
 
-        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78, 'postsD' : postsD }
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78, 'postsD' : postsD, 'posts80' : posts80, 'posts82' : posts82, 'posts84' : posts84, 'posts86' : posts86, 'posts88' : posts88, 'posts90' : posts90, 'posts92' : posts92, 'posts94' : posts94, 'posts96' : posts96, 'posts98' : posts98, 'posts100' : posts100, 'posts102' : posts102, 'posts104' : posts104, 'posts106' : posts106, 'posts108' : posts108, 'posts110' : posts110, 'posts112' : posts112, 'posts114' : posts114, 'posts116' : posts116, 'posts118' : posts118, 'posts120' : posts120, 'posts122' : posts122, 'posts124' : posts124, 'posts126' : posts126, 'posts128' : posts128, 'posts130' : posts130, 'posts132' : posts132, 'posts134' : posts134  }
         return render(request,self.template_name, args)
 
     def post(self, request):
@@ -490,6 +969,63 @@ class Main_page(View) :
         posts76 = posts75.Over_num
         posts77 = overviewStatus.objects.get(id=8)
         posts78 = posts77.Over_num
+        #Camera notification status
+        posts79 = camera_notification.objects.get(id=1)
+        posts80 = posts79.CameraNoti_status
+        posts81 = camera_notification.objects.get(id=2)
+        posts82 = posts81.CameraNoti_status
+        posts83 = camera_notification.objects.get(id=3)
+        posts84 = posts83.CameraNoti_status
+        posts85 = camera_notification.objects.get(id=4)
+        posts86 = posts85.CameraNoti_status
+        posts87 = camera_notification.objects.get(id=5)
+        posts88 = posts87.CameraNoti_status
+        posts89 = camera_notification.objects.get(id=6)
+        posts90 = posts89.CameraNoti_status
+        posts91 = camera_notification.objects.get(id=7)
+        posts92 = posts91.CameraNoti_status
+        posts93 = camera_notification.objects.get(id=8)
+        posts94 = posts93.CameraNoti_status
+        posts95 = camera_notification.objects.get(id=9)
+        posts96 = posts95.CameraNoti_status
+        posts97 = camera_notification.objects.get(id=10)
+        posts98 = posts97.CameraNoti_status
+        posts99 = camera_notification.objects.get(id=11)
+        posts100 = posts99.CameraNoti_status
+        posts101 = camera_notification.objects.get(id=12)
+        posts102 = posts101.CameraNoti_status
+        posts103 = camera_notification.objects.get(id=13)
+        posts104 = posts103.CameraNoti_status
+        posts105 = camera_notification.objects.get(id=14)
+        posts106 = posts105.CameraNoti_status
+        posts107 = camera_notification.objects.get(id=15)
+        posts108 = posts107.CameraNoti_status
+        posts109 = camera_notification.objects.get(id=16)
+        posts110 = posts109.CameraNoti_status
+        posts111 = camera_notification.objects.get(id=17)
+        posts112 = posts111.CameraNoti_status
+        posts113 = camera_notification.objects.get(id=18)
+        posts114 = posts113.CameraNoti_status
+        posts115 = camera_notification.objects.get(id=19)
+        posts116 = posts115.CameraNoti_status
+        posts117 = camera_notification.objects.get(id=20)
+        posts118 = posts117.CameraNoti_status
+        posts119 = camera_notification.objects.get(id=21)
+        posts120 = posts119.CameraNoti_status
+        posts121 = camera_notification.objects.get(id=22)
+        posts122 = posts121.CameraNoti_status
+        posts123 = camera_notification.objects.get(id=23)
+        posts124 = posts123.CameraNoti_status
+        posts125 = camera_notification.objects.get(id=24)
+        posts126 = posts125.CameraNoti_status
+        posts127 = camera_notification.objects.get(id=25)
+        posts128 = posts127.CameraNoti_status
+        posts129 = camera_notification.objects.get(id=26)
+        posts130 = posts129.CameraNoti_status
+        posts131 = camera_notification.objects.get(id=27)
+        posts132 = posts131.CameraNoti_status
+        posts133 = camera_notification.objects.get(id=28)
+        posts134 = posts133.CameraNoti_status
 
         # current date and time
         now = datetime.now()
@@ -503,7 +1039,7 @@ class Main_page(View) :
             b11.save()
 
             #Add object into database
-            d6 = daily_feeds(daily_name='Object Detection system: Active ', daly_time=ticks )
+            d6 = daily_feeds(daily_name='ระบบตรวจจับผู้บุกรุก: ทำงาน ', daly_time=ticks )
             d6.save()
 
         else: 
@@ -514,7 +1050,7 @@ class Main_page(View) :
             b13.save()
 
             #Add object into database
-            d8 = daily_feeds(daily_name='Object Detection system: Inactive ', daly_time=ticks )
+            d8 = daily_feeds(daily_name='ระบบตรวจจับผู้บุกรุก: ไม่ทำงาน ', daly_time=ticks )
             d8.save()
 
 
@@ -530,7 +1066,7 @@ class Main_page(View) :
             f01.save()
 
             #Add object into database
-            d10 = daily_feeds(daily_name='Human Detection: Online ', daly_time=ticks )
+            d10 = daily_feeds(daily_name='การตรวจจับมนุษย์: ทำงานปกติ ', daly_time=ticks )
             d10.save()
             
         elif var001 == "H" :
@@ -538,7 +1074,7 @@ class Main_page(View) :
             f02.save()
 
             #Add object into database
-            d12 = daily_feeds(daily_name='Human Detection: Offline ', daly_time=ticks )
+            d12 = daily_feeds(daily_name='การตรวจจับมนุษย์: ไม่ทำงาน ', daly_time=ticks )
             d12.save()
 
         elif var001 == "I" :
@@ -546,7 +1082,7 @@ class Main_page(View) :
             f03.save()
 
             #Add object into database
-            d14 = daily_feeds(daily_name='Cat & Dog Detection: Online ', daly_time=ticks )
+            d14 = daily_feeds(daily_name='การตรวจจับแมวและสุนัข: ทำงานปกติ ', daly_time=ticks )
             d14.save()
         
         elif var001 == "J" :
@@ -554,7 +1090,7 @@ class Main_page(View) :
             f04.save()
 
             #Add object into database
-            d16 = daily_feeds(daily_name='Cat & Dog Detection: Offline ', daly_time=ticks )
+            d16 = daily_feeds(daily_name='การตรวจจับแมวและสุนัข: ไม่ทำงาน ', daly_time=ticks )
             d16.save()
 
         elif var001 == "K" :
@@ -562,7 +1098,7 @@ class Main_page(View) :
             f05.save()
 
             #Add object into database
-            d18 = daily_feeds(daily_name='Snake Detection: Online ', daly_time=ticks )
+            d18 = daily_feeds(daily_name='การตรวจจับงู: ทำงานปกติ ', daly_time=ticks )
             d18.save()
 
         elif var001 == "L" :
@@ -570,8 +1106,64 @@ class Main_page(View) :
             f06.save()
 
             #Add object into database
-            d18 = daily_feeds(daily_name='Snake Detection: Offline ', daly_time=ticks )
+            d18 = daily_feeds(daily_name='การตรวจจับงู: ไม่ทำงาน ', daly_time=ticks )
             d18.save()
+
+
+        #ON OFF Camera notification
+
+        elif var001 == "CO01" :
+            cm01 = camera_notification(id=1, CameraNoti_name='CAM001+Notification', CameraNoti_status='1' )
+            cm01.save()
+
+            #Add object into database
+            d19 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่หนึ่ง', daly_time=ticks )
+            d19.save()
+        
+        
+        elif var001 == "CF01" :
+            cm02 = camera_notification(id=1, CameraNoti_name='CAM001+Notification', CameraNoti_status='0' )
+            cm02.save()
+
+            #Add object into database
+            d20 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่หนึ่ง', daly_time=ticks )
+            d20.save()
+
+        elif var001 == "CO02" :
+            cm03 = camera_notification(id=2, CameraNoti_name='CAM002+Notification', CameraNoti_status='1' )
+            cm03.save()
+
+            #Add object into database
+            d21 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สอง', daly_time=ticks )
+            d21.save()
+        
+        
+        elif var001 == "CF02" :
+            cm04 = camera_notification(id=2, CameraNoti_name='CAM002+Notification', CameraNoti_status='0' )
+            cm04.save()
+
+            #Add object into database
+            d22 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สอง', daly_time=ticks )
+            d22.save()
+
+        elif var001 == "CO03" :
+            cm05 = camera_notification(id=3, CameraNoti_name='CAM003+Notification', CameraNoti_status='1' )
+            cm05.save()
+
+            #Add object into database
+            d23 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สาม', daly_time=ticks )
+            d23.save()
+        
+        
+        elif var001 == "CF03" :
+            cm06 = camera_notification(id=3, CameraNoti_name='CAM003+Notification', CameraNoti_status='0' )
+            cm06.save()
+
+            #Add object into database
+            d24 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สาม', daly_time=ticks )
+            d24.save()
+
+        
     
             
 
@@ -579,7 +1171,7 @@ class Main_page(View) :
             text = form.cleaned_data['post']          
 
 
-        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78, 'postsD' : postsD  }
+        args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78, 'postsD' : postsD, 'posts80' : posts80, 'posts82' : posts82, 'posts84' : posts84, 'posts86' : posts86, 'posts88' : posts88, 'posts90' : posts90, 'posts92' : posts92, 'posts94' : posts94, 'posts96' : posts96, 'posts98' : posts98, 'posts100' : posts100, 'posts102' : posts102, 'posts104' : posts104, 'posts106' : posts106, 'posts108' : posts108, 'posts110' : posts110, 'posts112' : posts112, 'posts114' : posts114, 'posts116' : posts116, 'posts118' : posts118, 'posts120' : posts120, 'posts122' : posts122, 'posts124' : posts124, 'posts126' : posts126, 'posts128' : posts128, 'posts130' : posts130, 'posts132' : posts132, 'posts134' : posts134    }
         return redirect('http://127.0.0.1:8000/mainpage/')
 
 
@@ -1684,7 +2276,7 @@ class Error_message(View) :
         b111 = Errormessage(errorID=Error_ID,errorName=Error_Name, errorTime=Error_mes, errorDetail=Error_detail)
         b111.save()
 
-        d33 = daily_feeds(daily_name='The system has detected: ' + ErrorName, daly_time=ticks )
+        d33 = daily_feeds(daily_name='ระบบตรวจจับผู้บุกรุกผิดพลาด: ' + ErrorName, daly_time=ticks )
         d33.save()
 
 
@@ -1785,7 +2377,7 @@ class SPC_001(View) :
         b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
         b2.save()
 
-        d2 = daily_feeds(daily_name='The system has detected: ' + last_Intru, daly_time=ticks )
+        d2 = daily_feeds(daily_name='ระบบตรวจจับผู้บุกรุกเป็น: ' + last_Intru, daly_time=ticks )
         d2.save()
 
         #line_text = TestLine.line_text(last_Intru)

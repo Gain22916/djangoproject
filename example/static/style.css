@@ -226,9 +226,9 @@ form .input-icon{
 
 form .btn-login{
     float: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: .8rem 5rem;
-    margin-left: 4.25rem;
+    margin-left: 4rem;
 }
 
 form h2{

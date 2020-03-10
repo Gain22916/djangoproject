@@ -153,5 +153,16 @@ class daily_feeds(models.Model):
     def __str__(self):
         return self.daly_time
 
+
+class camera_notification(models.Model):
+    
+    CameraNoti_name = models.CharField(max_length=20)
+    CameraNoti_status = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.CameraNoti_status
+
+    def __str__(self):
+        return self.CameraNoti_name
     
 

@@ -133,32 +133,32 @@
   
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test001');w3_close();" id="firstTab">
       <div class="w3-container">
-        <p>Overview</p>
+        <p>ภาพรวมของระบบ</p>
       </div>
     </a>
      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test002');w3_close();">
       <div class="w3-container">  
-        <p>IP Camera Connection</p>
+        <p>การเชื่อมต่อกล้องวงจรปิด</p>
       </div>
     </a>
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test003');w3_close();">
       <div class="w3-container">
-        <p>Intruder History</p>
+        <p>ประวัติผู้บุกรุก</p>
       </div>
     </a> 
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test004');w3_close();">
         <div class="w3-container">
-          <p>ERROR management</p>
+          <p>การจัดการความผิดพลาด</p>
         </div>
     </a> 
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="openPage('Test005');w3_close();">
         <div class="w3-container">
-          <p>General Setting</p>
+          <p>การตั้งค่าทั่วไป</p>
         </div>
     </a> 
     <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border-bottom test w3-hover-light-grey" onclick="location.href='http://127.0.0.1:8000/loginpage/'";w3_close();">
       <div class="w3-container">
-        <p>Log out</p>
+        <p>ออกจากระบบ</p>
       </div>
     </a>
     <a>
@@ -196,7 +196,7 @@
               
           </div>
           <div class="w3-clear" ></div>
-          <h3 >IPcamera connection</h3>
+          <h3 >สถานะการเชื่อมต่อกล้อง</h3>
         </div>
       </div>
       <div class="w3-quarter">
@@ -210,7 +210,7 @@
               {% endif %}
           </div>
           <div class="w3-clear"></div>
-          <h3>OD system</h3>
+          <h3>สถานะของระบบหลัก</h3>
         </div>
       </div>
       <div class="w3-quarter">
@@ -225,7 +225,7 @@
               {% endif %}
           </div>
           <div class="w3-clear"></div>
-          <h3>Database status</h3>
+          <h3>สถานะของฐานข้อมูล</h3>
         </div>
       </div>
       <div class="w3-quarter">
@@ -240,7 +240,7 @@
               {% endif %}
           </div>
           <div class="w3-clear"></div>
-          <h3>LINE status</h3>
+          <h3>สถานะของไลน์</h3>
         </div>
       </div>
     </div>
@@ -301,7 +301,7 @@
 
 
           <div class="position-right" style="margin-left: 50%; ">
-            <h5>Daily Feeds</h5>
+            <h5>รายงานรายวัน</h5>
             <table class="w3-table w3-striped w3-white" style="width:95%">
             {% for daily_feeds in postsD reversed %}
               <tr>
@@ -322,19 +322,29 @@
 <div id="Test002" class="w3-container person">
   <br>
   <div class="w3-container" >
-      <h5 style=" font-size: 200%; ">IP camera informations</h5>
+      <h5 style=" font-size: 200%; ">ข้อมูลของกล้องวงจรปิด</h5>
       <p></p>
       <ul class="w3-ul shadow-box w3-white">
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge w3-margin-right">IP camera 001</span>
+          <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 001</span>
               </label>
               {% if posts3 == "1" %} 
               <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
               {% else %}
               <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+              {% endif %}
+              </label>
+              <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+              <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+              {% if posts80 == "1" %} 
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+              {% else %}
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
               {% endif %}
             </span>
           <img id="modal-btn" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -345,11 +355,11 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span class="close">&times;</span>
-                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 001</h3>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 001</h3>
             
               </div>
               <div style="margin-top: 2rem;margin-left: 2rem;">
-                <h3>WV-SPN531</h3>
+                <h3 >WV-SPN531</h3>
                 <p>IP connection : 10.168.66.200</p>
                 <p>Image Sensor : Approx. 1/3 type MOS image sensor</p>
                 <p>Minimum illumination : Color 0.04 lx BW 0.01lx</p>
@@ -357,6 +367,14 @@
                 <p>Morning Thershould : 15 units</p>
                 <p>Night and raining Thershould : 20 units</p>
                 <p>Support protocol : IPv6 IPv4</p>
+                <p>&nbsp;</p>
+                <h3 >การแจ้งเตือนผ่านไลน์</h3>
+                <form method="post">
+                  {% csrf_token %}
+                  <button class="button5" type="submit" name='Value1' value ="CO01"  onclick="FilterAlert()" >เปิด</button>
+                  <button class="button6" type="submit" name='Value1' value ="CF01" onclick="FilterAlert()" >ปิด</button>
+                </form>
+                <p>&nbsp;</p>
               </div>
               
              
@@ -366,14 +384,24 @@
         </li>
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge w3-margin-right">IP camera 002</span>
+          <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 002</span>
               </label>
               {% if posts20 == "1" %} 
               <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
               {% else %}
               <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+              {% endif %}
+              </label>
+              <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+              <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+              {% if posts82 == "1" %} 
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+              {% else %}
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
               {% endif %}
             </span>
             <img id="modal-btn2" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -383,7 +411,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <span  id="close2" class="close">&times;</span>
-                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 002</h3>
+                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 002</h3>
               
                 </div>
                 <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -395,6 +423,14 @@
                   <p>Morning Thershould : 15 units</p>
                   <p>Night and raining Thershould : 20 units</p>
                   <p>Support protocol : IPv6 IPv4</p>
+                  <p>&nbsp;</p>
+                  <h3 >การแจ้งเตือนผ่านไลน์</h3>
+                  <form method="post">
+                    {% csrf_token %}
+                    <button class="button5" type="submit" name='Value1' value ="CO02"  onclick="FilterAlert()" >เปิด</button>
+                    <button class="button6" type="submit" name='Value1' value ="CF02" onclick="FilterAlert()" >ปิด</button>
+                  </form>
+                  <p>&nbsp;</p>
                 </div>
                 
                
@@ -402,13 +438,23 @@
         </li>
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge w3-margin-right">IP camera 003</span>
+            <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 003</span>
               {% if posts22 == "1" %} 
               <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
               {% else %}
               <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+              {% endif %}
+              </label>
+              <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+              <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+              {% if posts84 == "1" %} 
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+              {% else %}
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
               {% endif %}
             </span>
             <img id="modal-btn3" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -418,7 +464,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <span  id="close3" class="close">&times;</span>
-                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 003</h3>
+                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 003</h3>
               
                 </div>
                 <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -437,13 +483,23 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge w3-margin-right">IP camera 004</span>
+            <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 004</span>
               {% if posts24 == "1" %} 
               <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
               {% else %}
               <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+              {% endif %}
+              </label>
+              <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+              <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+              {% if posts86 == "1" %} 
+              <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+              {% else %}
+              <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+              <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
               {% endif %}
             </span>
             <img id="modal-btn4" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -453,7 +509,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <span  id="close4" class="close">&times;</span>
-                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 004</h3>
+                  <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 004</h3>
               
                 </div>
                 <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -469,13 +525,23 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge w3-margin-right">IP camera 005</span>
+            <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 005</span>
             {% if posts26 == "1" %} 
             <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
             {% else %}
             <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+            {% endif %}
+            </label>
+            <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+            <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+            {% if posts88 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
             {% endif %}
           </span>
           <img id="modal-btn5" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -485,7 +551,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span  id="close5" class="close">&times;</span>
-                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 005</h3>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 005</h3>
             
               </div>
               <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -501,13 +567,23 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge w3-margin-right">IP camera 006</span>
+            <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 006</span>
             {% if posts28 == "1" %} 
             <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
             {% else %}
             <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+            {% endif %}
+            </label>
+            <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+            <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+            {% if posts90 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
             {% endif %}
           </span>
           <img id="modal-btn6" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -517,7 +593,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span  id="close6" class="close">&times;</span>
-                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 006</h3>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 006</h3>
             
               </div>
               <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -533,13 +609,23 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge w3-margin-right">IP camera 007</span>
+            <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 007</span>
             {% if posts30 == "1" %} 
             <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
             {% else %}
             <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+            {% endif %}
+            </label>
+            <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+            <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+            {% if posts92 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
             {% endif %}
           </span>
           <img id="modal-btn7" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -549,7 +635,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span  id="close7" class="close">&times;</span>
-                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 007</h3>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 007</h3>
             
               </div>
               <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -565,13 +651,23 @@
         </li>
         <li class="w3-padding-16">
             <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-            <span class="w3-xlarge w3-margin-right">IP camera 008</span>
+            <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 008</span>
             {% if posts32 == "1" %} 
             <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
             {% else %}
             <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+            {% endif %}
+            </label>
+            <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+            <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+            {% if posts94 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
             {% endif %}
           </span>
           <img id="modal-btn8" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
@@ -581,7 +677,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <span  id="close8" class="close">&times;</span>
-                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 008</h3>
+                <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 008</h3>
             
               </div>
               <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -597,14 +693,24 @@
         </li>
         <li class="w3-padding-16">
           <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-          <span class="w3-xlarge w3-margin-right">IP camera 009</span>
+          <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 009</span>
           {% if posts34 == "1" %} 
           <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-          <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+          <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
           {% else %}
           <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-          <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+          <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
           {% endif %}
+          </label>
+            <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+            <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+            {% if posts96 == "1" %} 
+            <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+            {% else %}
+            <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+            {% endif %}
         </span>
         <img id="modal-btn9" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -613,7 +719,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <span  id="close9" class="close">&times;</span>
-              <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 009</h3>
+              <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 009</h3>
           
             </div>
             <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -629,14 +735,23 @@
       </li>
       <li class="w3-padding-16">
         <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-        <span class="w3-xlarge w3-margin-right">IP camera 010</span>
+        <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 010</span>
         {% if posts36 == "1" %} 
         <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
         {% else %}
         <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
         {% endif %}
+        </label>
+          <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+          <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+          {% if posts98 == "1" %} 
+          <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+          {% else %}
+          <img src="{% static 'assets/switchB012.png' %}" style="width:60px">            <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+          {% endif %}
       </span>
       <img id="modal-btn10" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -645,7 +760,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <span  id="close10" class="close">&times;</span>
-            <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 010</h3>
+            <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 010</h3>
         
           </div>
           <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -661,14 +776,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 011</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 011</span>
       {% if posts38 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+       </label>
+          <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+          <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+          {% if posts100 == "1" %} 
+          <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+          {% else %}
+          <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+          {% endif %}
       </span>
       <img id="modal-btn11" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -677,7 +802,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close11" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 011</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 011</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -693,14 +818,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 012</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 012</span>
       {% if posts40 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+          <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+          <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+          {% if posts102 == "1" %} 
+          <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+          {% else %}
+          <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+          {% endif %}
       </span>
       <img id="modal-btn12" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -709,7 +844,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close12" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 012</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 012</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -725,14 +860,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 013</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 013</span>
       {% if posts42 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+          <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+          <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+          {% if posts104 == "1" %} 
+          <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+          {% else %}
+          <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+          <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+          {% endif %}
       </span>
       <img id="modal-btn13" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -741,7 +886,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close13" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 013</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 013</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -757,14 +902,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 014</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 014</span>
       {% if posts44 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts106 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn14" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -773,7 +928,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close14" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 014</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 014</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -789,14 +944,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 015</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 015</span>
       {% if posts46 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts108 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn15" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -805,7 +970,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close15" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 015</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 015</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -821,14 +986,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 016</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 016</span>
       {% if posts48 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts110 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn16" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -837,7 +1012,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close16" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 016</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 016</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -853,14 +1028,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 017</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 017</span>
       {% if posts50 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts112 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn17" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -869,7 +1054,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close17" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 017</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 017</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -885,14 +1070,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 018</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 018</span>
       {% if posts52 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts114 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn18" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -901,7 +1096,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close18" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 018</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 018</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -917,14 +1112,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 019</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 019</span>
       {% if posts54 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts116 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn19" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -933,7 +1138,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close19" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 019</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 019</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -949,14 +1154,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 020</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 020</span>
       {% if posts56 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts118 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn20" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -965,7 +1180,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close20" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 020</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 020</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -981,14 +1196,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 021</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 021</span>
       {% if posts58 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts120 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn21" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -997,7 +1222,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close21" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 021</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 021</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1013,14 +1238,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 022</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 022</span>
       {% if posts60 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts122 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn22" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -1029,7 +1264,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close22" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 022</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 022</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1045,14 +1280,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 023</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 023</span>
       {% if posts62 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts124 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn23" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -1061,7 +1306,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close23" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 023</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 023</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1077,14 +1322,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 024</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 024</span>
       {% if posts64 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts126 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn24" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -1093,7 +1348,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close24" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 024</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 024</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1109,14 +1364,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 025</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 025</span>
       {% if posts66 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
-      {% else %}fh001
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+      {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts128 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn25" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -1125,7 +1390,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close25" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 025</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 025</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1141,14 +1406,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 026</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 026</span>
       {% if posts68 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts130 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn26" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -1157,7 +1432,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close26" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 026</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 026</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1173,14 +1448,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 027</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 027</span>
       {% if posts70 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts132 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn27" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -1189,7 +1474,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close27" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 027</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 027</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1205,14 +1490,24 @@
     </li>
     <li class="w3-padding-16">
       <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:45px">
-      <span class="w3-xlarge w3-margin-right">IP camera 028</span>
+      <span class="w3-xlarge w3-margin-right">กล้องวงจรปิดตัวที่ 028</span>
       {% if posts72 == "1" %} 
       <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> Active</label>
+      <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
       {% else %}
       <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
-      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> Inactive</label >
+      <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
       {% endif %}
+      </label>
+        <img src="{% static 'assets/noti002.png' %}"style="width: 5%; padding-left: 2%;">
+        <span class="w3-xlarge ">การแจ้งเตือนผ่านไลน์</span>
+        {% if posts134 == "1" %} 
+        <img src="{% static 'assets/switchB011.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-green" style="font-weight: bold;"> ทำงานปกติ</label>
+        {% else %}
+        <img src="{% static 'assets/switchB012.png' %}" style="width:60px">
+        <label class="w3-xlarge w3-text-red" style="font-weight: bold;"> ไม่ทำงาน</label >
+        {% endif %}
       </span>
       <img id="modal-btn28" src="{% static 'assets/settings.png' %}" class="w3-right w3-circle w3-margin-right"  style="width:38px;">
 
@@ -1221,7 +1516,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <span  id="close28" class="close">&times;</span>
-          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">IP camera 028</h3>
+          <h3 class="post-left"> <img src="{% static 'assets/cctv001.png' %}" class="w3-left w3-circle w3-margin-right" style="width:50px">กล้องวงจรปิดตัวที่ 028</h3>
       
         </div>
         <div style="margin-top: 2rem;margin-left: 2rem;">
@@ -1242,16 +1537,16 @@
 <div id="Test003" class="w3-container person">
 
   <br>
-    <h2>Welcome to Intruder History </h2>
+    <h2>ยินดีต้อนรับเข้าสู่รายการประวัติผู้บุกรุก </h2>
    
   
       <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-          <tr class="w3-orange w3-text-white">
-              <th>Image</th>
-              <th>Time</th>
-              <th>Intruder</th>
-              <th>IP camera</th>
-              <th>ImageID</th>
+          <tr class="w3-orange w3-text-white" >
+              <th>รูปภาพ</th>
+              <th>เวลา</th>
+              <th>ชนิดผู้บุกรุก</th>
+              <th>กล้องวงจรปิดตัวที่</th>
+              <th>รหัสของรูปภาพ</th>
               
           </tr>
           {% for Intruder in posts reversed %}
@@ -1280,14 +1575,14 @@
 <div id="Test004" class="w3-container person">
     <br>
 
-    <h2>Welcome to ERROR management </h2>
+    <h2>ยินดีต้อนรับเข้าสู่การจัดการข้อผิดพลาด </h2>
 
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr class="w3-red w3-text-white">
-          <th>Time</th>
-          <th>ERROR message ID</th>
-          <th>ERROR message name</th>
-          <th>ERROR detail</th>
+          <th>เวลา</th>
+          <th>รหัสข้อความข้อผิดพลาด</th>
+          <th>ชื่อข้อความข้อผิดพลาด</th>
+          <th>รายละเอียดข้อผิดพลาด</th>
       </tr>
       {% for Errormessage in posts2 reversed %}
       <tr>
@@ -1304,7 +1599,7 @@
 
 <div id="Test005" class="w3-container person" >
     <br>
-    <h2> General Settings </h2>
+    <h2> การตั้งค่าทั่วไป </h2>
     <div class="w3-quarter">
       <div class="w3-container w3-white w3-text-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
@@ -1317,10 +1612,10 @@
               {% csrf_token %}
               <button class="button5" type="submit" name='Value1' value ="G" style=" position: absolute;
               top: 57%;
-              left: 18%;" onclick="FilterAlert()" >On</button>
+              left: 18%;" onclick="FilterAlert()" >เปิด</button>
               <button class="button6" type="submit" name='Value1' value ="H" style=" position: absolute;
               top: 57%;
-              left: 24%;" onclick="FilterAlert()" >Off</button>
+              left: 24%;" onclick="FilterAlert()" >ปิด</button>
           </form>  
       </div>
     </div>
@@ -1336,10 +1631,10 @@
                   {% csrf_token %}
                   <button class="button5" type="submit" name='Value1' value ="I" style=" position: absolute;
                   top: 57%;
-                  left: 39.25%;" onclick="FilterAlert()" >On</button>
+                  left: 39.25%;" onclick="FilterAlert()" >เปิด</button>
                   <button class="button6" type="submit" name='Value1' value ="J" style=" position: absolute;
                   top: 57%;
-                  left: 45.25%;" onclick="FilterAlert()" >Off</button>
+                  left: 45.25%;" onclick="FilterAlert()" >ปิด</button>
               </form>
           </div>
       </div>
@@ -1354,10 +1649,10 @@
                   {% csrf_token %}
                   <button class="button5" type="submit" name='Value1' value ="K" style=" position: absolute;
                   top: 57%;
-                  left: 60.75%;" onclick="FilterAlert()" >On</button>
+                  left: 60.75%;" onclick="FilterAlert()" >เปิด</button>
                   <button class="button6" type="submit" name='Value1' value ="L" style=" position: absolute;
                   top: 57%;
-                  left: 66.75%;" onclick="FilterAlert()" >Off</button>
+                  left: 66.75%;" onclick="FilterAlert()" >ปิด</button>
               </form>
           </div>
       </div>
@@ -1368,7 +1663,7 @@
 <script>
 
 function FilterAlert() {
-  alert("The system has changed Successfully");
+  alert("ระบบทำการเปลี่ยนแปลงสำเร็จ");
 }
 
 </script>
