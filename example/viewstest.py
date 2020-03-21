@@ -198,91 +198,65 @@ class Linetest(View) :
         filter_f = filter_e.Over_num
 
         #IPcameraNotification
-
         CAM_N001 = camera_notification.objects.get(id=1)
         CAM_N002 = CAM_N001.CameraNoti_status
-
         CAM_N003 = camera_notification.objects.get(id=2)
         CAM_N004 = CAM_N003.CameraNoti_status
-
         CAM_N005 = camera_notification.objects.get(id=3)
         CAM_N006 = CAM_N005.CameraNoti_status
-
         CAM_N007 = camera_notification.objects.get(id=4)
         CAM_N008 = CAM_N007.CameraNoti_status
-
         CAM_N009 = camera_notification.objects.get(id=5)
         CAM_N010 = CAM_N009.CameraNoti_status
-        
         CAM_N011 = camera_notification.objects.get(id=6)
         CAM_N012 = CAM_N011.CameraNoti_status
-
         CAM_N013 = camera_notification.objects.get(id=7)
         CAM_N014 = CAM_N013.CameraNoti_status
-
         CAM_N015 = camera_notification.objects.get(id=8)
         CAM_N016 = CAM_N015.CameraNoti_status
-
         CAM_N017 = camera_notification.objects.get(id=9)
         CAM_N018 = CAM_N017.CameraNoti_status
-
         CAM_N019 = camera_notification.objects.get(id=10)
         CAM_N020 = CAM_N019.CameraNoti_status
-
         CAM_N021 = camera_notification.objects.get(id=11)
         CAM_N022 = CAM_N021.CameraNoti_status
-
         CAM_N023 = camera_notification.objects.get(id=12)
         CAM_N024 = CAM_N023.CameraNoti_status
-
         CAM_N025 = camera_notification.objects.get(id=13)
         CAM_N026 = CAM_N025.CameraNoti_status
-
         CAM_N027 = camera_notification.objects.get(id=14)
         CAM_N028 = CAM_N027.CameraNoti_status
-
         CAM_N029 = camera_notification.objects.get(id=15)
         CAM_N030 = CAM_N029.CameraNoti_status
-
         CAM_N031 = camera_notification.objects.get(id=16)
         CAM_N032 = CAM_N031.CameraNoti_status
-
         CAM_N033 = camera_notification.objects.get(id=17)
         CAM_N034 = CAM_N033.CameraNoti_status
-
         CAM_N035 = camera_notification.objects.get(id=18)
         CAM_N036 = CAM_N035.CameraNoti_status 
-
         CAM_N037 = camera_notification.objects.get(id=19)
         CAM_N038 = CAM_N037.CameraNoti_status 
-
         CAM_N039 = camera_notification.objects.get(id=20)
         CAM_N040 = CAM_N039.CameraNoti_status 
-
         CAM_N041 = camera_notification.objects.get(id=21)
         CAM_N042 = CAM_N041.CameraNoti_status 
-
         CAM_N043 = camera_notification.objects.get(id=22)
         CAM_N044 = CAM_N043.CameraNoti_status 
-
         CAM_N045 = camera_notification.objects.get(id=23)
         CAM_N046 = CAM_N045.CameraNoti_status 
-        
         CAM_N047 = camera_notification.objects.get(id=24)
         CAM_N048 = CAM_N047.CameraNoti_status 
-
         CAM_N049 = camera_notification.objects.get(id=25)
-        CAM_N050 = CAM_N049.CameraNoti_status 
-
+        CAM_N050 = CAM_N049.CameraNoti_status
+        #IPcameraNotification 2
         CAM_N051 = camera_notification.objects.get(id=26)
-        CAM_N052 = CAM_N051.CameraNoti_status 
-        
+        CAM_N052 = CAM_N051.CameraNoti_status  
         CAM_N053 = camera_notification.objects.get(id=27)
-        CAM_N054 = CAM_N054.CameraNoti_status 
-
+        CAM_N054 = CAM_N053.CameraNoti_status 
         CAM_N055 = camera_notification.objects.get(id=28)
-        CAM_N056 = CAM_N056.CameraNoti_status 
+        CAM_N056 = CAM_N055.CameraNoti_status 
 
+        position_path = 'C:/Users/Gain/Desktop/NewEGAT/results/' #adjust for Production away
 
         for intruder in post_intru:
             #print(intruder.Intru, "--", intruder.IPcam)
@@ -290,8 +264,6 @@ class Linetest(View) :
             last_IPcam = request.POST['Ipcamera'] 
             last_Time = request.POST['Time'] 
             last_Image = request.POST['ImageID'] 
-
-            position_path = 'C:/Users/Gain/Desktop/NewEGAT/results/' #adjust for Production away
 
         form = HomeForm(request.POST)
         #add object into database
@@ -306,8 +278,10 @@ class Linetest(View) :
         #line_text = TestLine.line_text(last_Time)
         #line_text = TestLine.line_text(last_Image)
 
-        if filter_b == '1' and last_Intru == 'HUMAN':
-        
+       
+
+        if filter_b == '1' and last_Intru == 'Human':
+
             if CAM_N002 == '1' and last_IPcam =='CAM001' :
                 line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
                 line_text = TestLine.line_text(last_End)
@@ -422,9 +396,7 @@ class Linetest(View) :
 
 
 
-
-
-        elif filter_d == '1' and last_Intru == 'CAT':
+        elif filter_d == '1' and last_Intru == 'Cat&Dog':
         
             if CAM_N002 == '1' and last_IPcam =='CAM001' :
                 line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
@@ -538,7 +510,7 @@ class Linetest(View) :
                 line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
                 line_text = TestLine.line_text(last_End)
 
-        elif filter_f == '1' and last_Intru == 'SNAKE':
+        elif filter_f == '1' and last_Intru == 'Snake':
         
             if CAM_N002 == '1' and last_IPcam =='CAM001' :
                 line_pic = TestLine.line_pic(last_IPcam ,position_path + last_Image)
@@ -721,9 +693,10 @@ class Main_page(View) :
         header_str = 'Post Method'
         form = HomeForm()
         header_str = 'Login page testing'
-        posts = Intruder.objects.all()
-        posts2 = Errormessage.objects.all()
-        postsD = daily_feeds.objects.all()
+        posts = Intruder.objects.all().order_by('id')[:4000]
+        posts2 = Errormessage.objects.all().order_by('id')[:20]
+        #postsD = daily_feeds.objects.all()
+        postsD = daily_feeds.objects.all().order_by('-id')[:20][::-1]
         posts4  = IPstatus.objects.get(id=1)
         posts3 = posts4.IPconnect
         posts5 = 'Active'
@@ -890,9 +863,10 @@ class Main_page(View) :
         header_str = 'Post Method'
         form = HomeForm()
         header_str = 'Login page testing'
-        posts = Intruder.objects.all()
-        posts2 = Errormessage.objects.all()
-        postsD = daily_feeds.objects.all()
+        posts = Intruder.objects.all().order_by('id')[:2000]
+        posts2 = Errormessage.objects.all().order_by('id')[:20]
+        #postsD = daily_feeds.objects.all()
+        postsD = daily_feeds.objects.all().order_by('-id')[:20][::-1]
         posts4  = IPstatus.objects.get(id=1)
         posts3 = posts4.IPconnect
         posts5 = 'Active'
@@ -1164,8 +1138,453 @@ class Main_page(View) :
             d24.save()
 
         
+        elif var001 == "CO04" :
+            cm07 = camera_notification(id=4, CameraNoti_name='CAM004+Notification', CameraNoti_status='1' )
+            cm07.save()
+
+            #Add object into database
+            d25 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สี่', daly_time=ticks )
+            d25.save()
+        
+        
+        elif var001 == "CF04" :
+            cm08 = camera_notification(id=4, CameraNoti_name='CAM004+Notification', CameraNoti_status='0' )
+            cm08.save()
+
+            #Add object into database
+            d26 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สี่', daly_time=ticks )
+            d26.save()    
+
     
+        elif var001 == "CO05" :
+            cm09 = camera_notification(id=5, CameraNoti_name='CAM005+Notification', CameraNoti_status='1' )
+            cm09.save()
+
+            #Add object into database
+            d27 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ห้า', daly_time=ticks )
+            d27.save()
+        
+        
+        elif var001 == "CF05" :
+            cm10 = camera_notification(id=5, CameraNoti_name='CAM005+Notification', CameraNoti_status='0' )
+            cm10.save()
+
+            #Add object into database
+            d28 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ห้า', daly_time=ticks )
+            d28.save()     
+
+        elif var001 == "CO06" :
+            cm11 = camera_notification(id=6, CameraNoti_name='CAM006+Notification', CameraNoti_status='1' )
+            cm11.save()
+
+            #Add object into database
+            d29 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่หก', daly_time=ticks )
+            d29.save()
+        
+        
+        elif var001 == "CF06" :
+            cm12 = camera_notification(id=6, CameraNoti_name='CAM006+Notification', CameraNoti_status='0' )
+            cm12.save()
+
+            #Add object into database
+            d30 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่หก', daly_time=ticks )
+            d30.save()            
+    
+        elif var001 == "CO07" :
+            cm13 = camera_notification(id=7, CameraNoti_name='CAM007+Notification', CameraNoti_status='1' )
+            cm13.save()
+
+            #Add object into database
+            d31 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่เจ็ด', daly_time=ticks )
+            d31.save()
+    
+        
+        elif var001 == "CF07" :
+            cm14 = camera_notification(id=7, CameraNoti_name='CAM007+Notification', CameraNoti_status='0' )
+            cm14.save()
+
+            #Add object into database
+            d32 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่เจ็ด', daly_time=ticks )
+            d32.save() 
+
+        elif var001 == "CO08" :
+            cm15 = camera_notification(id=8, CameraNoti_name='CAM008+Notification', CameraNoti_status='1' )
+            cm15.save()
+
+            #Add object into database
+            d33 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่แปด', daly_time=ticks )
+            d33.save()
+        
+        
+        elif var001 == "CF08" :
+            cm16 = camera_notification(id=8, CameraNoti_name='CAM008+Notification', CameraNoti_status='0' )
+            cm16.save()
+
+            #Add object into database
+            d34 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่แปด', daly_time=ticks )
+            d34.save() 
             
+        elif var001 == "CO09" :
+            cm17 = camera_notification(id=9, CameraNoti_name='CAM009+Notification', CameraNoti_status='1' )
+            cm17.save()
+
+            #Add object into database
+            d35 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ก้าว', daly_time=ticks )
+            d35.save()
+        
+        
+        elif var001 == "CF09" :
+            cm18 = camera_notification(id=9, CameraNoti_name='CAM009+Notification', CameraNoti_status='0' )
+            cm18.save()
+
+            #Add object into database
+            d36 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ก้าว', daly_time=ticks )
+            d36.save() 
+
+              
+        elif var001 == "CO10" :
+            cm17 = camera_notification(id=10, CameraNoti_name='CAM010+Notification', CameraNoti_status='1' )
+            cm17.save()
+
+            #Add object into database
+            d35 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบ', daly_time=ticks )
+            d35.save()
+        
+        
+        elif var001 == "CF10" :
+            cm18 = camera_notification(id=10, CameraNoti_name='CAM010+Notification', CameraNoti_status='0' )
+            cm18.save()
+
+            #Add object into database
+            d36 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบ', daly_time=ticks )
+            d36.save() 
+
+
+        elif var001 == "CO11" :
+            cm19 = camera_notification(id=11, CameraNoti_name='CAM011+Notification', CameraNoti_status='1' )
+            cm19.save()
+
+            #Add object into database
+            d37 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบเอ็ด', daly_time=ticks )
+            d37.save()
+        
+        
+        elif var001 == "CF11" :
+            cm20 = camera_notification(id=11, CameraNoti_name='CAM011+Notification', CameraNoti_status='0' )
+            cm20.save()
+
+            #Add object into database
+            d38 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบเอ็ด', daly_time=ticks )
+            d38.save() 
+
+        elif var001 == "CO12" :
+            cm21 = camera_notification(id=12, CameraNoti_name='CAM012+Notification', CameraNoti_status='1' )
+            cm21.save()
+
+            #Add object into database
+            d39 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบสอง', daly_time=ticks )
+            d39.save()
+        
+        
+        elif var001 == "CF12" :
+            cm22 = camera_notification(id=12, CameraNoti_name='CAM012+Notification', CameraNoti_status='0' )
+            cm22.save()
+
+            #Add object into database
+            d40 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบสอง', daly_time=ticks )
+            d40.save()     
+
+        
+        elif var001 == "CO13" :
+            cm23 = camera_notification(id=13, CameraNoti_name='CAM013+Notification', CameraNoti_status='1' )
+            cm23.save()
+
+            #Add object into database
+            d41 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบสาม', daly_time=ticks )
+            d41.save()
+        
+        
+        elif var001 == "CF13" :
+            cm24 = camera_notification(id=13, CameraNoti_name='CAM013+Notification', CameraNoti_status='0' )
+            cm24.save()
+
+            #Add object into database
+            d42 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบสาม', daly_time=ticks )
+            d42.save()     
+
+        
+        elif var001 == "CO14" :
+            cm25 = camera_notification(id=14, CameraNoti_name='CAM014+Notification', CameraNoti_status='1' )
+            cm25.save()
+
+            #Add object into database
+            d43 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบสี่', daly_time=ticks )
+            d43.save()
+        
+        
+        elif var001 == "CF14" :
+            cm26 = camera_notification(id=14, CameraNoti_name='CAM014+Notification', CameraNoti_status='0' )
+            cm26.save()
+
+            #Add object into database
+            d44 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบสี่', daly_time=ticks )
+            d44.save()     
+
+     
+        elif var001 == "CO15" :
+            cm27 = camera_notification(id=15, CameraNoti_name='CAM015+Notification', CameraNoti_status='1' )
+            cm27.save()
+
+            #Add object into database
+            d45 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบห้า', daly_time=ticks )
+            d45.save()
+        
+        
+        elif var001 == "CF15" :
+            cm28 = camera_notification(id=15, CameraNoti_name='CAM015+Notification', CameraNoti_status='0' )
+            cm28.save()
+
+            #Add object into database
+            d46 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบห้า', daly_time=ticks )
+            d46.save()   
+
+    
+        elif var001 == "CO16" :
+            cm29 = camera_notification(id=16, CameraNoti_name='CAM016+Notification', CameraNoti_status='1' )
+            cm29.save()
+
+            #Add object into database
+            d47 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบหก', daly_time=ticks )
+            d47.save()
+        
+        
+        elif var001 == "CF16" :
+            cm30 = camera_notification(id=16, CameraNoti_name='CAM016+Notification', CameraNoti_status='0' )
+            cm30.save()
+
+            #Add object into database
+            d48 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบหก', daly_time=ticks )
+            d48.save()  
+
+
+        elif var001 == "CO17" :
+            cm31 = camera_notification(id=17, CameraNoti_name='CAM017+Notification', CameraNoti_status='1' )
+            cm31.save()
+
+            #Add object into database
+            d49 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบเจ็ด', daly_time=ticks )
+            d49.save()
+        
+        
+        elif var001 == "CF17" :
+            cm32 = camera_notification(id=17, CameraNoti_name='CAM017+Notification', CameraNoti_status='0' )
+            cm32.save()
+
+            #Add object into database
+            d50 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบเจ็ด', daly_time=ticks )
+            d50.save()  
+
+
+        elif var001 == "CO18" :
+            cm33 = camera_notification(id=18, CameraNoti_name='CAM018+Notification', CameraNoti_status='1' )
+            cm33.save()
+
+            #Add object into database
+            d51 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบแปด', daly_time=ticks )
+            d51.save()
+        
+        
+        elif var001 == "CF18" :
+            cm34 = camera_notification(id=18, CameraNoti_name='CAM018+Notification', CameraNoti_status='0' )
+            cm34.save()
+
+            #Add object into database
+            d52 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบแปด', daly_time=ticks )
+            d52.save() 
+
+
+        elif var001 == "CO19" :
+            cm35 = camera_notification(id=19, CameraNoti_name='CAM019+Notification', CameraNoti_status='1' )
+            cm35.save()
+
+            #Add object into database
+            d53 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่สิบเก้า', daly_time=ticks )
+            d53.save()
+        
+        
+        elif var001 == "CF19" :
+            cm36 = camera_notification(id=19, CameraNoti_name='CAM019+Notification', CameraNoti_status='0' )
+            cm36.save()
+
+            #Add object into database
+            d54 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่สิบเก้า', daly_time=ticks )
+            d54.save() 
+
+
+        elif var001 == "CO20" :
+            cm37 = camera_notification(id=20, CameraNoti_name='CAM020+Notification', CameraNoti_status='1' )
+            cm37.save()
+
+            #Add object into database
+            d55 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบ', daly_time=ticks )
+            d55.save()
+        
+        
+        elif var001 == "CF20" :
+            cm38 = camera_notification(id=20, CameraNoti_name='CAM020+Notification', CameraNoti_status='0' )
+            cm38.save()
+
+            #Add object into database
+            d56 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบ', daly_time=ticks )
+            d56.save() 
+
+
+        elif var001 == "CO21" :
+            cm39 = camera_notification(id=21, CameraNoti_name='CAM021+Notification', CameraNoti_status='1' )
+            cm39.save()
+
+            #Add object into database
+            d57 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบเอ็ด', daly_time=ticks )
+            d57.save()
+        
+        
+        elif var001 == "CF21" :
+            cm40 = camera_notification(id=21, CameraNoti_name='CAM021+Notification', CameraNoti_status='0' )
+            cm40.save()
+
+            #Add object into database
+            d58 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบเอ็ด', daly_time=ticks )
+            d58.save()
+
+
+        elif var001 == "CO22" :
+            cm42 = camera_notification(id=22, CameraNoti_name='CAM022+Notification', CameraNoti_status='1' )
+            cm42.save()
+
+            #Add object into database
+            d59 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบสอง', daly_time=ticks )
+            d59.save()
+        
+        
+        elif var001 == "CF22" :
+            cm43 = camera_notification(id=22, CameraNoti_name='CAM022+Notification', CameraNoti_status='0' )
+            cm43.save()
+
+            #Add object into database
+            d60 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบสอง', daly_time=ticks )
+            d60.save()
+
+        elif var001 == "CO23" :
+            cm44 = camera_notification(id=23, CameraNoti_name='CAM023+Notification', CameraNoti_status='1' )
+            cm44.save()
+
+            #Add object into database
+            d61 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบสาม', daly_time=ticks )
+            d61.save()
+        
+        
+        elif var001 == "CF23" :
+            cm45 = camera_notification(id=23, CameraNoti_name='CAM023+Notification', CameraNoti_status='0' )
+            cm45.save()
+
+            #Add object into database
+            d62 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบสาม', daly_time=ticks )
+            d62.save()
+     
+
+        elif var001 == "CO24" :
+            cm46 = camera_notification(id=24, CameraNoti_name='CAM024+Notification', CameraNoti_status='1' )
+            cm46.save()
+
+            #Add object into database
+            d63 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบสี่', daly_time=ticks )
+            d63.save()
+        
+        
+        elif var001 == "CF24" :
+            cm47 = camera_notification(id=24, CameraNoti_name='CAM024+Notification', CameraNoti_status='0' )
+            cm47.save()
+
+            #Add object into database
+            d64 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบสี่', daly_time=ticks )
+            d64.save()
+     
+
+        elif var001 == "CO25" :
+            cm48 = camera_notification(id=25, CameraNoti_name='CAM025+Notification', CameraNoti_status='1' )
+            cm48.save()
+
+            #Add object into database
+            d65 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบห้า', daly_time=ticks )
+            d65.save()
+        
+        
+        elif var001 == "CF25" :
+            cm49 = camera_notification(id=25, CameraNoti_name='CAM025+Notification', CameraNoti_status='0' )
+            cm49.save()
+
+            #Add object into database
+            d66 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบห้า', daly_time=ticks )
+            d66.save()
+
+
+        elif var001 == "CO26" :
+            cm50 = camera_notification(id=26, CameraNoti_name='CAM026+Notification', CameraNoti_status='1' )
+            cm50.save()
+
+            #Add object into database
+            d67 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบหก', daly_time=ticks )
+            d67.save()
+        
+        
+        elif var001 == "CF26" :
+            cm51 = camera_notification(id=26, CameraNoti_name='CAM026+Notification', CameraNoti_status='0' )
+            cm51.save()
+
+            #Add object into database
+            d68 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบหก', daly_time=ticks )
+            d68.save()
+
+
+        elif var001 == "CO27" :
+            cm52 = camera_notification(id=27, CameraNoti_name='CAM027+Notification', CameraNoti_status='1' )
+            cm52.save()
+
+            #Add object into database
+            d69 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบเจ็ด', daly_time=ticks )
+            d69.save()
+        
+        
+        elif var001 == "CF27" :
+            cm53 = camera_notification(id=27, CameraNoti_name='CAM027+Notification', CameraNoti_status='0' )
+            cm53.save()
+
+            #Add object into database
+            d70 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบเจ็ด', daly_time=ticks )
+            d70.save()
+
+
+        elif var001 == "CO28" :
+            cm54 = camera_notification(id=28, CameraNoti_name='CAM028+Notification', CameraNoti_status='1' )
+            cm54.save()
+
+            #Add object into database
+            d71 = daily_feeds(daily_name='เปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบแปด', daly_time=ticks )
+            d71.save()
+        
+        
+        elif var001 == "CF28" :
+            cm55 = camera_notification(id=28, CameraNoti_name='CAM028+Notification', CameraNoti_status='0' )
+            cm55.save()
+
+            #Add object into database
+            d72 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบแปด', daly_time=ticks )
+            d72.save()
+
+
+
+
+
 
         if form.is_valid():
             text = form.cleaned_data['post']          
@@ -2385,18 +2804,18 @@ class SPC_001(View) :
         #line_text = TestLine.line_text(last_Time)
         #line_text = TestLine.line_text(last_Image)
 
-        if filter_b == '1' and last_Intru == 'HUMAN':
+        if filter_b == '1' and last_Intru == 'Human':
         
             line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/'+ last_Image)
             line_text = TestLine.line_text(last_End)
 
 
-        elif filter_d == '1' and last_Intru == 'CAT':
+        elif filter_d == '1' and last_Intru == 'Cat&Dog':
         
             line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
             line_text = TestLine.line_text(last_End)
 
-        elif filter_f == '1' and last_Intru == 'SNAKE':
+        elif filter_f == '1' and last_Intru == 'Snake':
         
             line_pic = TestLine.line_pic(last_IPcam ,'C:/Users/Gain/Desktop/NewEGAT/results/' + last_Image)
             line_text = TestLine.line_text(last_End)
