@@ -133,6 +133,8 @@ def test6(request) :
 
     return HttpResponse(template.render(context, request))
 
+
+#login method for login page
 def login(request) :
 
     if request.method == 'POST' :
@@ -162,22 +164,25 @@ def test8(request) :
     args = {'var8': header_str, 'posts': posts }
 
     return HttpResponse(template.render(args, request))
-    
-    
-class Linetest(View) :
-    template_name = 'test9.html'
 
+##############!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!####################
+#Line integration: major code in order to recieve Post method from OD system code
+class Linetest(View) :
+    template_name = 'test9.html' #reference template refer to OD system (Post method path)
+    
+    # Get method
     def get(self,request) :
         header_str = 'Post Method'
         form = HomeForm()
         args = {'form': form}
         return render(request,self.template_name, args)
 
+    # Post Method*****
     def post(self, request):
-        print(type(request))
-        post_intru = Intruder.objects.all()
+        print(type(request)) 
+        post_intru = Intruder.objects.all() 
         last_blanck = "                         "
-        last_End = "  ------ End ------  "
+        last_End = "  ------ End ------  " # last text for line notification content
         # current date and time
         now = datetime.now()
         ticks = now.strftime("%d/%m/%Y, %H:%M:%S")
@@ -197,7 +202,7 @@ class Linetest(View) :
         filter_e = overviewStatus.objects.get(id=8)
         filter_f = filter_e.Over_num
 
-        #IPcameraNotification
+        #IPcameraNotification variable for filter function of IP camera
         CAM_N001 = camera_notification.objects.get(id=1)
         CAM_N002 = CAM_N001.CameraNoti_status
         CAM_N003 = camera_notification.objects.get(id=2)
@@ -248,7 +253,7 @@ class Linetest(View) :
         CAM_N048 = CAM_N047.CameraNoti_status 
         CAM_N049 = camera_notification.objects.get(id=25)
         CAM_N050 = CAM_N049.CameraNoti_status
-        #IPcameraNotification 2
+        #IPcameraNotification 2 # protect ERROR code of limitation
         CAM_N051 = camera_notification.objects.get(id=26)
         CAM_N052 = CAM_N051.CameraNoti_status  
         CAM_N053 = camera_notification.objects.get(id=27)
@@ -256,29 +261,32 @@ class Linetest(View) :
         CAM_N055 = camera_notification.objects.get(id=28)
         CAM_N056 = CAM_N055.CameraNoti_status 
 
-        position_path = 'C:/Users/Gain/Desktop/NewEGAT/results/' #adjust for Production away
+        # Picture result path for admin system in the part of intruder history 
+        position_path = 'C:/Users/Gain/Desktop/NewEGAT/results/' #adjust for Production away first
 
+        #receive the valiable of POST (OD system)
         for intruder in post_intru:
-            #print(intruder.Intru, "--", intruder.IPcam)
-            last_Intru = request.POST['Intruder'] 
-            last_IPcam = request.POST['Ipcamera'] 
-            last_Time = request.POST['Time'] 
-            last_Image = request.POST['ImageID'] 
+            last_Intru = request.POST['Intruder'] # receive Intruder name : Human, Cat&Dog , Snake
+            last_IPcam = request.POST['Ipcamera'] # receive IP camera name : CAM001 , CAM002 etc.
+            last_Time = request.POST['Time'] # receive detected time : 01/01/2020 10.00 AM
+            last_Image = request.POST['ImageID'] # receive picture result name for intruder history
 
         form = HomeForm(request.POST)
-        #add object into database
+        #add object into database based on SQLlite3
         b2 = Intruder(Intru=last_Intru,IPcam=last_IPcam, Time=last_Time, ImageID=last_Image)
         b2.save()
-
+        #add daily feeds into database for overall status page
         d2 = daily_feeds(daily_name='ระบบตรวจจับผู้บุกรุกเป็น: ' + last_Intru, daly_time=ticks )
         d2.save()
 
+        #back up code
         #line_text = TestLine.line_text(last_Intru)
         #line_text = TestLine.line_text(last_IPcam)
         #line_text = TestLine.line_text(last_Time)
         #line_text = TestLine.line_text(last_Image)
 
        
+        # filter function for all IP camera
 
         if filter_b == '1' and last_Intru == 'Human':
 
@@ -625,20 +633,21 @@ class Linetest(View) :
                 line_text = TestLine.line_text(last_End)
 
 
+        #########back up code########
         #line_text = TestLine.line_text(last_Intru)
         #line_text = TestLine.line_text(last_IPcam)
         #line_text = TestLine.line_text(last_Time)
         #line_text = TestLine.line_text(last_Image)
         #line_pic = TestLine.line_pic("Test", last_Image)
 
-        #Edit object into database
+        #Edit object from database
 
         #b4 = overviewStatus(id=3, IPnum='CAM003',IPcam='Not123', Time='Not123', ImageID='Not123')
         #b4.save()
 
-        #Delete object into database
+        #Delete object from database
         #Intruder.objects.filter(id=1).delete()
-
+        ##########################################
 
         if form.is_valid():
             text = form.cleaned_data['post']   
@@ -665,6 +674,7 @@ def test11(request) :
     return HttpResponse(template.render(args, request))
 
 
+# username & passwords for login page !!!!!!!!!!!
 def loginpage(request) :
     template = loader.get_template('loginpage.html')
     header_str = 'Login page testing'
@@ -686,17 +696,20 @@ def loginpage(request) :
 
     return HttpResponse(template.render(args, request))
 
+
+# main page for overall status and all tabs of admin system !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 class Main_page(View) :
     template_name = 'mainpage.html'
 
     def get(self,request) :
         header_str = 'Post Method'
         form = HomeForm()
-        header_str = 'Login page testing'
-        posts = Intruder.objects.all().order_by('id')[:4000]
-        posts2 = Errormessage.objects.all().order_by('id')[:20]
+        header_str = 'Login page '
+        posts = Intruder.objects.all().order_by('id')[:4000] # data limitation for intruder data showing
+        posts2 = Errormessage.objects.all().order_by('id')[:40] # data limitation for ERROR data showing
         #postsD = daily_feeds.objects.all()
-        postsD = daily_feeds.objects.all().order_by('-id')[:20][::-1]
+        postsD = daily_feeds.objects.all().order_by('-id')[:20][::-1] # data limitation for daily feed data showing
+        #all variable for all status of admin system
         posts4  = IPstatus.objects.get(id=1)
         posts3 = posts4.IPconnect
         posts5 = 'Active'
@@ -773,7 +786,7 @@ class Main_page(View) :
         posts76 = posts75.Over_num
         posts77 = overviewStatus.objects.get(id=8)
         posts78 = posts77.Over_num
-        #Camera notification status
+        #Camera notification status 
         posts79 = camera_notification.objects.get(id=1)
         posts80 = posts79.CameraNoti_status
         posts81 = camera_notification.objects.get(id=2)
@@ -839,7 +852,7 @@ class Main_page(View) :
 
     
         if posts3 == '1' and posts20 == '1' and posts22 == '1' and posts24 == '1' and posts26 == '1' and posts28 == '1' and posts30 == '1' and posts32 == '1' and posts34 == '1' and posts36 == '1' and posts38 == '1' and posts40 == '1' and posts42 == '1' and posts44 == '1' and posts46 == '1' and posts48 == '1' and posts50 == '1' and posts52 == '1' and posts54 == '1' and posts56 == '1' and posts58 == '1' and posts60 == '1' and posts62 == '1' and posts64 == '1' and posts66 == '1' and posts68 == '1' and posts70 == '1' and posts72 == '1' :
-            #Edit object into database
+            #Edit object into database for OD system status
             b10 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='1' )
             b10.save()
             b11 = overviewStatus(id=3, Over_name='ODsystem', Over_num='1' )
@@ -847,7 +860,7 @@ class Main_page(View) :
 
             
         else: 
-            #Edit object into database
+            #Edit object into database for OD system status
             b12 = overviewStatus(id=2, Over_name='IPcameraConnection', Over_num='0' )
             b12.save()
             b13 = overviewStatus(id=3, Over_name='ODsystem', Over_num='0' )
@@ -857,6 +870,7 @@ class Main_page(View) :
         args = {'var12': header_str, 'posts': posts, 'posts2': posts2, 'posts3' : posts3, 'posts5' : posts5, 'posts6' : posts6, 'posts8' : posts8, 'posts9' : posts9, 'posts10' : posts10, 'posts12' : posts12, 'posts14' : posts14, 'posts16' : posts16, 'posts18' : posts18, 'posts20' : posts20, 'posts22' : posts22, 'posts24' : posts24, 'posts26' : posts26, 'posts28' : posts28, 'posts30' : posts30, 'posts32' : posts32, 'posts34' : posts34, 'posts36' : posts36, 'posts38' : posts38, 'posts40' : posts40, 'posts42' : posts42, 'posts44' : posts44, 'posts46' : posts46, 'posts48' : posts48, 'posts50' : posts50, 'posts52' : posts52, 'posts54' : posts54, 'posts56' : posts56, 'posts58' : posts58,'posts60' : posts60,'posts62' : posts62,'posts64' : posts64, 'posts66' : posts66, 'posts68' : posts68, 'posts70' : posts70, 'posts72' : posts72, 'posts74' : posts74, 'posts76' : posts76, 'posts78' : posts78, 'postsD' : postsD, 'posts80' : posts80, 'posts82' : posts82, 'posts84' : posts84, 'posts86' : posts86, 'posts88' : posts88, 'posts90' : posts90, 'posts92' : posts92, 'posts94' : posts94, 'posts96' : posts96, 'posts98' : posts98, 'posts100' : posts100, 'posts102' : posts102, 'posts104' : posts104, 'posts106' : posts106, 'posts108' : posts108, 'posts110' : posts110, 'posts112' : posts112, 'posts114' : posts114, 'posts116' : posts116, 'posts118' : posts118, 'posts120' : posts120, 'posts122' : posts122, 'posts124' : posts124, 'posts126' : posts126, 'posts128' : posts128, 'posts130' : posts130, 'posts132' : posts132, 'posts134' : posts134  }
         return render(request,self.template_name, args)
 
+    #Post method in order to change status of system (General setting; on off status and on off detection )
     def post(self, request):
         print(type(request))
         template = loader.get_template('mainpage.html')
@@ -1034,7 +1048,7 @@ class Main_page(View) :
         var001 = str(request.POST["Value1"])
        
         print(var001)
-
+        # on off detection function !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if var001 == "G" :
             f01 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='1' )
             f01.save()
@@ -1453,7 +1467,7 @@ class Main_page(View) :
             cm40.save()
 
             #Add object into database
-            d58 = daily_feeds(daily_name='ปิดการแจ้งเตือนของกล้องตัวที่ยี่สิบเอ็ด', daly_time=ticks )
+            d58 = daily_feeds(daily_name='ปิดการแจ้งเต��อนของกล้องตัวที่ยี่สิบเอ็ด', daly_time=ticks )
             d58.save()
 
 
