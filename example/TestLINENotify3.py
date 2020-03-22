@@ -22,5 +22,5 @@ else:
     # cat : C:/Users/Gain/Desktop/NewEGAT/results/3412.jpg
     # snake : C:/Users/Gain/Desktop/NewEGAT/results/1234412312.jpg
 
-data = {"csrfmiddlewaretoken":csrftoken, "Intruder":"Snake", "Ipcamera":"CAM020", "Time":"15/03/2020 02:01PM", "ImageID":"1234412312.jpg"}
+data = {"csrfmiddlewaretoken":csrftoken, "Intruder":"Snake", "Ipcamera":"CAM020", "Time":"22/03/2020 19:47PM", "ImageID":"1234412312.jpg"}
 r = client.post(URL, data=data, headers={"Referer":URL})

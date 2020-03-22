@@ -1048,7 +1048,7 @@ class Main_page(View) :
         var001 = str(request.POST["Value1"])
        
         print(var001)
-        # on off detection function !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        # on off function of Object detection
         if var001 == "G" :
             f01 = overviewStatus(id=6, Over_name='HumanFilter', Over_num='1' )
             f01.save()

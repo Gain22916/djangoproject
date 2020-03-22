@@ -8,7 +8,7 @@ import time
 
 # test code for test group : h3JTI0wlvYtpPR6UGlTVMCLe6kBSmnfS3Gmdayr2OAx
 
-LINE_ACCESS_TOKEN = "h3JTI0wlvYtpPR6UGlTVMCLe6kBSmnfS3Gmdayr2OAx"
+LINE_ACCESS_TOKEN = "bjspJcEimu4sGO3RXgXNTe5uXlce6DpAB93OZLpfzOQ"
 URL_LINE = "https://notify-api.line.me/api/notify" 
 
 #line text method for Line API
