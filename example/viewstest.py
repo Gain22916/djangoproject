@@ -262,7 +262,7 @@ class Linetest(View) :
         CAM_N056 = CAM_N055.CameraNoti_status 
 
         # Picture result path for admin system in the part of intruder history 
-        position_path = 'C:/Users/Gain/Desktop/NewEGAT/results/' #adjust for Production away first
+        position_path = '/code/admin-webpage/example/static/images/' #adjust for Production away first
 
         #receive the valiable of POST (OD system)
         for intruder in post_intru:
